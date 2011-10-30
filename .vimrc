@@ -12,12 +12,6 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'tpope/vim-surround'
 Bundle 'motemen/git-vim'
 
-" vim-scripts repos
-" Bundle 'rails.vim'
-"
-" non github repos
-"Bundle 'git://git.wincent.com/command-t.git'
-
 filetype plugin indent on
 
 "----------------------------------------------------
@@ -245,4 +239,22 @@ function InsertTabWrapper()
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
+"----------------------------------------------------
+" Screen title
+"----------------------------------------------------
+"let &titlestring = hostname() 
+"if &term == "screen"
+"    set t_ts=k
+"    set t_fs=\
+"endif
+"if &term == "screen" || &term == "xterm"
+"    set title
+"endif
+"
+
+"----------------------------------------------------
+" File type
+"----------------------------------------------------
+au BufRead,BufNewFile *.ejs set filetype=html
+au BufRead,BufNewFile *.ctpset filetype=html
 
