@@ -161,9 +161,8 @@ set expandtab
 set termencoding=utf-8
 set encoding=utf-8
 set fileencoding=utf-8
-"set fileencoding=cp932
-set fileencodings=ucs-bom,euc-jp,cp932,iso-2022-jp
-set fileencodings+=,ucs-2le,ucs-2,utf-8
+set fileencodings=utf-8,ucs-bom,euc-jp,cp932,iso-2022-jp
+set fileencodings+=,ucs-2le,ucs-2
 
 "----------------------------------------------------
 " オートコマンド
