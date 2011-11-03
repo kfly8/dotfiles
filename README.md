@@ -1,6 +1,3 @@
-kenta's dotfiles
---------
-
 # Installation 
 
 
