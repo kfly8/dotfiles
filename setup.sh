@@ -3,5 +3,7 @@ cd $(dirname $0)
 
 for dotfile in .[a-z]*
 do
-    ln -Fs "$PWD/$dotfile" $HOME
+    if [ $dotfile != '.git' ]
+     ln -Fs "$PWD/$dotfile" $HOME
+    fi
 done
