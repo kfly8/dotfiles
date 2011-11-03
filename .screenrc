@@ -8,3 +8,4 @@ autodetach on
 escape ^Tt
 
 hardstatus alwayslastline "%-w%{= Bw}%n %t%{-}%+w"
+
