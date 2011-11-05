@@ -1,9 +1,6 @@
 [user]
 	name = Kenta Kobayashi
 	email = kentafly88@gmail.com
-[github]
-	user = kfly8
-	token = f51168301ddeb81a618a2bdfc6b4d281
 [core]
 	editor = /usr/bin/vim
 [color]
