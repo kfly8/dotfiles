@@ -8,10 +8,7 @@ cd dotfiles
 sh setup.sh
 </pre>
 
-and install [vundle](https://github.com/gmarik/vundle)
-<pre>
-git clone https://github.com/gmarik/vundle ~/.vim/vundle.git
-</pre>
+and install [neobundle](https://github.com/Shougo/neobundle.vim)neobundle
 
 
 ---------
