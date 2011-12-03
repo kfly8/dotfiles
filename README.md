@@ -8,7 +8,7 @@ cd dotfiles
 sh setup.sh
 </pre>
 
-and install [neobundle](https://github.com/Shougo/neobundle.vim)neobundle
+and install [neobundle](https://github.com/Shougo/neobundle.vim)
 
 
 ---------
