@@ -146,7 +146,9 @@ elseif has('xfontset')
 endif
 
 "カラースキーム
-colorscheme BlackSea
+"colorscheme BlackSea
+"colorscheme desert
+colorscheme wombat 
 "----------------------------------------------------
 " インデント
 "----------------------------------------------------
@@ -203,10 +205,10 @@ endif
 set syntax=php
 
 " PHP辞書を取得
-autocmd FileType php setlocal dictionary=~/.vim/dict/PHP.dict
+"autocmd FileType php setlocal dictionary=~/.vim/dict/PHP.dict
 "
 " PHP Lint
-nmap ,l :call PHPLint()<CR>
+"nmap ,l :call PHPLint()<CR>
 
 ""
 " PHPLint
@@ -357,6 +359,13 @@ let g:netrw_alto = 1
 
 " vimshell を起動
 nnoremap <silent> ,s :VimShell<CR>
+
+
+"----------------------------------------------------
+" alias 
+"----------------------------------------------------
+
+nnoremap <silent> :tn :tabnew<CR>
 
 
 

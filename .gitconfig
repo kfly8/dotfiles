@@ -1,6 +1,8 @@
 [user]
-	name = Kenta Kobayashi
+	name = Kenta, Kobayashi
 	email = kentafly88@gmail.com
+[push]
+  default = current
 [core]
 	editor = /usr/bin/vim
 [color]
@@ -10,3 +12,4 @@
     ci = commit
     st = status
     br = branch
+
