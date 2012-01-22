@@ -32,15 +32,24 @@ export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
 export MANPATH=$MANPATH:/opt/local/share/man
 export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
 
-#set title
-case "${TERM}" in screen)
-    preexec(){
-        echo -ne "\ek#${1%%*}\e\\"
-    }
-    precmd(){
-        echo -ne "\ek$(basename $(pwd))\e\\"
-    }
-esac
+
+source "$HOME/.zsh/hook.zshrc"
+#_show_dirname_on_screen_title(){
+#    echo -ne "\ek$(basename $(pwd))\e\\"
+#}
+#
+##set title
+#case "${TERM}" in screen)
+#    preexec(){
+#        echo -ne "\ek#${1%%*}\e\\"
+#    }
+#    precmd(){
+#        _show_dirname_on_screen_title
+#    }
+#    chpwd(){
+#        _show_dirname_on_screen_title
+#    }
+#esac
 
 # alias
 alias sl="ls -hblFG"
