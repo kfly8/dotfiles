@@ -12,4 +12,7 @@
     ci = commit
     st = status
     br = branch
+    st = status -s 
+    l  = log -s
+    d  = diff
 
