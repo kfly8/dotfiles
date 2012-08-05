@@ -10,6 +10,9 @@ colors
  
 # Allow for functions in the prompt.
 setopt PROMPT_SUBST
+
+# 
+setopt nonomatch
  
 # Autoload zsh functions.
 fpath=(~/.zsh/functions $fpath)
