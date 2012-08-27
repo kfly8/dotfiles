@@ -19,6 +19,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'motemen/git-vim'
+NeoBundle 'thinca/vim-ref'
 
 filetype plugin indent on
 
@@ -317,6 +318,12 @@ let g:neocomplcache_omni_patterns = {
 "----------------------------------------------------
 " 入力モードで開始する
 " let g:unite_enable_start_insert=1
+" shortcut
+noremap <C-P> :Unite
+
+noremap <C-P>ref :Unite ref/
+
+
 " バッファ一覧
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 " ファイル一覧
@@ -329,6 +336,7 @@ nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 " 全部乗せ
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
 
 " ウィンドウを分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
