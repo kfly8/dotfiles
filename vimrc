@@ -151,9 +151,9 @@ endif
 "colorscheme BlackSea
 "colorscheme desert
 "colorscheme wombat 
-"colorscheme molokai
-set background=dark
-colorscheme solarized
+colorscheme molokai
+"set background=dark " for solarized
+"colorscheme solarized
 "----------------------------------------------------
 " インデント
 "----------------------------------------------------
