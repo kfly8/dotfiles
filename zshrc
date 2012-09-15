@@ -57,8 +57,8 @@ source "$HOME/.zsh/hook.zshrc"
 #esac
 
 # alias
-alias sl="ls -hblFG"
-alias ls="ls -hblFG"
-alias la="ls -hblFGa"
+alias sl="ls -hblFG --color=auto"
+alias ls="ls -hblFG --color=auto"
+alias la="ls -hblFGa --color=auto"
 
 source ~/perl5/perlbrew/etc/bashrc

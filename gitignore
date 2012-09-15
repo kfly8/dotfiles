@@ -1,0 +1,9 @@
+*.o
+*.os
+*.swp
+.DS_Store
+*.bak
+.svn/
+**/tags
+**/tags-ja
+.prove

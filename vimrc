@@ -20,6 +20,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'motemen/git-vim'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'vim-scripts/Align'
 
 filetype plugin indent on
 
@@ -375,6 +376,19 @@ nnoremap <silent> ,s :VimShell<CR>
 
 nnoremap <silent> :tn :tabnew<CR>
 
+"----------------------------------------------------
+" Align
+"----------------------------------------------------
+
+ let g:Align_xstrlen=3
+
+ vmap <Space>a   :<c-u>Align
+ vmap <Space>a;  :<c-u>Align ;
+ vmap <Space>a=  :<c-u>Align =
+ " Data::Validator
+ vmap <Space>av  :<c-u>Align => isa default xor optional
+ " 三項演算子
+ vmap <Space>a3  :<c-u>Align => = ? " : "
 
 
 

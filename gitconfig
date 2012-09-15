@@ -16,3 +16,37 @@
     l  = log -s
     d  = diff
 
+[alias]
+  ci = commit -v
+  co = checkout
+  br = branch
+  st = status -s
+  l  = log --oneline
+  d  = diff
+  df = diff --no-prefix
+  rb = rebase
+  gerp = grep
+  new = whatchanged HEAD@{1}..HEAD --reverse --stat
+  tree = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
+  wt   = whatchanged --stat
+  ck   = "!git status -s | awk '{print $2}' | egrep '\\.(pm|pl|t|psgi)$' | xargs -n 1 perl -wc"
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = always
+[core]
+  excludesfile = ~/project/dotfiles/git/gitignore
+  editor = "vim -u NONE -i NONE -N -c 'syntax on' \"+e ++enc=utf-8\"" # force encoding utf-8 in log message.
+  pager = "lv -c"
+[user]
+  name = Kenta, Kobayashi
+  email = kentafly88@gmail.com
+[push]
+  default = current
+[pull]
+  rebase = true 
+[commit]
+  template = ~/.gitmessage
+
