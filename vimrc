@@ -1,7 +1,6 @@
 "----------------------------------------------------
 " neobundle 
 "----------------------------------------------------
-set nocompatible
 filetype off
 
 if has('vim_starting')
@@ -10,13 +9,13 @@ if has('vim_starting')
 endif
 
 "let NeoBundle manage NeoBundle
-" required! 
 NeoBundle 'Shougo/neobundle.vim'
 " recommended to install
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/vimfiler.git'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'motemen/git-vim'
 NeoBundle 'thinca/vim-ref'
@@ -353,17 +352,9 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 
 "----------------------------------------------------
-" netrw.vim
+" vimfiler
 "----------------------------------------------------
-
-" netrwは常にtree view
-let g:netrw_liststyle = 3
-" " CVSと.で始まるファイルは表示しない
-let g:netrw_list_hide = 'CVS,\(^\|\s\s\)\zs\.\S\+'
-" " 'v'でファイルを開くときは右側に開く。(デフォルトが左側なので入れ替え)
-let g:netrw_altv = 1
-" " 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
-let g:netrw_alto = 1
+let g:vimfiler_as_default_explorer = 1
 
 "----------------------------------------------------
 " vimshell
