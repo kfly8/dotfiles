@@ -150,7 +150,10 @@ endif
 "カラースキーム
 "colorscheme BlackSea
 "colorscheme desert
-colorscheme wombat 
+"colorscheme wombat 
+"colorscheme molokai
+set background=dark
+colorscheme solarized
 "----------------------------------------------------
 " インデント
 "----------------------------------------------------
