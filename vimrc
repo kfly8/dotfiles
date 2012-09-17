@@ -358,7 +358,9 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 "----------------------------------------------------
 " vimfiler
 "----------------------------------------------------
+let g:unite_source_file_mru_filename_format = ''
 let g:vimfiler_as_default_explorer = 1
+nnoremap <silent> ,f :VimFiler -split -simple -winwidth=35 -no-quit
 
 "----------------------------------------------------
 " vimshell
