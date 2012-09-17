@@ -1,21 +1,3 @@
-[user]
-	name = Kenta, Kobayashi
-	email = kentafly88@gmail.com
-[push]
-  default = current
-[core]
-	editor = /usr/bin/vim
-[color]
-    ui = true
-[alias]
-    co = checkout
-    ci = commit
-    st = status
-    br = branch
-    st = status -s 
-    l  = log -s
-    d  = diff
-
 [alias]
   ci = commit -v
   co = checkout
