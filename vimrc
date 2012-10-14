@@ -5,23 +5,32 @@ filetype off
 
 if has('vim_starting')
     set runtimepath+=~/.vim/neobundle.vim/
-    call neobundle#rc(expand('~/.vim/neobundle/'))
 endif
+call neobundle#rc(expand('~/.vim/neobundle/'))
 
-"let NeoBundle manage NeoBundle
 NeoBundle 'Shougo/neobundle.vim'
-" recommended to install
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'petdance/vim-perl'
+NeoBundle 'hotchpotch/perldoc-vim'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplcache-snippets-complete'
 NeoBundle 'Shougo/vimfiler.git'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'motemen/git-vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'vim-scripts/Align'
+NeoBundle 'thinca/vim-quickrun'
 
 filetype plugin indent on
+
+if neobundle#exists_not_installed_bundles()
+  echomsg 'Not installed bundles : ' .
+              \ string(neobundle#get_not_installed_bundle_names())
+  echomsg 'Please execute ":NeoBundleInstall" command.'
+  "finish
+endif
 
 "----------------------------------------------------
 " 基本的な設定
@@ -90,7 +99,7 @@ set ruler
 " タブ文字を CTRL-I で表示し、行末に % で表示する
 set list
 "listで表示される文字のフォーマットを指定する
-set listchars=eol:%,tab:-\ ,extends:<
+set listchars=eol:+,tab:-\ ,extends:<
 " 入力中のコマンドをステータスに表示する
 set showcmd
 " ステータスラインを常に表示
@@ -112,7 +121,10 @@ set wildmenu
 " (行がそれより長くなると、この幅を超えないように空白の後で改行される)を無効にする
 set textwidth=0
 " ウィンドウの幅より長い行は折り返して、次の行に続けて表示する
-set wrap
+"set wrap
+" ウィンドウの幅より長い行は折り返す
+set nowrap
+
 
 " 全角スペースの表示
 highlight link ZenkakuSpace Error
@@ -182,8 +194,8 @@ set fileencodings+=,ucs-2le,ucs-2
 " オートコマンド
 "----------------------------------------------------
 if has("autocmd")
-	" ファイルタイプ別インデント、プラグインを有効にする
-	filetype plugin indent on
+	"" ファイルタイプ別インデント、プラグインを有効にする
+	"filetype plugin indent on
 	" カーソル位置を記憶する
 	autocmd BufReadPost *
 		\ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -268,9 +280,10 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 "----------------------------------------------------
 " File type
 "----------------------------------------------------
-au BufRead,BufNewFile *.ejs set filetype=html
-au BufRead,BufNewFile *.ctp set filetype=html
+au BufRead,BufNewFile *.ejs  set filetype=html
+au BufRead,BufNewFile *.ctp  set filetype=html
 au BufRead,BufNewFile *.psgi set filetype=perl
+au BufRead,BufNewFile *.t    set filetype=perl
 
 "----------------------------------------------------
 " neocomplecache
@@ -290,11 +303,21 @@ let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
+" Select with <TAB>
+"inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+let g:neocomplcache_ctags_arguments_list = {
+   \ 'perl' : '-R -h ".pm"'
+   \ }
+
+let g:neocomplcache_snippets_dir = "~/.vim/snippets"
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
             \ 'default' : '',
             \ 'vimshell' : $HOME.'/.vimshell_hist',
-            \ 'scheme' : $HOME.'/.gosh_completions'
+            \ 'scheme'   : $HOME.'/.gosh_completions',
+            \ 'perl'     : $HOME.'/.vim/dict/perl.dict',
+            \ 'PHP'      : $HOME.'/.vim/dict/PHP.dict',
             \ }
 
 " Define keyword.
@@ -314,13 +337,18 @@ let g:neocomplcache_omni_patterns = {
             \ 'c'    :'\h\w\+\|\%(\h\w*\|)\)\%(\.\|->\)\h\w*',
             \ 'cpp'  :'\%(\h\w*\|)\)\%(\.\|->\)\h\w*\|\h\w*::',
             \ }
-
+"----------------------------------------------------
+" Snippets
+"----------------------------------------------------
+" TABでスニペットを展開
+imap <C-k> <plug>(neocomplcache_snippets_expand)
+smap <C-k> <plug>(neocomplcache_snippets_expand)
 
 "----------------------------------------------------
 " unite.vim
 "----------------------------------------------------
 " 入力モードで開始する
-" let g:unite_enable_start_insert=1
+"let g:unite_enable_start_insert=1
 " shortcut
 noremap <C-P> :Unite
 
@@ -371,25 +399,16 @@ nnoremap <silent> ,s :VimShell<CR>
 
 
 "----------------------------------------------------
-" alias 
-"----------------------------------------------------
-
-nnoremap <silent> :tn :tabnew<CR>
-
-"----------------------------------------------------
 " Align
 "----------------------------------------------------
 
- let g:Align_xstrlen=3
+let g:Align_xstrlen=3
 
- vmap <Space>a   :<c-u>Align
- vmap <Space>a;  :<c-u>Align ;
- vmap <Space>a=  :<c-u>Align =
- " Data::Validator
- vmap <Space>av  :<c-u>Align => isa default xor optional
- " 三項演算子
- vmap <Space>a3  :<c-u>Align => = ? " : "
-
-
-
+vmap <Space>a   :<c-u>Align
+vmap <Space>a;  :<c-u>Align ;
+vmap <Space>a=  :<c-u>Align =
+" Data::Validator
+vmap <Space>av  :<c-u>Align => isa default xor optional
+" 三項演算子
+vmap <Space>a3  :<c-u>Align => = ? " : "
 

@@ -1,0 +1,58 @@
+snippet u
+    #!/usr/bin/env perl
+    use 5.10.0;
+    use strict;
+    use warnings;
+
+snippet d
+    use Data::Dump qw(dump);
+    warn dump 
+
+snippet dd
+    use Data::Dumper;
+    local $Data::Dumper::Indent = 1;
+    local $Data::Dumper::Terse  = 1;
+    warn Dumper 
+
+snippet dds
+    use Data::Dump::Streamer qw(Dumper);
+    warn Dumper 
+
+snippet new
+    sub new {
+        my $class = shift;
+        my $args = ref $_[0] ? $_[0] : +{@_};
+
+        ${1:code}
+
+        bless $args, $class;
+    }
+
+snippet test
+    use strict;
+    use warnings;
+    use utf8;
+    use Test::More;
+
+    subtest => sub {
+    };
+
+    done_testing;
+
+snippet s
+    my ($self,) = @_;
+
+snippet try
+    try {
+
+    }
+    catch {
+
+    }
+
+snippet dv
+    state $v = Data::Validator->new(
+        ${1}
+    )->with(qw/Method/);
+    my($class, $args) = $v->validate(@_);
+
