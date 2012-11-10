@@ -15,7 +15,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'petdance/vim-perl'
 NeoBundle 'hotchpotch/perldoc-vim'
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neocomplcache-snippets-complete'
+NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimfiler.git'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'motemen/git-vim'
@@ -310,7 +310,7 @@ let g:neocomplcache_ctags_arguments_list = {
    \ 'perl' : '-R -h ".pm"'
    \ }
 
-let g:neocomplcache_snippets_dir = "~/.vim/snippets"
+let g:neosnippet#snippets_directory = "~/.vim/snippets"
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
             \ 'default' : '',
@@ -341,8 +341,8 @@ let g:neocomplcache_omni_patterns = {
 " Snippets
 "----------------------------------------------------
 " TABでスニペットを展開
-imap <C-k> <plug>(neocomplcache_snippets_expand)
-smap <C-k> <plug>(neocomplcache_snippets_expand)
+imap <C-k> <plug>(neosnippet_expand_or_jump)
+smap <C-k> <plug>(neosnippet_expand_or_jump)
 
 "----------------------------------------------------
 " unite.vim
