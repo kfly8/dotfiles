@@ -6,13 +6,13 @@ snippet u
 
 snippet d
     use Data::Dump qw(dump);
-    warn dump 
+    warn dump ${1}
 
 snippet dd
     use Data::Dumper;
     local $Data::Dumper::Indent = 1;
     local $Data::Dumper::Terse  = 1;
-    warn Dumper 
+    warn Dumper ${1}
 
 snippet dds
     use Data::Dump::Streamer qw(Dumper);
