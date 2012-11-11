@@ -408,7 +408,7 @@ vmap <Space>a   :<c-u>Align
 vmap <Space>a;  :<c-u>Align ;
 vmap <Space>a=  :<c-u>Align =
 " Data::Validator
-vmap <Space>av  :<c-u>Align => isa default xor optional
+vmap <Space>av  :<c-u>Align => isa default xor optional },
 " 三項演算子
 vmap <Space>a3  :<c-u>Align => = ? " : "
 
