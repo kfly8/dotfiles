@@ -387,7 +387,11 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 " vimfiler
 "----------------------------------------------------
 let g:unite_source_file_mru_filename_format = ''
+"デフォルトのエクスプローラーをVimFilerにする
 let g:vimfiler_as_default_explorer = 1
+"セーフモードを無効にした状態で起動する
+let g:vimfiler_safe_mode_by_default = 0
+
 nnoremap <silent> ,f :VimFiler -split -simple -winwidth=35 -no-quit
 
 "----------------------------------------------------
