@@ -218,7 +218,7 @@ endif
 " PHP
 "----------------------------------------------------
 " シンタックスハイライト（PHP）を有効にする
-set syntax=php
+"set syntax=php
 
 " PHP辞書を取得
 "autocmd FileType php setlocal dictionary=~/.vim/dict/PHP.dict
@@ -231,10 +231,10 @@ set syntax=php
 "
 " @author halt feits <halt.feits at gmail.com>
 "
-function PHPLint()
-  let result = system( &ft . ' -l ' . bufname(""))
-  echo result
-endfunction
+"function PHPLint()
+"  let result = system( &ft . ' -l ' . bufname(""))
+"  echo result
+"endfunction
 
 "----------------------------------------------------
 " その他
@@ -392,7 +392,7 @@ let g:vimfiler_as_default_explorer = 1
 "セーフモードを無効にした状態で起動する
 let g:vimfiler_safe_mode_by_default = 0
 
-nnoremap <silent> ,f :VimFiler -split -simple -winwidth=35 -no-quit
+nnoremap <silent> ,f :VimFiler -split -simple -winwidth=35 -no-quit<CR>
 
 "----------------------------------------------------
 " vimshell
@@ -423,3 +423,9 @@ vmap <Space>av  :<c-u>Align => isa default xor optional },
 " 三項演算子
 vmap <Space>a3  :<c-u>Align => = ? " : "
 
+"----------------------------------------------------
+" Sugar
+"----------------------------------------------------
+
+inoremap <C-d> $
+inoremap <C-a> @
