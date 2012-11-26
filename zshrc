@@ -37,6 +37,7 @@ export MANPATH=$MANPATH:/opt/local/share/man
 export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
 
 source "$HOME/.zsh/hook.zshrc"
+source "$HOME/.zprofile"
 
 # alias
 
