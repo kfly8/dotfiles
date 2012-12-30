@@ -14,6 +14,12 @@ snippet dd
     local $Data::Dumper::Terse  = 1;
     warn Dumper ${1}
 
+snippet ddd
+    use Data::Dumper;
+    local $Data::Dumper::Indent = 1;
+    local $Data::Dumper::Terse  = 1;
+    die Dumper ${1}
+
 snippet dds
     use Data::Dump::Streamer qw(Dumper);
     warn Dumper 
@@ -39,6 +45,11 @@ snippet test
 
     done_testing;
 
+snippet subtest
+    subtest '${1}' => sub {
+        ${2:code}
+    };
+
 snippet s
     my ($self,) = @_;
 
@@ -47,8 +58,14 @@ snippet try
 
     }
     catch {
-
-    }
+        my $e = $_;
+        if ( ref($e) && $e->isa(${1}) ) {
+            return $c->redirect_error(common => 'ng_word'); ## throw response (exception)
+        }
+        else {
+            Carp::croak($e);
+        }
+    };
 
 snippet dv
     state $v = Data::Validator->new(
