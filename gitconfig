@@ -11,7 +11,7 @@
   new = whatchanged HEAD@{1}..HEAD --reverse --stat
   tree = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
   wt   = whatchanged --stat
-  ck   = "!git status -s | awk '{print $2}' | egrep '\\.(pm|pl|t|psgi)$' | xargs -n 1 perl -wc"
+  ck   = "!git status -s | grep -v '^ D' |awk '{print $2}' | egrep '\\.(pm|pl|t|psgi)$' | xargs -n 1 perl -wc"
 
 [color]
   diff = auto
