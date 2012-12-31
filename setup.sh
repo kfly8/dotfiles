@@ -1,7 +1,7 @@
 #!/bin/sh
 cd $(dirname $0)
 
-dotfiles=(vimrc vim zshrc zsh gitconfig gitmessage gitignore screenrc)
+dotfiles=(vimrc vim zshrc zsh gitconfig gitmessage gitignore screenrc tmux.conf)
 for (( i = 0; i < ${#dotfiles[*]}; i++ ))
 {
   dotfile=${dotfiles[i]}
