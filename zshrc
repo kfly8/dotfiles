@@ -33,6 +33,7 @@ PROMPT=$'%{${fg[cyan]}%}%B%~%b$(prompt_git_info)%{${fg[default]}%} '
 
 export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH="$HOME/.rbenv/bin:$HOME/bin:$PATH"
 export MANPATH=$MANPATH:/opt/local/share/man
 export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
 
