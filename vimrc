@@ -22,6 +22,7 @@ NeoBundle 'motemen/git-vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'mattn/httpstatus-vim'
 
 filetype plugin indent on
 
