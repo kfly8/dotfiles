@@ -24,11 +24,6 @@ _set_env_git_current_branch() {
       VCS_STAT=$GIT_CURRENT_BRANCH
 }
 
-_update_rprompt () {
-  RPROMPT=$(print "%{\e[34m%}[ %(5~,%-2~/.../%2~,%~) %{\e[32m%}$VCS_STAT%{\e[34m%} ]%{\e[m%}" )
-}
-
-_update_rprompt
 
 if [ "$TERM" = "screen" ]; then
   preexec() {
@@ -62,11 +57,9 @@ if [ "$TERM" = "screen" ]; then
     else
         _set_env_git_current_branch
     fi
-    _update_rprompt
   }
 
   chpwd () {
     _show_dirname_on_screen_title
-    _update_rprompt
   }
 fi
