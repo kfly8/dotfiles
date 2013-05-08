@@ -23,6 +23,7 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'mattn/httpstatus-vim'
+NeoBundle 'teramako/jscomplete-vim'
 
 filetype plugin indent on
 
@@ -80,7 +81,7 @@ set writebackup
 " コマンド、検索パターンを100個まで履歴に残す
 set history=100
 " 検索の時に大文字小文字を区別しない
-set ignorecase
+"set ignorecase
 " 検索の時に大文字が含まれている場合は区別して検索する
 set smartcase
 " 最後まで検索したら先頭に戻る
@@ -166,6 +167,12 @@ endif
 colorscheme molokai
 "set background=dark " for solarized
 "colorscheme solarized
+
+" molokai setting
+let g:molokai_original = 1
+let g:rehash256 = 1
+"set background=dark
+
 "----------------------------------------------------
 " インデント
 "----------------------------------------------------
@@ -210,7 +217,6 @@ if has("autocmd")
 	augroup END
 	" 日本語入力をリセット
 	autocmd BufNewFile,BufRead * set iminsert=0
-
 endif
 
 
@@ -296,51 +302,107 @@ let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
 " Set minimum syntax keyword length.
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
+" Enable heavy features.
+" Use camel case completion.
+let g:neocomplcache_enable_camel_case_completion = 1
+" Use underbar completion.
+let g:neocomplcache_enable_underbar_completion = 1
+
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions',
+    \ 'perl'     : $HOME.'/.vim/dict/perl.dict',
+    \ 'PHP'      : $HOME.'/.vim/dict/PHP.dict',
+    \ }
+
+
 " Select with <TAB>
 "inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
+" Define keyword.
+if !exists('g:neocomplcache_keyword_patterns')
+let g:neocomplcache_keyword_patterns = {}
+endif
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplcache#smart_close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+endfunction
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup()
+: "\<Space>"
+
+" For cursor moving in insert mode(Not recommended)
+"inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
+"inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
+"inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
+"inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
+" Or set this.
+"let g:neocomplcache_enable_cursor_hold_i = 1
+" Or set this.
+"let g:neocomplcache_enable_insert_char_pre = 1
+
+" AutoComplPop like behavior.
+"let g:neocomplcache_enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplcache_enable_auto_select = 1
+"let g:neocomplcache_disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+
+"----------------------------------------------------
+" Javascript
+"----------------------------------------------------
+let g:jscomplete_use = ['dom', 'moz', 'es6th']
+" 折りたたみ
+"au FileType javascript call JavaScriptFold()
+
+"----------------------------------------------------
+" Snippets
+"----------------------------------------------------
 let g:neocomplcache_ctags_arguments_list = {
    \ 'perl' : '-R -h ".pm"'
    \ }
 
 let g:neosnippet#snippets_directory = "~/.vim/snippets"
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-            \ 'default' : '',
-            \ 'vimshell' : $HOME.'/.vimshell_hist',
-            \ 'scheme'   : $HOME.'/.gosh_completions',
-            \ 'perl'     : $HOME.'/.vim/dict/perl.dict',
-            \ 'PHP'      : $HOME.'/.vim/dict/PHP.dict',
-            \ }
 
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-" Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns = {
-            \ 'php'  :  '[^.
-            \t]->\h\w*\|\$\h\w*\|\%(=\s*new\|extends\)\s\+\|\h\w*::',
-            \ 'perl' :  '\%(\h\w*\|)\)->\h\w*\|\h\w*::',
-            \ 'c'    :'\h\w\+\|\%(\h\w*\|)\)\%(\.\|->\)\h\w*',
-            \ 'cpp'  :'\%(\h\w*\|)\)\%(\.\|->\)\h\w*\|\h\w*::',
-            \ }
-"----------------------------------------------------
-" Snippets
-"----------------------------------------------------
 " TABでスニペットを展開
 imap <C-k> <plug>(neosnippet_expand_or_jump)
 smap <C-k> <plug>(neosnippet_expand_or_jump)
@@ -390,7 +452,7 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 let g:unite_source_file_mru_filename_format = ''
 "デフォルトのエクスプローラーをVimFilerにする
 let g:vimfiler_as_default_explorer = 1
-"セーフモードを無効にした状態で起動する
+"セーフモードを無効にした状態で起動しない
 let g:vimfiler_safe_mode_by_default = 0
 
 nnoremap <silent> ,f :VimFiler -split -simple -winwidth=35 -no-quit<CR>
@@ -424,9 +486,3 @@ vmap <Space>av  :<c-u>Align => isa default xor optional },
 " 三項演算子
 vmap <Space>a3  :<c-u>Align => = ? " : "
 
-"----------------------------------------------------
-" Sugar
-"----------------------------------------------------
-
-inoremap <C-d> $
-inoremap <C-a> @
