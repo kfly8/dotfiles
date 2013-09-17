@@ -1,15 +1,21 @@
 # Installation 
 
 
-<pre>
-cd ~
-git clone https://github.com/kfly8/dotfiles.git 
-cd dotfiles 
-sh setup.sh
-</pre>
+## clone and setup
 
-and install [neobundle](https://github.com/Shougo/neobundle.vim)
+    ```
+    cd ~
+    git clone https://github.com/kfly8/dotfiles.git 
+    cd dotfiles 
+    sh setup.sh
+    ```
 
+## and make [vimproc](https://github.com/Shougo/vimproc.vim).
+
+    ```
+    cd vim/neobundle/vimproc
+    make
+    ```
 
 ---------
 Suggestions/Improvements [welcome](https://github.com/kfly8/dotfiles/issues)

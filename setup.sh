@@ -12,3 +12,7 @@ for (( i = 0; i < ${#dotfiles[*]}; i++ ))
   fi
   ln -s $path $target_path
 }
+
+git submodule update --init
+vim -c NeoBundleInstall
+
