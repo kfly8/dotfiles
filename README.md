@@ -10,13 +10,6 @@
   sh setup.sh
   ```
 
-## and make [vimproc](https://github.com/Shougo/vimproc.vim).
-
-  ```sh
-  cd vim/neobundle/vimproc
-  make
-  ```
-
 ---------
 Suggestions/Improvements [welcome](https://github.com/kfly8/dotfiles/issues)
 

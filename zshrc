@@ -39,8 +39,8 @@ export PATH="$PATH:/Users/kfly8/.bist/bin"
 export MANPATH=$MANPATH:/opt/local/share/man
 export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
 
-export WORKON_HOME=$HOME/.virtualenvs
-. /usr/local/share/python/virtualenvwrapper.sh
+#export WORKON_HOME=$HOME/.virtualenvs
+#. /usr/local/share/python/virtualenvwrapper.sh
 
 source "$HOME/.zsh/hook.zshrc"
 source "$HOME/.zprofile"
