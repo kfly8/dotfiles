@@ -34,9 +34,13 @@ PROMPT=$'%{${fg[cyan]}%}%B%~%b$(prompt_git_info)%{${fg[default]}%} '
 export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$HOME/bin:$PATH"
+export PATH=$PATH:/usr/local/share/python
 export PATH="$PATH:/Users/kfly8/.bist/bin"
 export MANPATH=$MANPATH:/opt/local/share/man
 export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
+
+export WORKON_HOME=$HOME/.virtualenvs
+. /usr/local/share/python/virtualenvwrapper.sh
 
 source "$HOME/.zsh/hook.zshrc"
 source "$HOME/.zprofile"

@@ -101,7 +101,7 @@ set ruler
 " タブ文字を CTRL-I で表示し、行末に % で表示する
 set list
 "listで表示される文字のフォーマットを指定する
-set listchars=eol:+,tab:-\ ,extends:<
+set listchars=tab:-\ ,extends:<
 " 入力中のコマンドをステータスに表示する
 set showcmd
 " ステータスラインを常に表示
