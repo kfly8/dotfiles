@@ -7,12 +7,11 @@ for (( i = 0; i < ${#dotfiles[*]}; i++ ))
   dotfile=${dotfiles[i]}
   path="$PWD/$dotfile"
   target_path=$HOME/.$dotfile
-  if [ -L $target_path ]; then
-      rm $target_path
-  fi
-  ln -s $path $target_path
+  ln -sf $path $target_path
 }
 
 git submodule update --init
-vim -c NeoBundleInstall
+vim +NeoBundleInstall! +qa
 
+cd vim/neobundle/vimproc
+make
