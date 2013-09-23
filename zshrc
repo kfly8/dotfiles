@@ -42,6 +42,8 @@ export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
 #export WORKON_HOME=$HOME/.virtualenvs
 #. /usr/local/share/python/virtualenvwrapper.sh
 
+export TERM=screen-256color
+
 source "$HOME/.zsh/hook.zshrc"
 
 # alias
