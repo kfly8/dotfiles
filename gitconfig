@@ -34,3 +34,11 @@
 [tig "bind"]
   generic = g move-first-line
   generic = G move-last-line
+[github]
+  user = kfly8
+[merge]
+  stat = true
+  ff   = false
+[branch]
+  autosetupmerge = false
+  autosetuprebase = always

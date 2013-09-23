@@ -1,7 +1,7 @@
 defutf8 on
-defkanji utf-8
+#defkanji utf-8
 encoding utf-8 utf-8
-defencoding utf-8
+#defencoding utf-8
 startup_message off
 autodetach on
 

@@ -43,7 +43,6 @@ export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
 #. /usr/local/share/python/virtualenvwrapper.sh
 
 source "$HOME/.zsh/hook.zshrc"
-source "$HOME/.zprofile"
 
 # alias
 
@@ -58,4 +57,18 @@ esac
 alias ll="ls -lhbF --color=auto"
 alias la="ls -lhbFa --color=auto"
 
-source ~/perl5/perlbrew/etc/bashrc
+#source ~/perl5/perlbrew/etc/bashrc
+source ~/project/Dev/share/etc/mf-dev.zshrc
+
+# 文字コード周り
+export LANG=ja_JP.UTF-8
+export JLESSCHARSET=japanese
+
+# history
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt hist_ignore_dups     # ignore duplication command history list
+setopt share_history        # share command history data
+
+export PATH="/usr/local/app/tmux/bin:$PATH"
