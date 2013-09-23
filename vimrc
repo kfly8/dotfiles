@@ -23,6 +23,7 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'mattn/httpstatus-vim'
+NeoBundle 'c9s/perlomni.vim'
 NeoBundle 'teramako/jscomplete-vim'
 
 " カラースキーム
