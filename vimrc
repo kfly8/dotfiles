@@ -25,6 +25,20 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'mattn/httpstatus-vim'
 NeoBundle 'teramako/jscomplete-vim'
 
+" カラースキーム
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'croaker/mustang-vim'
+NeoBundle 'jeffreyiacono/vim-colors-wombat'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'vim-scripts/Lucius'
+NeoBundle 'vim-scripts/Zenburn'
+NeoBundle 'mrkn/mrkn256.vim'
+NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'therubymug/vim-pyte'
+NeoBundle 'tomasr/molokai'
+
+NeoBundle 'ujihisa/unite-colorscheme'
+
 filetype plugin indent on
 
 if neobundle#exists_not_installed_bundles()
@@ -161,17 +175,9 @@ elseif has('xfontset')
 endif
 
 "カラースキーム
-"colorscheme BlackSea
-"colorscheme desert
-"colorscheme wombat 
-colorscheme molokai
-"set background=dark " for solarized
-"colorscheme solarized
-
-" molokai setting
-let g:molokai_original = 1
-let g:rehash256 = 1
-"set background=dark
+" :Unite colorscheme -auto-preview
+set background=dark
+colorscheme lucius
 
 "----------------------------------------------------
 " インデント
