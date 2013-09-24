@@ -62,7 +62,9 @@ alias ll="ls -lhbF --color=auto"
 alias la="ls -lhbFa --color=auto"
 
 #source ~/perl5/perlbrew/etc/bashrc
-source ~/project/Dev/share/etc/mf-dev.zshrc
+if [ -e ~/project/Dev/share/etc/mf-dev.zshrc ];then
+    source ~/project/Dev/share/etc/mf-dev.zshrc
+fi
 
 # 文字コード周り
 export LANG=ja_JP.UTF-8
