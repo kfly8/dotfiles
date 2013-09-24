@@ -35,9 +35,11 @@ export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$HOME/bin:$PATH"
 export PATH=$PATH:/usr/local/share/python
-export PATH="$PATH:/Users/kfly8/.bist/bin"
+export PATH="$PATH:$HOME/.bist/bin"
+export PATH=${PATH}:$HOME/android/sdk/platform-tools:$HOME/android/sdk/tools
 export MANPATH=$MANPATH:/opt/local/share/man
 export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
+export ANDROID_HOME=$HOME/android/sdk
 
 #export WORKON_HOME=$HOME/.virtualenvs
 #. /usr/local/share/python/virtualenvwrapper.sh
