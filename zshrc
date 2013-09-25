@@ -44,6 +44,9 @@ export ANDROID_HOME=$HOME/android/sdk
 #export WORKON_HOME=$HOME/.virtualenvs
 #. /usr/local/share/python/virtualenvwrapper.sh
 
+export PATH="$HOME/.plenv/bin:$PATH"
+eval "$(plenv init -)"
+
 export TERM=screen-256color
 
 source "$HOME/.zsh/hook.zshrc"
@@ -61,7 +64,6 @@ esac
 alias ll="ls -lhbF --color=auto"
 alias la="ls -lhbFa --color=auto"
 
-#source ~/perl5/perlbrew/etc/bashrc
 if [ -e ~/project/Dev/share/etc/mf-dev.zshrc ];then
     source ~/project/Dev/share/etc/mf-dev.zshrc
 fi
