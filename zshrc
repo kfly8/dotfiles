@@ -31,15 +31,20 @@ chpwd_functions+='chpwd_update_git_vars'
 # Set the prompt.
 PROMPT=$'%{${fg[cyan]}%}%B%~%b$(prompt_git_info)%{${fg[default]}%} '
 
-export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH="$HOME/.rbenv/bin:$HOME/bin:$PATH"
-export PATH=$PATH:/usr/local/share/python
-export PATH="$PATH:$HOME/.bist/bin"
-export PATH=${PATH}:$HOME/android/sdk/platform-tools:$HOME/android/sdk/tools
 export MANPATH=$MANPATH:/opt/local/share/man
 export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
 export ANDROID_HOME=$HOME/android/sdk
+export ANDROID_NDK_HOME=$HOME/android/ndk
+
+export PATH="${PATH}:/opt/local/bin:/opt/local/sbin:/usr/local/bin"
+export PATH="${PATH}:$HOME/.nodebrew/current/bin"
+export PATH="${PATH}:$HOME/.rbenv/bin:$HOME/bin"
+export PATH="${PATH}:/usr/local/share/python"
+export PATH="${PATH}:$HOME/.bist/bin"
+export PATH="${PATH}:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
+export PATH="${PATH}:$ANDROID_NDK_HOME"
+
+export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 
 #export WORKON_HOME=$HOME/.virtualenvs
 #. /usr/local/share/python/virtualenvwrapper.sh
