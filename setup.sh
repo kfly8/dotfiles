@@ -10,6 +10,10 @@ for (( i = 0; i < ${#dotfiles[*]}; i++ ))
   ln -sf $path $target_path
 }
 
+mkdir -p ~/bin
+curl -o ~/bin/diff-highlight https://raw.github.com/git/git/master/contrib/diff-highlight/diff-highlight
+chmod +x ~/bin/diff-highlight
+
 git submodule update --init
 vim +NeoBundleInstall! +qa
 
