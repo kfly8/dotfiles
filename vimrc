@@ -178,7 +178,7 @@ endif
 "カラースキーム
 " :Unite colorscheme -auto-preview
 set background=dark
-colorscheme lucius
+colorscheme jellybeans
 
 "----------------------------------------------------
 " インデント

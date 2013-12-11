@@ -38,19 +38,20 @@ export ANDROID_NDK_HOME=$HOME/android/ndk
 
 export PATH="${PATH}:/opt/local/bin:/opt/local/sbin:/usr/local/bin"
 export PATH="${PATH}:$HOME/.nodebrew/current/bin"
-export PATH="${PATH}:$HOME/.rbenv/bin:$HOME/bin"
+export PATH="${PATH}:$HOME/.rbenv/bin"
+export PATH="${PATH}:$HOME/.plenv/bin"
 export PATH="${PATH}:/usr/local/share/python"
 export PATH="${PATH}:$HOME/.bist/bin"
 export PATH="${PATH}:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
 export PATH="${PATH}:$ANDROID_NDK_HOME"
+export PATH="${PATH}:/usr/local/app/tmux/bin"
+export PATH="${PATH}:$HOME/bin"
+eval "$(plenv init -)"
 
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 
 #export WORKON_HOME=$HOME/.virtualenvs
 #. /usr/local/share/python/virtualenvwrapper.sh
-
-export PATH="$HOME/.plenv/bin:$PATH"
-eval "$(plenv init -)"
 
 export TERM=screen-256color
 
@@ -84,4 +85,3 @@ SAVEHIST=10000
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
 
-export PATH="/usr/local/app/tmux/bin:$PATH"
