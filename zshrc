@@ -45,6 +45,7 @@ export PATH="${PATH}:$HOME/.bist/bin"
 export PATH="${PATH}:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
 export PATH="${PATH}:$ANDROID_NDK_HOME"
 export PATH="${PATH}:/usr/local/app/tmux/bin"
+export PATH="${PATH}:$GRADLE_HOME/bin"
 export PATH="${PATH}:$HOME/bin"
 if [ -x "`which plenv`" ]; then
   eval "$(plenv init -)"
@@ -58,6 +59,7 @@ export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 export TERM=screen-256color
 
 source "$HOME/.zsh/hook.zshrc"
+source "$HOME/.gvm/bin/gvm-init.sh"
 
 # alias
 
@@ -89,3 +91,6 @@ setopt share_history        # share command history data
 
 export PATH="/usr/local/app/tmux/bin:$PATH"
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
