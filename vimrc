@@ -24,7 +24,6 @@ NeoBundle 'vim-scripts/Align'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'mattn/httpstatus-vim'
 NeoBundle 'c9s/perlomni.vim'
-NeoBundle 'teramako/jscomplete-vim'
 
 " カラースキーム
 NeoBundle 'altercation/vim-colors-solarized'
@@ -397,7 +396,7 @@ endif
 "----------------------------------------------------
 " Javascript
 "----------------------------------------------------
-let g:jscomplete_use = ['dom', 'moz', 'es6th']
+"let g:jscomplete_use = ['dom', 'moz', 'es6th']
 " 折りたたみ
 "au FileType javascript call JavaScriptFold()
 

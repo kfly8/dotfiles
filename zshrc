@@ -59,7 +59,6 @@ export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 export TERM=screen-256color
 
 source "$HOME/.zsh/hook.zshrc"
-source "$HOME/.gvm/bin/gvm-init.sh"
 
 # alias
 
