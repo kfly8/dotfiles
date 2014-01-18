@@ -298,6 +298,7 @@ au BufRead,BufNewFile *.ejs  set filetype=html
 au BufRead,BufNewFile *.ctp  set filetype=html
 au BufRead,BufNewFile *.psgi set filetype=perl
 au BufRead,BufNewFile *.t    set filetype=perl
+au BufRead,BufNewFile *.ts   set filetype=javascript
 
 "----------------------------------------------------
 " neocomplecache
@@ -493,3 +494,8 @@ vmap <Space>av  :<c-u>Align => isa default xor optional },
 " 三項演算子
 vmap <Space>a3  :<c-u>Align => = ? " : "
 
+"----------------------------------------------------
+" etc
+"----------------------------------------------------
+
+:nnoremap <F8> :setl noai nocin nosi inde=<CR>
