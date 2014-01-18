@@ -46,7 +46,9 @@ export PATH="${PATH}:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
 export PATH="${PATH}:$ANDROID_NDK_HOME"
 export PATH="${PATH}:/usr/local/app/tmux/bin"
 export PATH="${PATH}:$HOME/bin"
-eval "$(plenv init -)"
+if [ -x "`which plenv`" ]; then
+  eval "$(plenv init -)"
+fi
 
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 
