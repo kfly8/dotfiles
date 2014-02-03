@@ -96,3 +96,6 @@ export PATH="/usr/local/app/tmux/bin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR JENV TO WORK!!!
+[[ -s "/Users/kentafly88/.jenv/bin/jenv-init.sh" ]] && source "/Users/kentafly88/.jenv/bin/jenv-init.sh" && source "/Users/kentafly88/.jenv/commands/completion.sh"
