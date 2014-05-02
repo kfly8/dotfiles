@@ -29,7 +29,7 @@ precmd_functions+='precmd_update_git_vars'
 chpwd_functions+='chpwd_update_git_vars'
  
 # Set the prompt.
-PROMPT=$'%{${fg[cyan]}%}%B%~%b$(prompt_git_info)%{${fg[default]}%} '
+PROMPT=$'%{${fg[red]}%}%B%~%b$(prompt_git_info)%{${fg[default]}%} '
 
 export MANPATH=$MANPATH:/opt/local/share/man
 export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
@@ -37,9 +37,9 @@ export ANDROID_HOME=$HOME/android/sdk
 export ANDROID_NDK_HOME=$HOME/android/ndk
 
 export PATH="${PATH}:/opt/local/bin:/opt/local/sbin:/usr/local/bin"
-export PATH="${PATH}:$HOME/.nodebrew/current/bin"
-export PATH="${PATH}:$HOME/.rbenv/bin"
-export PATH="${PATH}:$HOME/.plenv/bin"
+#export PATH="${PATH}:$HOME/.nodebrew/current/bin"
+#export PATH="${PATH}:$HOME/.rbenv/bin"
+#export PATH="${PATH}:$HOME/.plenv/bin"
 export PATH="${PATH}:/usr/local/share/python"
 export PATH="${PATH}:$HOME/.bist/bin"
 export PATH="${PATH}:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
@@ -74,7 +74,7 @@ alias ll="ls -lhbF --color=auto"
 alias la="ls -lhbFa --color=auto"
 
 if [ -e ~/project/Dev/share/etc/mf-dev.zshrc ];then
-    source ~/project/Dev/share/etc/mf-dev.zshrc
+#    source ~/project/Dev/share/etc/mf-dev.zshrc
 fi
 
 # 文字コード周り
