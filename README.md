@@ -7,7 +7,7 @@
   cd ~
   git clone https://github.com/kfly8/dotfiles.git 
   cd dotfiles 
-  sh setup.sh
+  bash setup.sh
   ```
 
 ## memo
