@@ -99,3 +99,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR JENV TO WORK!!!
 [[ -s "/Users/kentafly88/.jenv/bin/jenv-init.sh" ]] && source "/Users/kentafly88/.jenv/bin/jenv-init.sh" && source "/Users/kentafly88/.jenv/commands/completion.sh"
+
+
+# anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+
