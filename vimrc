@@ -24,6 +24,10 @@ NeoBundle 'vim-scripts/Align'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'mattn/httpstatus-vim'
 NeoBundle 'c9s/perlomni.vim'
+NeoBundle 'teramako/jscomplete-vim'
+NeoBundle 'vim-scripts/L9'
+NeoBundle 'vim-scripts/FuzzyFinder'
+NeoBundle 'glidenote/memolist.vim'
 
 " カラースキーム
 NeoBundle 'altercation/vim-colors-solarized'
@@ -36,7 +40,6 @@ NeoBundle 'mrkn/mrkn256.vim'
 NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'therubymug/vim-pyte'
 NeoBundle 'tomasr/molokai'
-
 NeoBundle 'ujihisa/unite-colorscheme'
 
 filetype plugin indent on
@@ -492,6 +495,22 @@ vmap <Space>a=  :<c-u>Align =
 vmap <Space>av  :<c-u>Align => isa default xor optional },
 " 三項演算子
 vmap <Space>a3  :<c-u>Align => = ? " : "
+
+
+"----------------------------------------------------
+" FuzzyFinder
+"----------------------------------------------------
+"
+nnoremap <unique> <silent> <C-S> :FufBuffer!<CR>
+nnoremap <unique> <silent> ef :FufFile!<CR>
+nnoremap <silent> eff :FufFile!<CR>
+nnoremap <silent> efm :FufMruFile!<CR>
+autocmd FileType fuf nmap <C-c> <ESC>
+let g:fuf_patternSeparator = ' '
+let g:fuf_modesDisable = ['mrucmd']
+let g:fuf_mrufile_exclude = '\v\~$|\.bak$|\.swp|\.howm$'
+let g:fuf_mrufile_maxItem = 2000
+let g:fuf_enumeratingLimit = 20
 
 "----------------------------------------------------
 " etc

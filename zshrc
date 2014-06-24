@@ -29,7 +29,7 @@ precmd_functions+='precmd_update_git_vars'
 chpwd_functions+='chpwd_update_git_vars'
  
 # Set the prompt.
-PROMPT=$'%{${fg[red]}%}%B%~%b$(prompt_git_info)%{${fg[default]}%} '
+PROMPT=$'%{${fg[cyan]}%}%B%d%b$(prompt_git_info)%{${fg[default]}%} '
 
 export MANPATH=$MANPATH:/opt/local/share/man
 export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
@@ -46,10 +46,13 @@ export PATH="${PATH}:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
 export PATH="${PATH}:$ANDROID_NDK_HOME"
 export PATH="${PATH}:/usr/local/app/tmux/bin"
 export PATH="${PATH}:$GRADLE_HOME/bin"
+export PATH="${PATH}:$HOME/bin/gsutil"
 export PATH="${PATH}:$HOME/bin"
 if [ -x "`which plenv`" ]; then
   eval "$(plenv init -)"
 fi
+
+[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
 
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 
