@@ -48,6 +48,11 @@ export PATH="${PATH}:/usr/local/app/tmux/bin"
 export PATH="${PATH}:$GRADLE_HOME/bin"
 export PATH="${PATH}:$HOME/bin/gsutil"
 export PATH="${PATH}:$HOME/bin"
+
+export GOROOT=`go env GOROOT`
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
 if [ -x "`which plenv`" ]; then
   eval "$(plenv init -)"
 fi
@@ -108,3 +113,28 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
 export JIRA_HOME=$HOME/project/jira/home
+export EDITOR=vim
+
+function peco-snippets() {
+
+    local SNIPPETS=$(cat ~/.sheet_snippets | peco --query "$LBUFFER" | pbcopy)
+    zle clear-screen
+}
+zle -N peco-snippets
+
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(history -n 1 | \
+    eval $tac | \
+            peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+

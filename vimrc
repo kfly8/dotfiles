@@ -16,6 +16,7 @@ NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'hotchpotch/perldoc-vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimfiler.git'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'motemen/git-vim'
@@ -24,7 +25,6 @@ NeoBundle 'vim-scripts/Align'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'mattn/httpstatus-vim'
 NeoBundle 'c9s/perlomni.vim'
-NeoBundle 'teramako/jscomplete-vim'
 NeoBundle 'vim-scripts/L9'
 NeoBundle 'vim-scripts/FuzzyFinder'
 NeoBundle 'glidenote/memolist.vim'
@@ -517,3 +517,11 @@ let g:fuf_enumeratingLimit = 20
 "----------------------------------------------------
 
 :nnoremap <F8> :setl noai nocin nosi inde=<CR>
+
+function! PecoOpen()
+  for filename in split(system("find . -type f | peco"), "\n")
+    execute "e" filename
+  endfor
+endfunction
+nnoremap <Leader>op :call PecoOpen()<CR>
+

@@ -1,13 +1,13 @@
 #!/bin/sh
 cd $(dirname $0)
 
-dotfiles=(vimrc vim zshrc zsh gitconfig gitmessage gitignore screenrc tmux.conf)
+dotfiles=(vimrc vim zshrc zsh gitconfig gitmessage gitignore screenrc tmux.conf sheets sheet_snippets peco)
 for (( i = 0; i < ${#dotfiles[*]}; i++ ))
 {
   dotfile=${dotfiles[i]}
   path="$PWD/$dotfile"
   target_path=$HOME/.$dotfile
-  ln -sf $path $target_path
+  ln -s $path $target_path
 }
 
 mkdir -p ~/bin
