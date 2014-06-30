@@ -82,12 +82,17 @@ alias ll="ls -lhbF --color=auto"
 alias la="ls -lhbFa --color=auto"
 
 if [ -e ~/project/Dev/share/etc/mf-dev.zshrc ];then
-#    source ~/project/Dev/share/etc/mf-dev.zshrc
+    source ~/project/Dev/share/etc/mf-dev.zshrc
+fi
+
+if [ -e ~/.mf-k-kobayashi-dev.zshrc ];then
+    source ~/.mf-k-kobayashi-dev.zshrc
 fi
 
 # 文字コード周り
 export LANG=ja_JP.UTF-8
 export JLESSCHARSET=japanese
+export LANGUAGE=ja_JP.UTF-8
 
 # history
 HISTFILE=~/.zsh_history
@@ -138,3 +143,4 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+export EDITOR=vim
