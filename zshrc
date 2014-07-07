@@ -35,6 +35,7 @@ export MANPATH=$MANPATH:/opt/local/share/man
 export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
 export ANDROID_HOME=$HOME/android/sdk
 export ANDROID_NDK_HOME=$HOME/android/ndk
+export EDITOR=vim
 
 export PATH="${PATH}:/opt/local/bin:/opt/local/sbin:/usr/local/bin"
 #export PATH="${PATH}:$HOME/.nodebrew/current/bin"
@@ -143,4 +144,14 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
-export EDITOR=vim
+function peco-src () {
+    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
+
