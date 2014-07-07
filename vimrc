@@ -28,6 +28,7 @@ NeoBundle 'c9s/perlomni.vim'
 NeoBundle 'vim-scripts/L9'
 NeoBundle 'vim-scripts/FuzzyFinder'
 NeoBundle 'glidenote/memolist.vim'
+NeoBundle 'fatih/vim-go'
 
 " カラースキーム
 NeoBundle 'altercation/vim-colors-solarized'
@@ -511,6 +512,15 @@ let g:fuf_modesDisable = ['mrucmd']
 let g:fuf_mrufile_exclude = '\v\~$|\.bak$|\.swp|\.howm$'
 let g:fuf_mrufile_maxItem = 2000
 let g:fuf_enumeratingLimit = 20
+
+"----------------------------------------------------
+" golang
+"----------------------------------------------------
+set rtp+=$GOROOT/misc/vim
+exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+
+set completeopt=menu,preview
+
 
 "----------------------------------------------------
 " etc
