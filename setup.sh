@@ -14,6 +14,8 @@ mkdir -p ~/bin
 curl -o ~/bin/diff-highlight https://raw.github.com/git/git/master/contrib/diff-highlight/diff-highlight
 chmod +x ~/bin/diff-highlight
 
+go get github.com/nsf/gocode
+
 git submodule update --init
 vim +NeoBundleInstall! +qa
 
