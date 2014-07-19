@@ -123,6 +123,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export JIRA_HOME=$HOME/project/jira/home
 export EDITOR=vim
+bindkey -e
 
 function peco-snippets() {
 
@@ -158,4 +159,3 @@ function peco-src () {
 zle -N peco-src
 bindkey '^]' peco-src
 
-bindkey -e
