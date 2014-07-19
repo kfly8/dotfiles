@@ -37,7 +37,7 @@ export ANDROID_HOME=$HOME/android/sdk
 export ANDROID_NDK_HOME=$HOME/android/ndk
 export EDITOR=vim
 
-export PATH="${PATH}:/opt/local/bin:/opt/local/sbin:/usr/local/bin"
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:${PATH}"
 #export PATH="${PATH}:$HOME/.nodebrew/current/bin"
 #export PATH="${PATH}:$HOME/.rbenv/bin"
 #export PATH="${PATH}:$HOME/.plenv/bin"

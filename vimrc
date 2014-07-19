@@ -29,6 +29,7 @@ NeoBundle 'vim-scripts/L9'
 NeoBundle 'vim-scripts/FuzzyFinder'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'fatih/vim-go'
+NeoBundle 'kchmck/vim-coffee-script'
 
 " カラースキーム
 NeoBundle 'altercation/vim-colors-solarized'
