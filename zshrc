@@ -40,9 +40,6 @@ export EDITOR=vim
 export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:${PATH}"
 export PATH="/usr/local/app/vim74/bin:${PATH}"
 export PATH="${PATH}:/opt/local/bin:/opt/local/sbin:/usr/local/bin"
-#export PATH="${PATH}:$HOME/.nodebrew/current/bin"
-#export PATH="${PATH}:$HOME/.rbenv/bin"
-#export PATH="${PATH}:$HOME/.plenv/bin"
 export PATH="${PATH}:/usr/local/share/python"
 export PATH="${PATH}:$HOME/.bist/bin"
 export PATH="${PATH}:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
@@ -52,24 +49,21 @@ export PATH="${PATH}:$GRADLE_HOME/bin"
 export PATH="${PATH}:$HOME/bin/gsutil"
 export PATH="${PATH}:$HOME/bin"
 
-# anyenv
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
-
 export GOROOT=`go env GOROOT`
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-if [ -x "`which plenv`" ]; then
-  eval "$(plenv init -)"
+# anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
+if [ -x "`which anyenv`" ]; then
+  eval "$(anyenv init -)"
+  for D in `ls $HOME/.anyenv/envs`
+  do
+    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
+  done
 fi
 
-[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
-
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
-
-#export WORKON_HOME=$HOME/.virtualenvs
-#. /usr/local/share/python/virtualenvwrapper.sh
 
 export TERM=screen-256color
 
