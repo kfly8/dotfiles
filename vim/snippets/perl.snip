@@ -1,39 +1,22 @@
 snippet u
     #!/usr/bin/env perl
-    use 5.10.0;
     use strict;
     use warnings;
     use utf8;
 
+snippet th
+    use Time::HiRes qw/ gettimeofday tv_interval /;
+    my $t${1} = [ gettimeofday ];
+
+    warn tv_interval($t${1});
+
+snippet dkyt
+    use Devel::KYTProf;
+    #Devel::KYTProf->threshold(10); #ms
+
 snippet d
-    use Data::Dump qw(dump);
-    warn dump ${1}
-
-snippet dd
     use Data::Dumper;
-    local $Data::Dumper::Indent = 1;
-    local $Data::Dumper::Terse  = 1;
     warn Dumper ${1}
-
-snippet ddd
-    use Data::Dumper;
-    local $Data::Dumper::Indent = 1;
-    local $Data::Dumper::Terse  = 1;
-    die Dumper ${1}
-
-snippet dds
-    use Data::Dump::Streamer qw(Dumper);
-    warn Dumper 
-
-snippet new
-    sub new {
-        my $class = shift;
-        my $args = ref $_[0] ? $_[0] : +{@_};
-
-        ${1:code}
-
-        bless $args, $class;
-    }
 
 snippet test
     use strict;
@@ -51,26 +34,15 @@ snippet subtest
         ${2:code}
     };
 
-snippet s
-    my ($self,) = @_;
-
-snippet try
-    try {
-
-    }
-    catch {
-        my $e = $_;
-        if ( ref($e) && $e->isa(${1}) ) {
-            return $c->redirect_error(common => 'ng_word'); ## throw response (exception)
-        }
-        else {
-            Carp::croak($e);
-        }
-    };
-
 snippet dv
     state $v = Data::Validator->new(
         ${1}
     )->with(qw/Method/);
     my($class, $args) = $v->validate(@_);
+
+snippet dvs
+    state $v = Data::Validator->new(
+        ${1}
+    )->with(qw/Method/);
+    my($self, $args) = $v->validate(@_);
 

@@ -121,10 +121,12 @@ bindkey -e
 
 function peco-snippets() {
 
-    local SNIPPETS=$(cat ~/.sheet_snippets | peco --query "$LBUFFER" | pbcopy)
+    #local SNIPPETS=$(cat ~/.sheet_snippets | peco --query "$LBUFFER" | pbcopy)
+    BUFFER=$(grep -v "^#" ~/.sheet_snippets | peco --query "$LBUFFER")
     zle clear-screen
 }
 zle -N peco-snippets
+bindkey '^[' peco-snippets
 
 function peco-select-history() {
     local tac
