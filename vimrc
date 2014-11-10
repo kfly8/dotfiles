@@ -536,3 +536,6 @@ function! PecoOpen()
 endfunction
 nnoremap <Leader>op :call PecoOpen()<CR>
 
+set path+=lib
+set path+=local/lib/perl5
+

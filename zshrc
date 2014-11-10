@@ -86,10 +86,6 @@ if [ -e ~/project/Dev/share/etc/mf-dev.zshrc ];then
     source ~/project/Dev/share/etc/mf-dev.zshrc
 fi
 
-if [ -e ~/.mf-k-kobayashi-dev.zshrc ];then
-    source ~/.mf-k-kobayashi-dev.zshrc
-fi
-
 # 文字コード周り
 export LANG=ja_JP.UTF-8
 export JLESSCHARSET=japanese
