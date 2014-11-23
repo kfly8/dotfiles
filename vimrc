@@ -30,6 +30,7 @@ NeoBundle 'vim-scripts/FuzzyFinder'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'y-uuki/perl-local-lib-path.vim'
 
 " カラースキーム
 NeoBundle 'altercation/vim-colors-solarized'
@@ -522,6 +523,12 @@ exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 
 set completeopt=menu,preview
 
+"----------------------------------------------------
+" Perl
+"----------------------------------------------------
+
+autocmd FileType perl PerlLocalLibPath
+
 
 "----------------------------------------------------
 " etc
@@ -536,6 +543,4 @@ function! PecoOpen()
 endfunction
 nnoremap <Leader>op :call PecoOpen()<CR>
 
-set path+=lib
-set path+=local/lib/perl5
 
