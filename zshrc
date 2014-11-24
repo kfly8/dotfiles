@@ -37,24 +37,9 @@ export ANDROID_HOME=$HOME/android/sdk
 export ANDROID_NDK_HOME=$HOME/android/ndk
 export EDITOR=vim
 
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:${PATH}"
-export PATH="/usr/local/app/vim74/bin:${PATH}"
-export PATH="${PATH}:/opt/local/bin:/opt/local/sbin:/usr/local/bin"
-export PATH="${PATH}:/usr/local/share/python"
-export PATH="${PATH}:$HOME/.bist/bin"
-export PATH="${PATH}:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
-export PATH="${PATH}:$ANDROID_NDK_HOME"
-export PATH="${PATH}:/usr/local/app/tmux/bin"
-export PATH="${PATH}:$GRADLE_HOME/bin"
-export PATH="${PATH}:$HOME/bin/gsutil"
-export PATH="${PATH}:$HOME/bin"
-
-export GOROOT=`go env GOROOT`
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
+
 if [ -x "`which anyenv`" ]; then
   eval "$(anyenv init -)"
   for D in `ls $HOME/.anyenv/envs`
@@ -62,6 +47,26 @@ if [ -x "`which anyenv`" ]; then
     export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
   done
 fi
+
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:${PATH}"
+#export PATH="/usr/local/app/vim74/bin:${PATH}"
+#export PATH="${PATH}:/opt/local/bin:/opt/local/sbin:/usr/local/bin"
+#export PATH="${PATH}:/usr/local/share/python"
+#export PATH="${PATH}:$HOME/.bist/bin"
+export PATH="${PATH}:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
+export PATH="${PATH}:$ANDROID_NDK_HOME"
+#export PATH="${PATH}:/usr/local/app/tmux/bin"
+export PATH="${PATH}:$GRADLE_HOME/bin"
+export PATH="${PATH}:$HOME/bin/gsutil"
+export PATH="${PATH}:$HOME/bin"
+#export PATH="/usr/local/app/tmux/bin:$PATH"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+export GOROOT=`go env GOROOT`
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 
@@ -98,21 +103,14 @@ SAVEHIST=10000
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
 
-export PATH="/usr/local/app/tmux/bin:$PATH"
 
 
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR JENV TO WORK!!!
-[[ -s "/Users/kentafly88/.jenv/bin/jenv-init.sh" ]] && source "/Users/kentafly88/.jenv/bin/jenv-init.sh" && source "/Users/kentafly88/.jenv/commands/completion.sh"
+#[[ -s "/Users/kentafly88/.jenv/bin/jenv-init.sh" ]] && source "/Users/kentafly88/.jenv/bin/jenv-init.sh" && source "/Users/kentafly88/.jenv/commands/completion.sh"
 
 
 export JIRA_HOME=$HOME/project/jira/home
-export EDITOR=vim
 bindkey -e
 
 function peco-snippets() {
@@ -153,3 +151,9 @@ bindkey '^]' peco-src
 
 # direnv
 eval "$(direnv hook zsh)"
+
+####################################
+# Perl
+####################################
+
+alias perldoc="perldoc -M Pod::Text::Color::Delight"

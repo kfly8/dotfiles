@@ -18,6 +18,12 @@ snippet d
     use Data::Dumper;
     warn Dumper ${1}
 
+snippet dd
+    use Data::Dumper;
+    warn '#########################';
+    warn Dumper ${1}
+    warn '#########################';
+
 snippet test
     use strict;
     use warnings;
@@ -45,4 +51,29 @@ snippet dvs
         ${1}
     )->with(qw/Method/);
     my($self, $args) = $v->validate(@_);
+
+snippet package
+    package ${1:`join([substitute(substitute(expand("%:h"), 'lib/', '', ''), '/', '::', 'g'), expand("%:t:r")], '::')`};
+    use strict;
+    use warnings;
+    use utf8;
+
+    ${4:code}
+
+    1;
+    __END__
+
+    =encoding utf-8
+
+    =head1 NAME
+
+    $1 - ${2:caption}
+
+    =head1 SYNOPSIS
+
+        use $1;
+
+    =head1 DESCRIPTION
+
+    $1 is ${3:description}
 

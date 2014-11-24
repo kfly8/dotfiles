@@ -529,7 +529,6 @@ set completeopt=menu,preview
 
 autocmd FileType perl PerlLocalLibPath
 
-
 "----------------------------------------------------
 " etc
 "----------------------------------------------------
@@ -542,5 +541,4 @@ function! PecoOpen()
   endfor
 endfunction
 nnoremap <Leader>op :call PecoOpen()<CR>
-
 
