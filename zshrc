@@ -149,11 +149,17 @@ function peco-src () {
 zle -N peco-src
 bindkey '^]' peco-src
 
-# direnv
-eval "$(direnv hook zsh)"
-
 ####################################
 # Perl
 ####################################
 
 alias perldoc="perldoc -M Pod::Text::Color::Delight"
+
+####################################
+# etc
+####################################
+
+if [ -x "`which direnv`" ]; then
+    eval "$(direnv hook zsh)"
+fi
+

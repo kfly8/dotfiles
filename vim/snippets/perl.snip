@@ -4,19 +4,16 @@ snippet u
     use warnings;
     use utf8;
 
-snippet th
-    use Time::HiRes qw/ gettimeofday tv_interval /;
-    my $t${1} = [ gettimeofday ];
-
-    warn tv_interval($t${1});
-
-snippet dkyt
-    use Devel::KYTProf;
-    #Devel::KYTProf->threshold(10); #ms
-
-snippet d
+snippet dd
     use Data::Dumper;
     warn Dumper ${1}
+
+snippet ddd
+    use Data::Dumper;
+    warn Dumper '###########...';
+    warn Dumper ${1}
+    warn Dumper '...###########';
+
 
 snippet dd
     use Data::Dumper;
@@ -30,7 +27,8 @@ snippet test
     use utf8;
     use Test::More;
 
-    subtest => sub {
+    subtest '${1}' => sub {
+        ${2:code}
     };
 
     done_testing;
