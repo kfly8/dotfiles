@@ -6,20 +6,14 @@ snippet u
 
 snippet dd
     use Data::Dumper;
-    warn Dumper ${1}
+    warn Dumper ${1};
+    warn Dumper '...###########';
 
 snippet ddd
     use Data::Dumper;
     warn Dumper '###########...';
-    warn Dumper ${1}
+    warn Dumper ${1};
     warn Dumper '...###########';
-
-
-snippet dd
-    use Data::Dumper;
-    warn '#########################';
-    warn Dumper ${1}
-    warn '#########################';
 
 snippet test
     use strict;
@@ -69,7 +63,7 @@ snippet package
 
     =head1 SYNOPSIS
 
-        use $1;
+          use $1;
 
     =head1 DESCRIPTION
 
