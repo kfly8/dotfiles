@@ -48,7 +48,7 @@ if [ -x "`which anyenv`" ]; then
   done
 fi
 
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:${PATH}"
+export PATH="/opt/local/bin:/opt/local/sbin:${PATH}:/usr/local/bin"
 #export PATH="/usr/local/app/vim74/bin:${PATH}"
 #export PATH="${PATH}:/opt/local/bin:/opt/local/sbin:/usr/local/bin"
 #export PATH="${PATH}:/usr/local/share/python"
@@ -156,10 +156,27 @@ bindkey '^]' peco-src
 alias perldoc="perldoc -M Pod::Text::Color::Delight"
 
 ####################################
+# mysql
+####################################
+
+function SELECT () {
+    mysql -uroot -e "SET NAMES utf8; SELECT $*"
+}
+
+
+function SHOW () {
+    mysql -uroot -e "SET NAMES utf8; SHOW $*"
+}
+
+alias SELECT="noglob SELECT"
+alias SHOW="noglob SHOW"
+
+####################################
 # etc
 ####################################
 
 if [ -x "`which direnv`" ]; then
     eval "$(direnv hook zsh)"
 fi
+
 
