@@ -301,6 +301,7 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 "----------------------------------------------------
 au BufRead,BufNewFile *.ejs  set filetype=html
 au BufRead,BufNewFile *.ctp  set filetype=html
+au BufRead,BufNewFile *.tx   set filetype=html
 au BufRead,BufNewFile *.psgi set filetype=perl
 au BufRead,BufNewFile *.t    set filetype=perl
 au BufRead,BufNewFile *.ts   set filetype=javascript
