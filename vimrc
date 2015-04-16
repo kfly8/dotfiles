@@ -3,56 +3,46 @@
 "----------------------------------------------------
 filetype off
 
-if has('vim_starting')
-    set runtimepath+=~/.vim/neobundle.vim/
-endif
-call neobundle#rc(expand('~/.vim/neobundle/'))
+call plug#begin('~/.vim/plugged/')
 
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'vim-perl/vim-perl'
-NeoBundle 'hotchpotch/perldoc-vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/vimfiler.git'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'motemen/git-vim'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'vim-scripts/Align'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'mattn/httpstatus-vim'
-NeoBundle 'c9s/perlomni.vim'
-NeoBundle 'vim-scripts/L9'
-NeoBundle 'vim-scripts/FuzzyFinder'
-NeoBundle 'glidenote/memolist.vim'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'y-uuki/perl-local-lib-path.vim'
+Plug 'Shougo/neobundle.vim'
+Plug 'Shougo/vimproc'
+Plug 'Shougo/vimshell'
+Plug 'Shougo/unite.vim'
+Plug 'vim-perl/vim-perl'
+Plug 'hotchpotch/perldoc-vim'
+Plug 'Shougo/neocomplcache'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/vimfiler.vim'
+Plug 'tpope/vim-surround'
+Plug 'motemen/git-vim'
+Plug 'thinca/vim-ref'
+Plug 'vim-scripts/Align'
+Plug 'thinca/vim-quickrun'
+Plug 'mattn/httpstatus-vim'
+Plug 'c9s/perlomni.vim'
+Plug 'vim-scripts/L9'
+Plug 'vim-scripts/FuzzyFinder'
+Plug 'glidenote/memolist.vim'
+Plug 'fatih/vim-go'
+Plug 'kchmck/vim-coffee-script'
+Plug 'y-uuki/perl-local-lib-path.vim'
 
 " カラースキーム
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'croaker/mustang-vim'
-NeoBundle 'jeffreyiacono/vim-colors-wombat'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'vim-scripts/Lucius'
-NeoBundle 'vim-scripts/Zenburn'
-NeoBundle 'mrkn/mrkn256.vim'
-NeoBundle 'jpo/vim-railscasts-theme'
-NeoBundle 'therubymug/vim-pyte'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'ujihisa/unite-colorscheme'
+Plug 'altercation/vim-colors-solarized'
+Plug 'croaker/mustang-vim'
+Plug 'jeffreyiacono/vim-colors-wombat'
+Plug 'nanotech/jellybeans.vim'
+Plug 'vim-scripts/Lucius'
+Plug 'vim-scripts/Zenburn'
+Plug 'mrkn/mrkn256.vim'
+Plug 'jpo/vim-railscasts-theme'
+Plug 'therubymug/vim-pyte'
+Plug 'tomasr/molokai'
+Plug 'ujihisa/unite-colorscheme'
 
-filetype plugin indent on
-
-if neobundle#exists_not_installed_bundles()
-  echomsg 'Not installed bundles : ' .
-              \ string(neobundle#get_not_installed_bundle_names())
-  echomsg 'Please execute ":NeoBundleInstall" command.'
-  "finish
-endif
+call plug#end()
 
 "----------------------------------------------------
 " 基本的な設定
