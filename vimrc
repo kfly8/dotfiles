@@ -535,3 +535,5 @@ function! PecoOpen()
 endfunction
 nnoremap <Leader>op :call PecoOpen()<CR>
 
+" clipboard
+set clipboard+=unnamed
