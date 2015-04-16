@@ -1,5 +1,5 @@
 "----------------------------------------------------
-" neobundle 
+" neobundle
 "----------------------------------------------------
 filetype off
 
@@ -28,6 +28,7 @@ Plug 'glidenote/memolist.vim'
 Plug 'fatih/vim-go'
 Plug 'kchmck/vim-coffee-script'
 Plug 'y-uuki/perl-local-lib-path.vim'
+Plug 'editorconfig/editorconfig-vim'
 
 " カラースキーム
 Plug 'altercation/vim-colors-solarized'
@@ -156,7 +157,7 @@ highlight StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
 " フォント設定
 if has('win32')
   " Windows用
-  set guifont=MS_Gothic:h10:cSHIFTJIS 
+  set guifont=MS_Gothic:h10:cSHIFTJIS
   " 行間隔の設定
   set linespace=1
   " 一部のUCS文字の幅を自動計測して決める
@@ -276,7 +277,7 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 "----------------------------------------------------
 " Screen title
 "----------------------------------------------------
-"let &titlestring = hostname() 
+"let &titlestring = hostname()
 "if &term == "screen"
 "    set t_ts=k
 "    set t_fs=\
