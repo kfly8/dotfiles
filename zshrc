@@ -48,7 +48,7 @@ if [ -x "`which anyenv`" ]; then
   done
 fi
 
-export PATH="/opt/local/bin:/opt/local/sbin:${PATH}:/usr/local/bin"
+export PATH="/usr/local/bin:/opt/local/bin:/opt/local/sbin:${PATH}"
 #export PATH="/usr/local/app/vim74/bin:${PATH}"
 #export PATH="${PATH}:/opt/local/bin:/opt/local/sbin:/usr/local/bin"
 #export PATH="${PATH}:/usr/local/share/python"
