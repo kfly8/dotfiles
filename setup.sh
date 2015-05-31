@@ -16,8 +16,3 @@ chmod +x ~/bin/diff-highlight
 
 go get github.com/nsf/gocode
 
-git submodule update --init
-vim +NeoBundleInstall! +qa
-
-cd vim/neobundle/vimproc
-make

@@ -7,27 +7,27 @@ zstyle ':completion:*:default' menu select=1
 # Initialize colors.
 autoload -U colors
 colors
- 
+
 # Allow for functions in the prompt.
 setopt PROMPT_SUBST
 
-# 
+#
 setopt nonomatch
- 
+
 # Autoload zsh functions.
 fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)
- 
+
 # Enable auto-execution of functions.
 typeset -ga preexec_functions
 typeset -ga precmd_functions
 typeset -ga chpwd_functions
- 
+
 # Append git functions needed for prompt.
 preexec_functions+='preexec_update_git_vars'
 precmd_functions+='precmd_update_git_vars'
 chpwd_functions+='chpwd_update_git_vars'
- 
+
 # Set the prompt.
 PROMPT=$'%{${fg[cyan]}%}%B%d%b$(prompt_git_info)%{${fg[default]}%} '
 
@@ -36,17 +36,6 @@ export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
 export ANDROID_HOME=$HOME/android/sdk
 export ANDROID_NDK_HOME=$HOME/android/ndk
 export EDITOR=vim
-
-# anyenv
-export PATH="$HOME/.anyenv/bin:$PATH"
-
-if [ -x "`which anyenv`" ]; then
-  eval "$(anyenv init -)"
-  for D in `ls $HOME/.anyenv/envs`
-  do
-    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
-  done
-fi
 
 export PATH="/usr/local/bin:/opt/local/bin:/opt/local/sbin:${PATH}"
 #export PATH="/usr/local/app/vim74/bin:${PATH}"
@@ -60,6 +49,17 @@ export PATH="${PATH}:$GRADLE_HOME/bin"
 export PATH="${PATH}:$HOME/bin/gsutil"
 export PATH="${PATH}:$HOME/bin"
 #export PATH="/usr/local/app/tmux/bin:$PATH"
+
+# anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
+
+if [ -x "`which anyenv`" ]; then
+  eval "$(anyenv init -)"
+  for D in `ls $HOME/.anyenv/envs`
+  do
+    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
+  done
+fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
