@@ -25,3 +25,13 @@ go get github.com/nsf/gocode
 
 rbenv install 2.2
 gem i rubocop
+
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install coreutils
+brew install lv
+brew install tmux
+brew install cmake
+brew install tree
+brew install mysql
+
+
