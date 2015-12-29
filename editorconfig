@@ -21,4 +21,15 @@ indent_size = 2
 indent_style = space
 indent_size = 4
 
+[*.pl]
+indent_style = space
+indent_size = 4
+
+[*.rb]
+indent_style = space
+indent_size = 2
+
+[*.cr]
+indent_style = space
+indent_size = 2
 

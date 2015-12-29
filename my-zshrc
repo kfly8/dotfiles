@@ -1,0 +1,88 @@
+export PATH="${PATH}:$HOME/bin"
+export PATH="${PATH}:$HOME/bin/mysql-build/bin"
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
+
+if [ -x "`which anyenv`" ]; then
+  eval "$(anyenv init -)"
+  for D in `ls $HOME/.anyenv/envs`
+  do
+    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
+  done
+fi
+
+export GOROOT=`go env GOROOT`
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+# functions
+
+function peco-snippets() {
+
+    #local SNIPPETS=$(cat ~/.sheet_snippets | peco --query "$LBUFFER" | pbcopy)
+    BUFFER=$(grep -v "^#" ~/.sheet_snippets | peco --query "$LBUFFER")
+    zle clear-screen
+}
+zle -N peco-snippets
+bindkey '^[' peco-snippets
+
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+    eval $tac | \
+            peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+function peco-src () {
+    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
+
+####################################
+# Perl
+####################################
+
+alias perldoc="perldoc -M Pod::Text::Color::Delight"
+
+####################################
+# mysql
+####################################
+
+function SELECT () {
+    mysql -uroot -e "SET NAMES utf8; SELECT $*"
+}
+
+
+function SHOW () {
+    mysql -uroot -e "SET NAMES utf8; SHOW $*"
+}
+
+alias SELECT="noglob SELECT"
+alias SHOW="noglob SHOW"
+
+####################################
+# etc
+####################################
+
+if [ -x "`which direnv`" ]; then
+    eval "$(direnv hook zsh)"
+fi
+

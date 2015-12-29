@@ -29,6 +29,14 @@ Plug 'fatih/vim-go'
 Plug 'kchmck/vim-coffee-script'
 Plug 'y-uuki/perl-local-lib-path.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-endwise'
+Plug 'rhysd/vim-crystal'
+Plug 'vim-scripts/ruby-matchit'
+Plug 'marcus/rsense'
+Plug 'supermomonga/neocomplete-rsense.vim'
+Plug 'scrooloose/syntastic'
+Plug 'szw/vim-tags'
 
 " カラースキーム
 Plug 'altercation/vim-colors-solarized'
@@ -184,10 +192,10 @@ set noautoindent
 " タブが対応する空白の数
 set tabstop=2
 " タブやバックスペースの使用等の編集操作をするときに、タブが対応する空白の数
-set softtabstop=4
+set softtabstop=2
 " インデントの各段階に使われる空白の数
-set shiftwidth=4
-" タブを挿入するとき、代わりに空白を使わない
+set shiftwidth=2
+" タブを挿入するとき、代わりに空白を使う
 set expandtab
 
 "----------------------------------------------------
@@ -293,6 +301,7 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 au BufRead,BufNewFile *.ejs  set filetype=html
 au BufRead,BufNewFile *.ctp  set filetype=html
 au BufRead,BufNewFile *.tx   set filetype=html
+au BufRead,BufNewFile *.erb  set filetype=html
 au BufRead,BufNewFile *.psgi set filetype=perl
 au BufRead,BufNewFile *.t    set filetype=perl
 au BufRead,BufNewFile *.ts   set filetype=javascript
@@ -402,7 +411,9 @@ endif
 " Snippets
 "----------------------------------------------------
 let g:neocomplcache_ctags_arguments_list = {
-   \ 'perl' : '-R -h ".pm"'
+   \ 'perl' : '-R -h ".pm"',
+   \ 'ruby' : '-R -h ".rb"',
+   \ 'crystal' : '-R -h ".cr"',
    \ }
 
 let g:neosnippet#snippets_directory = "~/.vim/snippets"
@@ -521,6 +532,22 @@ set completeopt=menu,preview
 
 let g:perl_local_lib_path = 't/lib'
 autocmd FileType perl PerlLocalLibPath
+
+"----------------------------------------------------
+" Ruby
+"----------------------------------------------------
+
+let g:rsenseHome = '/usr/local/lib/rsense-0.3'
+let g:rsenseUseOmniFunc = 1
+
+" --------------------------------
+" rubocop
+" --------------------------------
+" syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
+" active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
+"let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+"let g:syntastic_ruby_checkers = ['rubocop']
+
 
 "----------------------------------------------------
 " etc

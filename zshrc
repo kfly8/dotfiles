@@ -1,182 +1,91 @@
-autoload -U compinit
-compinit
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 
-zstyle ':completion:*' list-colors 'di=36' 'ln=35'
-zstyle ':completion:*:default' menu select=1
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="robbyrussell"
 
-# Initialize colors.
-autoload -U colors
-colors
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# Allow for functions in the prompt.
-setopt PROMPT_SUBST
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+# User configuration
+
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
 #
-setopt nonomatch
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+#
 
-# Autoload zsh functions.
-fpath=(~/.zsh/functions $fpath)
-autoload -U ~/.zsh/functions/*(:t)
-
-# Enable auto-execution of functions.
-typeset -ga preexec_functions
-typeset -ga precmd_functions
-typeset -ga chpwd_functions
-
-# Append git functions needed for prompt.
-preexec_functions+='preexec_update_git_vars'
-precmd_functions+='precmd_update_git_vars'
-chpwd_functions+='chpwd_update_git_vars'
-
-# Set the prompt.
-PROMPT=$'%{${fg[cyan]}%}%B%d%b$(prompt_git_info)%{${fg[default]}%} '
-
-export MANPATH=$MANPATH:/opt/local/share/man
-export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
-export ANDROID_HOME=$HOME/android/sdk
-export ANDROID_NDK_HOME=$HOME/android/ndk
-export EDITOR=vim
-
-export PATH="/usr/local/bin:/opt/local/bin:/opt/local/sbin:${PATH}"
-#export PATH="/usr/local/app/vim74/bin:${PATH}"
-#export PATH="${PATH}:/opt/local/bin:/opt/local/sbin:/usr/local/bin"
-#export PATH="${PATH}:/usr/local/share/python"
-#export PATH="${PATH}:$HOME/.bist/bin"
-export PATH="${PATH}:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
-export PATH="${PATH}:$ANDROID_NDK_HOME"
-#export PATH="${PATH}:/usr/local/app/tmux/bin"
-export PATH="${PATH}:$GRADLE_HOME/bin"
-export PATH="${PATH}:$HOME/bin/gsutil"
-export PATH="${PATH}:$HOME/bin"
-#export PATH="/usr/local/app/tmux/bin:$PATH"
-
-# anyenv
-export PATH="$HOME/.anyenv/bin:$PATH"
-
-if [ -x "`which anyenv`" ]; then
-  eval "$(anyenv init -)"
-  for D in `ls $HOME/.anyenv/envs`
-  do
-    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
-  done
-fi
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-export GOROOT=`go env GOROOT`
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
-export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
-
-export TERM=screen-256color
-
-source "$HOME/.zsh/hook.zshrc"
-
-# alias
-
-case "$OSTYPE" in
-    darwin*)
-        alias ls="gls"
-        ;;
-    linux*)
-        alias ls="ls"
-        ;;
-esac
-alias ll="ls -lhbF --color=auto"
-alias la="ls -lhbFa --color=auto"
-
-if [ -e ~/project/Dev/share/etc/mf-dev.zshrc ];then
-    source ~/project/Dev/share/etc/mf-dev.zshrc
-fi
-
-# 文字コード周り
-export LANG=ja_JP.UTF-8
-export JLESSCHARSET=japanese
-export LANGUAGE=ja_JP.UTF-8
-
-# history
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt hist_ignore_dups     # ignore duplication command history list
-setopt share_history        # share command history data
-
-
-
-
-#THIS MUST BE AT THE END OF THE FILE FOR JENV TO WORK!!!
-#[[ -s "/Users/kentafly88/.jenv/bin/jenv-init.sh" ]] && source "/Users/kentafly88/.jenv/bin/jenv-init.sh" && source "/Users/kentafly88/.jenv/commands/completion.sh"
-
-
-export JIRA_HOME=$HOME/project/jira/home
-bindkey -e
-
-function peco-snippets() {
-
-    #local SNIPPETS=$(cat ~/.sheet_snippets | peco --query "$LBUFFER" | pbcopy)
-    BUFFER=$(grep -v "^#" ~/.sheet_snippets | peco --query "$LBUFFER")
-    zle clear-screen
-}
-zle -N peco-snippets
-bindkey '^[' peco-snippets
-
-function peco-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(history -n 1 | \
-    eval $tac | \
-            peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle clear-screen
-}
-zle -N peco-select-history
-bindkey '^r' peco-select-history
-
-function peco-src () {
-    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    fi
-    zle clear-screen
-}
-zle -N peco-src
-bindkey '^]' peco-src
-
-####################################
-# Perl
-####################################
-
-alias perldoc="perldoc -M Pod::Text::Color::Delight"
-
-####################################
-# mysql
-####################################
-
-function SELECT () {
-    mysql -uroot -e "SET NAMES utf8; SELECT $*"
-}
-
-
-function SHOW () {
-    mysql -uroot -e "SET NAMES utf8; SHOW $*"
-}
-
-alias SELECT="noglob SELECT"
-alias SHOW="noglob SHOW"
-
-####################################
-# etc
-####################################
-
-if [ -x "`which direnv`" ]; then
-    eval "$(direnv hook zsh)"
-fi
-
+###############################
+# my setting
+###############################
+source $HOME/dotfiles/my-zshrc
 

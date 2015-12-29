@@ -1,0 +1,15 @@
+
+
+
+coreutils
+lv
+tmux
+cmake
+tree
+
+
+# XXX: mysql-build を利用したい
+mysql
+
+
+
