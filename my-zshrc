@@ -15,8 +15,9 @@ if [ -x "`which anyenv`" ]; then
 fi
 
 export GOROOT=`go env GOROOT`
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export GOPATH=$HOME/dev
+
+export PATH="$GOPATH/bin:$PATH"
 
 # functions
 
@@ -54,7 +55,7 @@ function peco-src () {
     zle clear-screen
 }
 zle -N peco-src
-bindkey '^]' peco-src
+bindkey '^f' peco-src
 
 ####################################
 # Perl

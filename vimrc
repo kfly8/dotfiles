@@ -1,17 +1,17 @@
 "----------------------------------------------------
-" neobundle
+" Plugin
 "----------------------------------------------------
 filetype off
 
 call plug#begin('~/.vim/plugged/')
 
 Plug 'Shougo/neobundle.vim'
-Plug 'Shougo/vimproc'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell'
 Plug 'Shougo/unite.vim'
 Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
 Plug 'hotchpotch/perldoc-vim'
-Plug 'Shougo/neocomplcache'
+Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimfiler.vim'
@@ -34,9 +34,10 @@ Plug 'tpope/vim-endwise'
 Plug 'rhysd/vim-crystal'
 Plug 'vim-scripts/ruby-matchit'
 Plug 'marcus/rsense'
-Plug 'supermomonga/neocomplete-rsense.vim'
 Plug 'scrooloose/syntastic'
 Plug 'szw/vim-tags'
+Plug 'majutsushi/tagbar'
+Plug 'jiangmiao/auto-pairs'
 
 " カラースキーム
 Plug 'altercation/vim-colors-solarized'
@@ -53,9 +54,10 @@ Plug 'ujihisa/unite-colorscheme'
 
 call plug#end()
 
-"----------------------------------------------------
+"------------------------------------------------------------------------
 " 基本的な設定
-"----------------------------------------------------
+"------------------------------------------------------------------------
+
 " viとの互換性をとらない(vimの独自拡張機能を使う為)
 set nocompatible
 " 改行コードの自動認識
@@ -154,9 +156,6 @@ match ZenkakuSpace /　/
 " 全角記号
 set ambiwidth=double
 
-"highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
-"match ZenkakuSpace /　/
-
 " ステータスラインに表示する情報の指定
 set statusline=%n\:%y%F\ \|%{(&fenc!=''?&fenc:&enc).'\|'.&ff.'\|'}%m%r%=<%l/%L:%p%%>
 " ステータスラインの色
@@ -209,91 +208,21 @@ set fileencoding=utf-8
 set fileencodings=utf-8,ucs-bom,euc-jp,cp932,iso-2022-jp
 set fileencodings+=,ucs-2le,ucs-2
 
-"----------------------------------------------------
-" オートコマンド
-"----------------------------------------------------
-if has("autocmd")
-	"" ファイルタイプ別インデント、プラグインを有効にする
-	"filetype plugin indent on
-	" カーソル位置を記憶する
-	autocmd BufReadPost *
-		\ if line("'\"") > 0 && line("'\"") <= line("$") |
-		\   exe "normal g`\"" |
-		\ endif
-	" 入力モード時、ステータスラインのカラーを変更
-	augroup InsertHook
-	autocmd!
-	autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
-	autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
-	augroup END
-	" 日本語入力をリセット
-	autocmd BufNewFile,BufRead * set iminsert=0
-endif
-
-
-
-"----------------------------------------------------
-" PHP
-"----------------------------------------------------
-" シンタックスハイライト（PHP）を有効にする
-"set syntax=php
-
-" PHP辞書を取得
-"autocmd FileType php setlocal dictionary=~/.vim/dict/PHP.dict
-"
-" PHP Lint
-"nmap ,l :call PHPLint()<CR>
-
-""
-" PHPLint
-"
-" @author halt feits <halt.feits at gmail.com>
-"
-"function PHPLint()
-"  let result = system( &ft . ' -l ' . bufname(""))
-"  echo result
-"endfunction
-
-"----------------------------------------------------
-" その他
-"----------------------------------------------------
-" バッファを切替えてもundoの効力を失わない
-set hidden
-
-
-" 起動時のメッセージを表示しない
-"set shortmess+=I
-
-"----------------------------------------------------
-" omni 補完
-"----------------------------------------------------
-function InsertTabWrapper()
-    if pumvisible()
-        return "\<c-n>"
-    endif
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k\|<\|/'
-        return "\<tab>"
-    elseif exists('&omnifunc') && &omnifunc == ''
-        return "\<c-n>"
-    else
-        return "\<c-x>\<c-o>"
-    endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-
-"----------------------------------------------------
-" Screen title
-"----------------------------------------------------
-"let &titlestring = hostname()
-"if &term == "screen"
-"    set t_ts=k
-"    set t_fs=\
-"endif
-"if &term == "screen" || &term == "xterm"
-"    set title
-"endif
-"
+" ファイルタイプ別インデント、プラグインを有効にする
+"filetype plugin indent on
+" カーソル位置を記憶する
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
+" 入力モード時、ステータスラインのカラーを変更
+augroup InsertHook
+autocmd!
+autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
+autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
+augroup END
+" 日本語入力をリセット
+autocmd BufNewFile,BufRead * set iminsert=0
 
 "----------------------------------------------------
 " File type
@@ -306,86 +235,82 @@ au BufRead,BufNewFile *.psgi set filetype=perl
 au BufRead,BufNewFile *.t    set filetype=perl
 au BufRead,BufNewFile *.ts   set filetype=javascript
 
+
 "----------------------------------------------------
-" neocomplecache
+" その他
+"----------------------------------------------------
+
+" clipboard
+set clipboard+=unnamed
+
+" バッファを切替えてもundoの効力を失わない
+set hidden
+
+filetype plugin on
+
+" 起動時のメッセージを表示しない
+"set shortmess+=I
+
+
+
+
+"------------------------------------------------------------------------
+" Plugin Config
+"------------------------------------------------------------------------
+
+"----------------------------------------------------
+" neocomplete
 "----------------------------------------------------
 
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
+let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Enable heavy features.
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
+let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions',
-    \ 'perl'     : $HOME.'/.vim/dict/perl.dict',
-    \ 'PHP'      : $HOME.'/.vim/dict/PHP.dict',
+    \ 'perl'     : $HOME.'/.vim/dict/perl.dict'
     \ }
 
-
-" Select with <TAB>
-"inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
 " Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-let g:neocomplcache_keyword_patterns = {}
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
 endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
   " For no inserting <CR> key.
-  "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
-
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup()
-: "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplcache_enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplcache_enable_insert_char_pre = 1
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
 " AutoComplPop like behavior.
-"let g:neocomplcache_enable_auto_select = 1
+"let g:neocomplete#enable_auto_select = 1
 
 " Shell like behavior(not recommended).
 "set completeopt+=longest
-"let g:neocomplcache_enable_auto_select = 1
-"let g:neocomplcache_disable_auto_complete = 1
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
@@ -396,21 +321,24 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
 endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
-"----------------------------------------------------
-" Javascript
-"----------------------------------------------------
-"let g:jscomplete_use = ['dom', 'moz', 'es6th']
-" 折りたたみ
-"au FileType javascript call JavaScriptFold()
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+" https://github.com/Shougo/neocomplete.vim/issues/29#issuecomment-20654987
+let g:neocomplete#sources#omni#input_patterns.go = '[^.[:digit:] *\t]\.\w*'
 
 "----------------------------------------------------
 " Snippets
 "----------------------------------------------------
-let g:neocomplcache_ctags_arguments_list = {
+let g:neocomplete_ctags_arguments_list = {
    \ 'perl' : '-R -h ".pm"',
    \ 'ruby' : '-R -h ".rb"',
    \ 'crystal' : '-R -h ".cr"',
@@ -422,6 +350,8 @@ let g:neosnippet#snippets_directory = "~/.vim/snippets"
 " TABでスニペットを展開
 imap <C-k> <plug>(neosnippet_expand_or_jump)
 smap <C-k> <plug>(neosnippet_expand_or_jump)
+
+
 
 "----------------------------------------------------
 " unite.vim
@@ -519,12 +449,72 @@ let g:fuf_mrufile_maxItem = 2000
 let g:fuf_enumeratingLimit = 20
 
 "----------------------------------------------------
+" tagbar
+"----------------------------------------------------
+
+nmap <F8> :TagbarToggle<CR>
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+    \ }
+
+
+"------------------------------------------------------------------------
+" Language
+"------------------------------------------------------------------------
+
+"----------------------------------------------------
 " golang
 "----------------------------------------------------
-set rtp+=$GOROOT/misc/vim
-exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 
-set completeopt=menu,preview
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+autocmd FileType go :match goErr /\<err\>/
+
+function! s:my_set_go_path()
+  set path +=$GOPATH/src/**
+  let gover  = systemlist('goenv version')[0]
+  let gopath = '~/.anyenv/envs/goenv/versions/'. gover. '/src/**'
+  exe "set path +=".gopath
+endfunction
+
+autocmd FileType go call s:my_set_go_path()
 
 "----------------------------------------------------
 " Perl
@@ -540,27 +530,3 @@ autocmd FileType perl PerlLocalLibPath
 let g:rsenseHome = '/usr/local/lib/rsense-0.3'
 let g:rsenseUseOmniFunc = 1
 
-" --------------------------------
-" rubocop
-" --------------------------------
-" syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
-" active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
-"let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
-"let g:syntastic_ruby_checkers = ['rubocop']
-
-
-"----------------------------------------------------
-" etc
-"----------------------------------------------------
-
-:nnoremap <F8> :setl noai nocin nosi inde=<CR>
-
-function! PecoOpen()
-  for filename in split(system("find . -type f | peco"), "\n")
-    execute "e" filename
-  endfor
-endfunction
-nnoremap <Leader>op :call PecoOpen()<CR>
-
-" clipboard
-set clipboard+=unnamed

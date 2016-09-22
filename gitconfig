@@ -19,7 +19,7 @@
   branch = auto
   ui = always
 [core]
-  excludesfile = ~/project/dotfiles/git/gitignore
+	excludesfile = /Users/kfly8/.gitignore
   editor = "vim -u NONE -i NONE -N -c 'syntax on' \"+e ++enc=utf-8\"" # force encoding utf-8 in log message.
   pager = "lv -c"
 [user]
@@ -47,5 +47,4 @@
   show = diff-highlight | less
   diff = diff-highlight | less
 [ghq]
-  root = ~/.ghq
-  root = ~/.go/src
+  root = ~/dev/src
