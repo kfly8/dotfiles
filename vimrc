@@ -5,50 +5,38 @@ filetype off
 
 call plug#begin('~/.vim/plugged/')
 
-Plug 'Shougo/neobundle.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell'
 Plug 'Shougo/unite.vim'
-Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
-Plug 'hotchpotch/perldoc-vim'
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimfiler.vim'
-Plug 'tpope/vim-surround'
-Plug 'motemen/git-vim'
-Plug 'thinca/vim-ref'
 Plug 'vim-scripts/Align'
-Plug 'thinca/vim-quickrun'
-Plug 'mattn/httpstatus-vim'
-Plug 'c9s/perlomni.vim'
-Plug 'vim-scripts/L9'
-Plug 'vim-scripts/FuzzyFinder'
-Plug 'glidenote/memolist.vim'
-Plug 'fatih/vim-go'
-Plug 'kchmck/vim-coffee-script'
-Plug 'y-uuki/perl-local-lib-path.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-endwise'
-Plug 'rhysd/vim-crystal'
-Plug 'vim-scripts/ruby-matchit'
-Plug 'marcus/rsense'
 Plug 'scrooloose/syntastic'
 Plug 'szw/vim-tags'
 Plug 'majutsushi/tagbar'
 Plug 'jiangmiao/auto-pairs'
 
+" golang
+Plug 'fatih/vim-go'
+
+" Perl
+Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
+Plug 'c9s/perlomni.vim'
+Plug 'y-uuki/perl-local-lib-path.vim'
+
+" Ruby
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/ruby-matchit'
+Plug 'tpope/vim-endwise'
+Plug 'marcus/rsense'
+
+" Crystal
+Plug 'rhysd/vim-crystal'
+
 " カラースキーム
-Plug 'altercation/vim-colors-solarized'
-Plug 'croaker/mustang-vim'
-Plug 'jeffreyiacono/vim-colors-wombat'
-Plug 'nanotech/jellybeans.vim'
-Plug 'vim-scripts/Lucius'
-Plug 'vim-scripts/Zenburn'
-Plug 'mrkn/mrkn256.vim'
-Plug 'jpo/vim-railscasts-theme'
-Plug 'therubymug/vim-pyte'
 Plug 'tomasr/molokai'
 Plug 'ujihisa/unite-colorscheme'
 
@@ -412,13 +400,6 @@ nnoremap <silent> ,s :VimShell<CR>
 
 
 "----------------------------------------------------
-" quickrun
-"----------------------------------------------------
-set splitright "新しいウィンドウを右に開く
-let g:quickrun_config = {}
-let g:quickrun_config._ = {'runner' : 'vimproc'}
-
-"----------------------------------------------------
 " Align
 "----------------------------------------------------
 
@@ -432,21 +413,6 @@ vmap <Space>av  :<c-u>Align => isa default xor optional },
 " 三項演算子
 vmap <Space>a3  :<c-u>Align => = ? " : "
 
-
-"----------------------------------------------------
-" FuzzyFinder
-"----------------------------------------------------
-"
-nnoremap <unique> <silent> <C-S> :FufBuffer!<CR>
-nnoremap <unique> <silent> ef :FufFile!<CR>
-nnoremap <silent> eff :FufFile!<CR>
-nnoremap <silent> efm :FufMruFile!<CR>
-autocmd FileType fuf nmap <C-c> <ESC>
-let g:fuf_patternSeparator = ' '
-let g:fuf_modesDisable = ['mrucmd']
-let g:fuf_mrufile_exclude = '\v\~$|\.bak$|\.swp|\.howm$'
-let g:fuf_mrufile_maxItem = 2000
-let g:fuf_enumeratingLimit = 20
 
 "----------------------------------------------------
 " tagbar
