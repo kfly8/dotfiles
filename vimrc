@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged/')
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell'
 Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
@@ -16,8 +17,8 @@ Plug 'vim-scripts/Align'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/syntastic'
 Plug 'szw/vim-tags'
-Plug 'majutsushi/tagbar'
 Plug 'jiangmiao/auto-pairs'
+Plug 'thinca/vim-quickrun'
 
 " golang
 Plug 'fatih/vim-go'
@@ -240,7 +241,7 @@ filetype plugin on
 "set shortmess+=I
 
 
-
+let mapleader = "\<Space>"
 
 "------------------------------------------------------------------------
 " Plugin Config
@@ -340,34 +341,18 @@ imap <C-k> <plug>(neosnippet_expand_or_jump)
 smap <C-k> <plug>(neosnippet_expand_or_jump)
 
 
-
 "----------------------------------------------------
 " unite.vim
 "----------------------------------------------------
 " 入力モードで開始する
 "let g:unite_enable_start_insert=1
 " shortcut
-noremap <C-P> :Unite
+nnoremap <silent> <leader>u :Unite
 
-noremap <C-P>ref :Unite ref/
-
-
-" バッファ一覧
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-" ファイル一覧
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-" レジスタ一覧
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-" 最近使用したファイル一覧
-nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
-" ブックマーク一覧
-nnoremap <silent> ,uc :<C-u>Unite bookmark<CR>
-" ブックマーク追加
-nnoremap <silent> ,ua :<C-u>UniteBookmarkAdd<CR>
-" 常用セット
-nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
-" 全部乗せ
-nnoremap <silent> ,uall :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+" タブ一覧
+nnoremap <silent> <leader>ut :<C-u>Unite tab<CR>
+" バッファ一覧 + 最近使用したファイル一覧
+nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
 
 
 " ウィンドウを分割して開く
@@ -389,14 +374,14 @@ let g:vimfiler_as_default_explorer = 1
 "セーフモードを無効にした状態で起動しない
 let g:vimfiler_safe_mode_by_default = 0
 
-nnoremap <silent> ,f :VimFiler -split -simple -winwidth=35 -no-quit<CR>
+nnoremap <silent> <leader>f :VimFiler -split -simple -winwidth=25 -no-quit<CR>
 
 "----------------------------------------------------
 " vimshell
 "----------------------------------------------------
 
 " vimshell を起動
-nnoremap <silent> ,s :VimShell<CR>
+nnoremap <silent> <leader>s :VimShell<CR>
 
 
 "----------------------------------------------------
@@ -405,49 +390,24 @@ nnoremap <silent> ,s :VimShell<CR>
 
 let g:Align_xstrlen=3
 
-vmap <Space>a   :<c-u>Align
-vmap <Space>a;  :<c-u>Align ;
-vmap <Space>a=  :<c-u>Align =
-" Data::Validator
-vmap <Space>av  :<c-u>Align => isa default xor optional },
-" 三項演算子
-vmap <Space>a3  :<c-u>Align => = ? " : "
-
+vmap <leader>a   :<c-u>Align
 
 "----------------------------------------------------
-" tagbar
+" quickrun
 "----------------------------------------------------
 
-nmap <F8> :TagbarToggle<CR>
+let g:quickrun_config = {
+\   "_" : {
+\     "runner" : "vimproc",
+\     "runner/vimproc/updatetime" : 60,
+\     "hook/time/enable" : 1,
+\     "outputter/buffer/split" : ":botright 8sp",
+\     "outputter/buffer/close_on_empty" : 1
+\   }
+\ }
 
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-    \ }
-
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+nnoremap <silent> <leader>r :QuickRun<CR>
 
 "------------------------------------------------------------------------
 " Language
