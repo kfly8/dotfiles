@@ -19,6 +19,7 @@ Plug 'scrooloose/syntastic'
 Plug 'szw/vim-tags'
 Plug 'jiangmiao/auto-pairs'
 Plug 'thinca/vim-quickrun'
+Plug 'majutsushi/tagbar'
 
 " golang
 Plug 'fatih/vim-go'
