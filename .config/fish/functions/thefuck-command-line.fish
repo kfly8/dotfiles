@@ -1,0 +1,1 @@
+/Users/kentafly88/.config/fisherman/thefuck/functions/thefuck-command-line.fish

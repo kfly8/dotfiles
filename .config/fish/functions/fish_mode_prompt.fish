@@ -1,0 +1,1 @@
+/Users/kentafly88/.config/fisherman/bobthefish/fish_mode_prompt.fish

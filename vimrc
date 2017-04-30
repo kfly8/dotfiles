@@ -8,7 +8,11 @@ call plug#begin('~/.vim/plugged/')
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell'
 Plug 'Shougo/unite.vim'
+<<<<<<< HEAD
 Plug 'Shougo/neomru.vim'
+=======
+Plug 'ctrlpvim/ctrlp.vim'
+>>>>>>> update
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
@@ -20,6 +24,7 @@ Plug 'szw/vim-tags'
 Plug 'jiangmiao/auto-pairs'
 Plug 'thinca/vim-quickrun'
 Plug 'majutsushi/tagbar'
+Plug 'vim-airline'
 
 " golang
 Plug 'fatih/vim-go'
@@ -37,6 +42,9 @@ Plug 'marcus/rsense'
 
 " Crystal
 Plug 'rhysd/vim-crystal'
+
+" Javascript
+Plug 'posva/vim-vue'
 
 " カラースキーム
 Plug 'tomasr/molokai'
@@ -230,9 +238,6 @@ au BufRead,BufNewFile *.ts   set filetype=javascript
 " その他
 "----------------------------------------------------
 
-" clipboard
-set clipboard+=unnamed
-
 " バッファを切替えてもundoの効力を失わない
 set hidden
 
@@ -341,6 +346,7 @@ let g:neosnippet#snippets_directory = "~/.vim/snippets"
 imap <C-k> <plug>(neosnippet_expand_or_jump)
 smap <C-k> <plug>(neosnippet_expand_or_jump)
 
+<<<<<<< HEAD
 
 "----------------------------------------------------
 " unite.vim
@@ -366,6 +372,8 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 
+=======
+>>>>>>> update
 "----------------------------------------------------
 " vimfiler
 "----------------------------------------------------
