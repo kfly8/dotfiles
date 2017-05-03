@@ -8,11 +8,8 @@ call plug#begin('~/.vim/plugged/')
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell'
 Plug 'Shougo/unite.vim'
-<<<<<<< HEAD
 Plug 'Shougo/neomru.vim'
-=======
 Plug 'ctrlpvim/ctrlp.vim'
->>>>>>> update
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
@@ -346,34 +343,6 @@ let g:neosnippet#snippets_directory = "~/.vim/snippets"
 imap <C-k> <plug>(neosnippet_expand_or_jump)
 smap <C-k> <plug>(neosnippet_expand_or_jump)
 
-<<<<<<< HEAD
-
-"----------------------------------------------------
-" unite.vim
-"----------------------------------------------------
-" 入力モードで開始する
-"let g:unite_enable_start_insert=1
-" shortcut
-nnoremap <silent> <leader>u :Unite
-
-" タブ一覧
-nnoremap <silent> <leader>ut :<C-u>Unite tab<CR>
-" バッファ一覧 + 最近使用したファイル一覧
-nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
-
-
-" ウィンドウを分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-" ウィンドウを縦に分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-" ESCキーを2回押すと終了する
-au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
-au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
-
-=======
->>>>>>> update
 "----------------------------------------------------
 " vimfiler
 "----------------------------------------------------

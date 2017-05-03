@@ -1,0 +1,1 @@
+/Users/kentafly88/.config/fisherman/pyenv/functions/pyenv.fish

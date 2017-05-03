@@ -1,0 +1,1 @@
+/Users/kentafly88/.config/fisherman/theme/theme.util.remove.current.fish

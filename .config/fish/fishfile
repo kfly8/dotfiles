@@ -1,10 +1,14 @@
+oh-my-fish/theme-agnoster
 fisherman/await
 edc/bass
-oh-my-fish/theme-bobthefish
+oh-my-fish/plugin-brew
 fisherman/fzf
 fisherman/get
 fisherman/getopts
 fisherman/last_job_id
+yoshiori/fish-peco_select_ghq_repository
 oh-my-fish/plugin-plenv
+fisherman/pyenv
 oh-my-fish/plugin-thefuck
+oh-my-fish/plugin-theme
 fisherman/z

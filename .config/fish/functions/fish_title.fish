@@ -1,1 +1,0 @@
-/Users/kentafly88/.config/fisherman/bobthefish/fish_title.fish

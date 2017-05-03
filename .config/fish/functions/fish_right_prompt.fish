@@ -1,1 +1,1 @@
-/Users/kentafly88/.config/fisherman/bobthefish/fish_right_prompt.fish
+/Users/kentafly88/.config/fisherman/agnoster/fish_right_prompt.fish
