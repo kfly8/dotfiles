@@ -1,5 +1,5 @@
-# theme
-#set fish_theme agnoster
+# alias
+alias rm='rmtrash'
 
 # peco
 function fish_user_key_bindings
