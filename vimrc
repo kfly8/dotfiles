@@ -26,6 +26,9 @@ Plug 'vim-airline'
 " golang
 Plug 'fatih/vim-go'
 
+" elixir
+Plug 'elixir-lang/vim-elixir'
+
 " Perl
 Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
 Plug 'c9s/perlomni.vim'
@@ -45,7 +48,6 @@ Plug 'posva/vim-vue'
 
 " カラースキーム
 Plug 'tomasr/molokai'
-Plug 'ujihisa/unite-colorscheme'
 
 call plug#end()
 
