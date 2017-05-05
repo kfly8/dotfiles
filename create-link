@@ -11,7 +11,4 @@ ln -s $PWD/tmux.conf    $HOME/.tmux.conf
 ln -s $PWD/peco         $HOME/.peco
 ln -s $PWD/editorconfig $HOME/.editorconfig
 ln -s $PWD/proverc      $HOME/.proverc
-
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew bundle install
-
+ln -s $PWD/Brewfile     $HOME/Brewfile

@@ -1,18 +1,24 @@
-# Installation 
+# Setup
 
+## Create dotfiles link
 
-## clone and setup
+```sh
+cd ~
+git clone https://github.com/kfly8/dotfiles.git
+cd dotfiles
+./create-link
+```
 
-  ```sh
-  cd ~
-  git clone https://github.com/kfly8/dotfiles.git 
-  cd dotfiles 
-  bash setup.sh
-  ```
+## [Homebrew](https://brew.sh)
 
-## memo
+```sh
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew bundle install
+```
 
-https://github.com/git/git/tree/master/contrib/diff-highlight
+## [iTerm2](https://www.iterm2.com/)
+
+Load Preferences `dotfiles/iTerm2/`
 
 ---------
 Suggestions/Improvements [welcome](https://github.com/kfly8/dotfiles/issues)
