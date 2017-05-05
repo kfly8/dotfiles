@@ -5,6 +5,7 @@ oh-my-fish/plugin-brew
 fisherman/fzf
 fisherman/get
 fisherman/getopts
+# https://gist.github.com/kfly8/c0bd4fa357257ceba036b6a6ed32c921
 fisherman/last_job_id
 yoshiori/fish-peco_select_ghq_repository
 oh-my-fish/plugin-plenv
