@@ -2,6 +2,7 @@ oh-my-fish/theme-agnoster
 fisherman/await
 edc/bass
 oh-my-fish/plugin-brew
+fisherman/exenv
 fisherman/fzf
 fisherman/get
 fisherman/getopts
