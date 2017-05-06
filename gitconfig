@@ -43,4 +43,4 @@
   autosetupmerge = false
   autosetuprebase = always
 [ghq]
-  root = ~/dev/src
+  root = ~/src
