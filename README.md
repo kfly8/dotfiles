@@ -3,7 +3,6 @@
 ## Create dotfiles link
 
 ```sh
-cd ~
 git clone https://github.com/kfly8/dotfiles.git
 cd dotfiles
 ./create-link
