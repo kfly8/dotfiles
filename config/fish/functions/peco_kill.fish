@@ -1,1 +1,0 @@
-/Users/kentafly88/.config/fisherman/peco/functions/peco_kill.fish

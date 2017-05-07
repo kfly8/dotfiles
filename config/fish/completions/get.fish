@@ -1,1 +1,0 @@
-/Users/kentafly88/.config/fisherman/get/completions/get.fish

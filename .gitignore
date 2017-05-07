@@ -2,3 +2,7 @@
 /vim/.netrwhist
 *.DS_Store
 *.swp
+/config/fish/fishd.*
+/config/fish/completions/*.fish
+/config/fish/conf.d/*.fish
+/config/fish/functions/*

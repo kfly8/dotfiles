@@ -1,1 +1,0 @@
-/Users/kentafly88/.config/fisherman/z/functions/__z_add.fish

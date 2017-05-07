@@ -1,1 +1,0 @@
-/Users/kentafly88/.config/fisherman/agnoster/fish_prompt.fish

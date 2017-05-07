@@ -1,1 +1,0 @@
-/Users/kentafly88/.config/fisherman/exenv/conf.d/exenv.fish
