@@ -19,6 +19,10 @@ brew bundle install
 
 Load Preferences `dotfiles/iTerm2/`
 
+## MySQL
+
+https://github.com/xaicron/mysqlenv
+
 # Vim
 
 ## Navigate

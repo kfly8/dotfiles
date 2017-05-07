@@ -7,6 +7,7 @@ fisherman/fzf
 fisherman/get
 fisherman/getopts
 fisherman/last_job_id
+oh-my-fish/plugin-peco
 yoshiori/fish-peco_select_ghq_repository
 oh-my-fish/plugin-plenv
 fisherman/pyenv

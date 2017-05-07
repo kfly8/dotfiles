@@ -7,6 +7,9 @@ set -x PATH $PATH $GOROOT/bin $GOPATH/bin
 set -x EXENV_ROOT (exenv ROOT)
 set -x PATH $PATH $EXENV_ROOT/bin
 
+# mysqlenv
+set -x PATH $PATH ~/.mysqlenv/bin ~/.mysqlenv/shims ~/.mysqlenv/mysql-build/bin
+
 # peco
 function fish_user_key_bindings
   bind \cr peco_select_history
