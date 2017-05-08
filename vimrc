@@ -16,14 +16,16 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimfiler.vim'
 Plug 'vim-scripts/Align'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'szw/vim-tags'
-Plug 'jiangmiao/auto-pairs'
 Plug 'thinca/vim-quickrun'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
 Plug '907th/vim-auto-save'
+Plug 'blueyed/vim-qf_resize'
 
 " Color Scheme
 Plug 'tomasr/molokai'
@@ -111,8 +113,6 @@ set nowrap
 
 highlight link ZenkakuSpace Error
 match ZenkakuSpace /　/
-
-set ambiwidth=double
 
 "----------------------------------------------------
 " Color Scheme
@@ -296,4 +296,26 @@ let g:auto_save_in_insert_mode = 0 " do not save while in insert mode
 let g:auto_save_events = ["InsertLeave", "TextChanged"]
 
 set updatetime=1000
+
+"----------------------------------------------------
+" ale
+"----------------------------------------------------
+
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_sign_column_always = 1
+let g:ale_keep_list_window_open = 1
+
+" hide quickfix statusline
+autocmd Filetype qf setlocal laststatus=0
+
+"----------------------------------------------------
+" airline
+"----------------------------------------------------
+
+let g:airline#extensions#ale#error_symbol = '⨉ '
+let g:airline#extensions#ale#warning_symbol = '⚠ '
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='molokai'
 
