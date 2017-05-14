@@ -6,3 +6,4 @@
 /config/fish/completions/*.fish
 /config/fish/conf.d/*.fish
 /config/fish/functions/*
+/config/fisherman/
