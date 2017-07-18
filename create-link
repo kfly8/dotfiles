@@ -2,6 +2,9 @@
 cd $(dirname $0)
 
 ln -s $PWD/config       $HOME/.config
+ln -s $PWD/zshenv       $HOME/.zshenv
+ln -s $PWD/zprofile     $HOME/.zprofile
+ln -s $PWD/zshrc        $HOME/.zshrc
 ln -s $PWD/vimrc        $HOME/.vimrc
 ln -s $PWD/vim          $HOME/.vim
 ln -s $PWD/gitconfig    $HOME/.gitconfig
