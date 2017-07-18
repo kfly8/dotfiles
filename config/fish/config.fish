@@ -7,6 +7,10 @@ set -x PATH $PATH $GOROOT/bin $GOPATH/bin
 set -x EXENV_ROOT (exenv ROOT)
 set -x PATH $PATH $EXENV_ROOT/bin
 
+# ndenv
+set -x NDENV_ROOT (ndenv ROOT)
+set -x PATH $PATH $NDENV_ROOT/shims
+
 # mysqlenv
 set -x PATH $PATH ~/.mysqlenv/bin ~/.mysqlenv/shims ~/.mysqlenv/mysql-build/bin
 

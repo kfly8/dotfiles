@@ -14,8 +14,8 @@ let g:go_fmt_autosave = 1
 let g:go_fmt_command = "goimports"
 
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_autosave = 0
+"let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
 function! s:build_go_files()
   let l:file = expand('%')
