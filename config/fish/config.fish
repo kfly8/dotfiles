@@ -19,3 +19,6 @@ function fish_user_key_bindings
   bind \cr peco_select_history
   bind \cf peco_select_ghq_repository
 end
+
+# direnv
+eval (direnv hook fish)

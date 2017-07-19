@@ -39,4 +39,5 @@ brew 'plenv'
 brew 'pyenv'
 brew 'goenv'
 brew 'exenv'
+brew 'direnv'
 
