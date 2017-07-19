@@ -44,6 +44,7 @@ alias la="ls -lhbFa"
 # bindkey
 #----------------------
 
+bindkey -e
 bindkey '^r' peco-select-history
 bindkey '^f' peco-src
 
