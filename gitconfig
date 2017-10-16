@@ -19,7 +19,7 @@
   branch = auto
   ui = always
 [core]
-	excludesfile = /Users/kfly8/.gitignore
+	excludesfile = ~/.gitignore
   editor = "vim -u NONE -i NONE -N -c 'syntax on' \"+e ++enc=utf-8\"" # force encoding utf-8 in log message.
   pager = "lv -c"
 [user]
