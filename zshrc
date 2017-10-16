@@ -24,7 +24,6 @@ zplug "stedolan/jq", as:command, from:gh-r, rename-to:jq
 
 zplug "agnoster/agnoster-zsh-theme", as:theme
 
-
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
@@ -33,6 +32,19 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
+
+# redefine prompt_context for hiding user@hostname
+prompt_context () { }
+
+#----------------------
+# history
+#----------------------
+
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=100000
+SAVEHIST=100000
+setopt hist_ignore_dups
+setopt share_history
 
 #----------------------
 # alias
