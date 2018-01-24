@@ -1,0 +1,1 @@
+/Users/k-kobayashi/.vimrc

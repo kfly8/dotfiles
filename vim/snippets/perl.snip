@@ -1,5 +1,4 @@
 snippet u
-    #!/usr/bin/env perl
     use strict;
     use warnings;
     use utf8;
@@ -30,12 +29,6 @@ snippet dv
         ${1}
     )->with(qw/Method/);
     my($class, $args) = $v->validate(@_);
-
-snippet dvs
-    state $v = Data::Validator->new(
-        ${1}
-    )->with(qw/Method/);
-    my($self, $args) = $v->validate(@_);
 
 snippet package
     package ${1:`join([substitute(substitute(expand("%:h"), 'lib/', '', ''), '/', '::', 'g'), expand("%:t:r")], '::')`};

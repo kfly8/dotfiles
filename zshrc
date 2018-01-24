@@ -13,7 +13,7 @@ source ~/.zplug/init.zsh
 
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
 
-zplug "b4b4r07/enhancd", use:init.sh
+#zplug "b4b4r07/enhancd", use:init.sh
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"

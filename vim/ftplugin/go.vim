@@ -26,7 +26,7 @@ function! s:build_go_files()
   endif
 endfunction
 
-autocmd FileType go :highlight goErr cterm=bold ctermfg=214
-autocmd FileType go :match goErr /\<err\>/
+"autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+"autocmd FileType go :match goErr /\<err\>/
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>

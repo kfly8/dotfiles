@@ -18,10 +18,15 @@ if [[ ! -d ~/.plenv ]]; then
   git clone https://github.com/tokuhirom/plenv.git ~/.plenv
 fi
 
+if [[ ! -d ~/.rakudobrew ]]; then
+  git clone https://github.com/tadzik/rakudobrew.git ~/.rakudobrew
+fi
+
 eval "$(goenv init -)"
 eval "$(exenv init -)"
 eval "$(ndenv init -)"
 eval "$(plenv init -)"
+eval "$(rakudobrew init -)"
 
 
 #--------------------------

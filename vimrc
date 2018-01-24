@@ -1,10 +1,12 @@
 "----------------------------------------------------
 " Plugin
 "----------------------------------------------------
+
 filetype off
 
 call plug#begin('~/.vim/plugged/')
 
+Plug 'mhinz/vim-startify'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell'
 Plug 'Shougo/unite.vim'
@@ -14,7 +16,7 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimfiler.vim'
-Plug 'vim-scripts/Align'
+Plug 'junegunn/vim-easy-align'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'szw/vim-tags'
 Plug 'thinca/vim-quickrun'
@@ -24,10 +26,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
 Plug '907th/vim-auto-save'
-Plug 'blueyed/vim-qf_resize'
+"Plug 'blueyed/vim-qf_resize'
 
 " Color Scheme
 Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
 
 "---------------------
 " Plugin Language
@@ -41,7 +44,8 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 
 " Perl
-Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
+Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny signatures' }
+Plug 'c9s/perlomni.vim'
 Plug 'hotchpotch/perldoc-vim'
 Plug 'y-uuki/perl-local-lib-path.vim'
 
@@ -107,7 +111,7 @@ set hlsearch
 highlight Comment ctermfg=DarkCyan
 set wildmenu
 set textwidth=0
-set nowrap
+set wrap
 
 highlight link ZenkakuSpace Error
 match ZenkakuSpace /　/
@@ -116,7 +120,9 @@ match ZenkakuSpace /　/
 " Color Scheme
 "----------------------------------------------------
 set background=dark
-colorscheme molokai
+let g:gruvbox_contrast_dark = 'hard'
+"colorscheme molokai
+colorscheme gruvbox
 
 "----------------------------------------------------
 " Indent
@@ -163,6 +169,7 @@ inoremap <expr><C-g> neocomplete#undo_completion()
 inoremap <expr><C-l> neocomplete#complete_common_string()
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
+
 "----------------------------------------------------
 " neosnippet
 "----------------------------------------------------
@@ -187,12 +194,14 @@ nnoremap <silent> <leader>f :VimFiler -split -simple -winwidth=25 -no-quit<CR>
 nnoremap <silent> <leader>s :VimShell<CR>
 
 "----------------------------------------------------
-" Align
+" Easy Align
 "----------------------------------------------------
 
-let g:Align_xstrlen=3
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap <leader>a <Plug>(EasyAlign)
 
-vmap <leader>a   :<c-u>Align
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap <leader>a <Plug>(EasyAlign)
 
 
 "----------------------------------------------------
@@ -202,12 +211,19 @@ vmap <leader>a   :<c-u>Align
 let g:quickrun_config = {
 \   "_" : {
 \     "runner" : "vimproc",
-\     "runner/vimproc/updatetime" : 60,
 \     "hook/time/enable" : 1,
-\     "outputter/buffer/split" : ":botright 8sp",
-\     "outputter/buffer/close_on_empty" : 1
+\     'outputter' : 'error',
+\     'outputter/error/success' : 'buffer',
+\     'outputter/error/error'   : 'quickfix',
+\     "outputter/buffer/split" : "vertical :rightbelow 40sp",
 \   }
 \ }
+
+"let g:quickrun_config["perl"] = {
+"\   'cmdopt': '-Ilib',
+"\   'exec': 'carton exec perl %o %s',
+"\}
+
 
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 nnoremap <silent> <leader>r :QuickRun<CR>
