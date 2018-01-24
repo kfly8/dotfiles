@@ -21,12 +21,12 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'szw/vim-tags'
 Plug 'thinca/vim-quickrun'
 Plug 'majutsushi/tagbar'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
 Plug '907th/vim-auto-save'
 "Plug 'blueyed/vim-qf_resize'
+Plug 'w0rp/ale'
 
 " Color Scheme
 Plug 'tomasr/molokai'
@@ -44,7 +44,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 
 " Perl
-Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny signatures' }
+Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
 Plug 'c9s/perlomni.vim'
 Plug 'hotchpotch/perldoc-vim'
 Plug 'y-uuki/perl-local-lib-path.vim'
@@ -212,9 +212,6 @@ let g:quickrun_config = {
 \   "_" : {
 \     "runner" : "vimproc",
 \     "hook/time/enable" : 1,
-\     'outputter' : 'error',
-\     'outputter/error/success' : 'buffer',
-\     'outputter/error/error'   : 'quickfix',
 \     "outputter/buffer/split" : "vertical :rightbelow 40sp",
 \   }
 \ }
@@ -239,11 +236,18 @@ let g:auto_save_events = ["InsertLeave", "TextChanged"]
 set updatetime=100000
 
 "----------------------------------------------------
-" airline
+" ale
 "----------------------------------------------------
 
-let g:airline#extensions#ale#error_symbol = '⨉ '
-let g:airline#extensions#ale#warning_symbol = '⚠ '
+let g:ale_sign_column_always = 1
 
-let g:airline_powerline_fonts = 1
+let g:ale_linters = {
+\   'go' : ['gofmt', 'golint', 'go vet'],
+\   'perl': ['perl', 'perlcritic'],
+\   'javascript' : ['eslint', 'flow', 'jscs', 'jshint', 'standard', 'xo'],
+\}
+
+" Perl
+let g:ale_perl_perl_executable = 'perl'
+let g:ale_perl_perl_options = '-c -Mwarnings -Ilib'
 
