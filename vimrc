@@ -12,7 +12,9 @@ Plug 'Shougo/vimshell'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimfiler.vim'
@@ -57,8 +59,12 @@ Plug 'marcus/rsense'
 " Crystal
 Plug 'rhysd/vim-crystal'
 
-" Javascript
+" JavaScript
+Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue'
+
+" TypeScript
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
@@ -151,24 +157,18 @@ au BufRead,BufNewFile *.tx   set filetype=html
 au BufRead,BufNewFile *.erb  set filetype=html
 au BufRead,BufNewFile *.psgi set filetype=perl
 au BufRead,BufNewFile *.t    set filetype=perl
-au BufRead,BufNewFile *.ts   set filetype=javascript
 
 "------------------------------------------------------------------------
 " Plugin Config
 "------------------------------------------------------------------------
 
 "----------------------------------------------------
-" neocomplete
+" deoplete
 "----------------------------------------------------
 
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:deoplete#enable_at_startup = 1
 
-inoremap <expr><C-g> neocomplete#undo_completion()
-inoremap <expr><C-l> neocomplete#complete_common_string()
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
 
 "----------------------------------------------------
 " neosnippet
@@ -242,9 +242,7 @@ set updatetime=100000
 let g:ale_sign_column_always = 1
 
 let g:ale_linters = {
-\   'go' : ['gofmt', 'golint', 'go vet'],
 \   'perl': ['perl', 'perlcritic'],
-\   'javascript' : ['eslint', 'flow', 'jscs', 'jshint', 'standard', 'xo'],
 \}
 
 " Perl
