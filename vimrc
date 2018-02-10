@@ -2,36 +2,27 @@
 " Plugin
 "----------------------------------------------------
 
-filetype off
-
 call plug#begin('~/.vim/plugged/')
 
 Plug 'mhinz/vim-startify'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Shougo/vimshell'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/neomru.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Shougo/denite.nvim',
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'ctrlpvim/ctrlp.vim', { 'do': 'go get github.com/mattn/files' }
+Plug 'nixprime/cpsm', { 'do': './install.sh' }
+Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'szw/vim-tags'
 Plug 'thinca/vim-quickrun'
-Plug 'majutsushi/tagbar'
 Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-endwise'
-Plug '907th/vim-auto-save'
-"Plug 'blueyed/vim-qf_resize'
 Plug 'w0rp/ale'
 
 " Color Scheme
-Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
 
 "---------------------
@@ -47,7 +38,7 @@ Plug 'slashmili/alchemist.vim'
 
 " Perl
 Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
-Plug 'c9s/perlomni.vim'
+Plug 'kfly8/perlomni.vim'
 Plug 'hotchpotch/perldoc-vim'
 Plug 'y-uuki/perl-local-lib-path.vim'
 
@@ -67,8 +58,6 @@ Plug 'posva/vim-vue'
 Plug 'leafgarland/typescript-vim'
 
 call plug#end()
-
-filetype plugin on
 
 "------------------------------------------------------------------------
 " Common
@@ -122,13 +111,6 @@ set wrap
 highlight link ZenkakuSpace Error
 match ZenkakuSpace /　/
 
-"----------------------------------------------------
-" Color Scheme
-"----------------------------------------------------
-set background=dark
-let g:gruvbox_contrast_dark = 'hard'
-"colorscheme molokai
-colorscheme gruvbox
 
 "----------------------------------------------------
 " Indent
@@ -151,12 +133,14 @@ autocmd BufNewFile,BufRead * set iminsert=0
 "----------------------------------------------------
 " File type
 "----------------------------------------------------
-au BufRead,BufNewFile *.ejs  set filetype=html
-au BufRead,BufNewFile *.ctp  set filetype=html
-au BufRead,BufNewFile *.tx   set filetype=html
 au BufRead,BufNewFile *.erb  set filetype=html
 au BufRead,BufNewFile *.psgi set filetype=perl
 au BufRead,BufNewFile *.t    set filetype=perl
+
+"----------------------------------------------------
+" Color Scheme
+"----------------------------------------------------
+colorscheme gruvbox
 
 "------------------------------------------------------------------------
 " Plugin Config
@@ -168,7 +152,7 @@ au BufRead,BufNewFile *.t    set filetype=perl
 
 let g:deoplete#enable_at_startup = 1
 
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "----------------------------------------------------
 " neosnippet
@@ -181,17 +165,17 @@ smap <C-k> <plug>(neosnippet_expand_or_jump)
 "----------------------------------------------------
 " vimfiler
 "----------------------------------------------------
-let g:unite_source_file_mru_filename_format = ''
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 
-nnoremap <silent> <leader>f :VimFiler -split -simple -winwidth=25 -no-quit<CR>
+nnoremap <silent> <leader>f :VimFiler -split -simple -winwidth=40 -no-quit<CR>
 
-"----------------------------------------------------
-" vimshell
+"---------------------------------------------------
+" ctrlp
 "----------------------------------------------------
 
-nnoremap <silent> <leader>s :VimShell<CR>
+let g:ctrlp_user_command = 'files -a %s'
+let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 
 "----------------------------------------------------
 " Easy Align
@@ -221,19 +205,8 @@ let g:quickrun_config = {
 "\   'exec': 'carton exec perl %o %s',
 "\}
 
-
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 nnoremap <silent> <leader>r :QuickRun<CR>
-
-"----------------------------------------------------
-" auto save
-"----------------------------------------------------
-
-let g:auto_save = 0  " enable AutoSave on Vim startup
-let g:auto_save_in_insert_mode = 0 " do not save while in insert mode
-let g:auto_save_events = ["InsertLeave", "TextChanged"]
-
-set updatetime=100000
 
 "----------------------------------------------------
 " ale
