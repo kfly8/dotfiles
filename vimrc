@@ -4,7 +4,6 @@
 
 call plug#begin('~/.vim/plugged/')
 
-Plug 'mhinz/vim-startify'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/denite.nvim',
 Plug 'Shougo/deoplete.nvim'
@@ -21,6 +20,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'thinca/vim-quickrun'
 Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
+Plug 'thinca/vim-ref'
 
 " Color Scheme
 Plug 'morhetz/gruvbox'
@@ -38,14 +38,13 @@ Plug 'slashmili/alchemist.vim'
 
 " Perl
 Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
-Plug 'kfly8/perlomni.vim'
+"Plug 'kfly8/perlomni.vim'
 Plug 'hotchpotch/perldoc-vim'
 Plug 'y-uuki/perl-local-lib-path.vim'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/ruby-matchit'
-Plug 'marcus/rsense'
 
 " Crystal
 Plug 'rhysd/vim-crystal'

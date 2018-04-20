@@ -25,6 +25,10 @@ indent_size = 4
 indent_style = space
 indent_size = 4
 
+[*.t]
+indent_style = space
+indent_size = 4
+
 [*.rb]
 indent_style = space
 indent_size = 2
