@@ -19,7 +19,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'thinca/vim-quickrun'
 Plug 'itchyny/lightline.vim'
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
+Plug 'kfly8/ale' " perltidy PR
 Plug 'thinca/vim-ref'
 
 " Color Scheme
@@ -214,10 +215,17 @@ nnoremap <silent> <leader>r :QuickRun<CR>
 let g:ale_sign_column_always = 1
 
 let g:ale_linters = {
-\   'perl': ['perl', 'perlcritic'],
+\   'perl': ['perl', 'perlcritic']
 \}
+
+let g:ale_fixers = {
+\   'perl': ['perltidy']
+\}
+
+
+let g:ale_fix_on_save = 1
 
 " Perl
 let g:ale_perl_perl_executable = 'perl'
 let g:ale_perl_perl_options = '-c -Mwarnings -Ilib'
-
+let g:ale_perl_perltidy_options = ''
