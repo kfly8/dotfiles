@@ -5,7 +5,7 @@
 call plug#begin('~/.vim/plugged/')
 
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Shougo/denite.nvim',
+Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
@@ -13,15 +13,11 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'ctrlpvim/ctrlp.vim', { 'do': 'go get github.com/mattn/files' }
 Plug 'nixprime/cpsm', { 'do': './install.sh' }
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimfiler.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'thinca/vim-quickrun'
 Plug 'itchyny/lightline.vim'
 "Plug 'w0rp/ale'
 Plug 'kfly8/ale' " perltidy PR
-Plug 'thinca/vim-ref'
 
 " Color Scheme
 Plug 'morhetz/gruvbox'
@@ -31,31 +27,27 @@ Plug 'morhetz/gruvbox'
 "---------------------
 
 " Golang
-Plug 'fatih/vim-go', { 'do' : ':GoInstallBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 
 " elixir
-Plug 'elixir-lang/vim-elixir'
-Plug 'slashmili/alchemist.vim'
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 
 " Perl
 Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
-"Plug 'kfly8/perlomni.vim'
-Plug 'hotchpotch/perldoc-vim'
-Plug 'y-uuki/perl-local-lib-path.vim'
+Plug 'y-uuki/perl-local-lib-path.vim', { 'for': 'perl' }
 
 " Ruby
-Plug 'vim-ruby/vim-ruby'
-Plug 'vim-scripts/ruby-matchit'
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'vim-scripts/ruby-matchit', { 'for': 'ruby' }
 
 " Crystal
-Plug 'rhysd/vim-crystal'
+Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 
 " JavaScript
-Plug 'pangloss/vim-javascript'
-Plug 'posva/vim-vue'
-
-" TypeScript
-Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript'] }
+Plug 'posva/vim-vue', { 'for': ['javascript', 'typescript'] }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
 call plug#end()
 
