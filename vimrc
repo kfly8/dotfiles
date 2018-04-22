@@ -11,12 +11,13 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'junegunn/vim-easy-align'
-Plug 'thinca/vim-quickrun'
 Plug 'itchyny/lightline.vim'
 "Plug 'w0rp/ale'
-Plug 'kfly8/ale'
-Plug 'scrooloose/nerdtree'
+Plug 'kfly8/ale', { 'branch': 'perltidy-fixer' }
+
+Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
+Plug 'thinca/vim-quickrun', { 'on': 'QuickRun' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Color Scheme
 Plug 'morhetz/gruvbox'
