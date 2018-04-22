@@ -11,13 +11,12 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'ctrlpvim/ctrlp.vim', { 'do': 'go get github.com/mattn/files' }
-Plug 'nixprime/cpsm', { 'do': './install.sh' }
 Plug 'junegunn/vim-easy-align'
 Plug 'thinca/vim-quickrun'
 Plug 'itchyny/lightline.vim'
 "Plug 'w0rp/ale'
-Plug 'kfly8/ale' " perltidy PR
+Plug 'kfly8/ale'
+Plug 'scrooloose/nerdtree'
 
 " Color Scheme
 Plug 'morhetz/gruvbox'
@@ -155,19 +154,9 @@ imap <C-k> <plug>(neosnippet_expand_or_jump)
 smap <C-k> <plug>(neosnippet_expand_or_jump)
 
 "----------------------------------------------------
-" vimfiler
+" Filer
 "----------------------------------------------------
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_safe_mode_by_default = 0
-
-nnoremap <silent> <leader>f :VimFiler -split -simple -winwidth=40 -no-quit<CR>
-
-"---------------------------------------------------
-" ctrlp
-"----------------------------------------------------
-
-let g:ctrlp_user_command = 'files -a %s'
-let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+nnoremap <silent> <leader>f :NERDTreeToggle <CR>
 
 "----------------------------------------------------
 " Easy Align
