@@ -22,7 +22,9 @@ zplug "peco/peco", as:command, from:gh-r, frozen:1
 zplug "motemen/ghq", as:command, from:gh-r, rename-to:ghq
 zplug "stedolan/jq", as:command, from:gh-r, rename-to:jq
 
-zplug "agnoster/agnoster-zsh-theme", as:theme
+#zplug "agnoster/agnoster-zsh-theme", as:theme
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "

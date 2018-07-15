@@ -5,7 +5,7 @@ snippet u
 
 snippet dd
     use Data::Dumper;
-    warn Dumper ${1};
+    warn Dumper 
 
 snippet test
     use strict;
@@ -23,12 +23,6 @@ snippet subtest
     subtest '${1}' => sub {
         ${2:code}
     };
-
-snippet dv
-    state $v = Data::Validator->new(
-        ${1}
-    )->with(qw/Method/);
-    my($class, $args) = $v->validate(@_);
 
 snippet package
     package ${1:`join([substitute(substitute(expand("%:h"), 'lib/', '', ''), '/', '::', 'g'), expand("%:t:r")], '::')`};

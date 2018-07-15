@@ -4,7 +4,7 @@
 
 call plug#begin('~/.vim/plugged/')
 
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/vimproc.vim',      { 'do': 'make' }
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
@@ -12,42 +12,31 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'itchyny/lightline.vim'
-"Plug 'w0rp/ale'
-Plug 'kfly8/ale', { 'branch': 'perltidy-fixer' }
-
+Plug 'w0rp/ale'
 Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
-Plug 'thinca/vim-quickrun', { 'on': 'QuickRun' }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'thinca/vim-quickrun',     { 'on': 'QuickRun' }
+Plug 'Shougo/unite.vim',
+Plug 'Shougo/vimfiler.vim',
+Plug 'Shougo/unite-outline',
+Plug 'kannokanno/previm',
+
+" Plugin Language
+Plug 'fatih/vim-go',                   { 'do': ':GoInstallBinaries', 'for': 'go' }
+Plug 'elixir-lang/vim-elixir',         { 'for': 'elixir' }
+Plug 'slashmili/alchemist.vim',        { 'for': 'elixir' }
+Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny lodash' }
+Plug 'y-uuki/perl-local-lib-path.vim', { 'for': 'perl' }
+Plug 'vim-ruby/vim-ruby',              { 'for': 'ruby' }
+Plug 'vim-scripts/ruby-matchit',       { 'for': 'ruby' }
+Plug 'rhysd/vim-crystal',              { 'for': 'crystal' }
+Plug 'pangloss/vim-javascript',        { 'for': ['javascript', 'typescript'] }
+Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript'] }
+Plug 'leafgarland/typescript-vim',     { 'for': 'typescript' }
+Plug 'godlygeek/tabular',              { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown',        { 'for': 'markdown' }
 
 " Color Scheme
 Plug 'morhetz/gruvbox'
-
-"---------------------
-" Plugin Language
-"---------------------
-
-" Golang
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
-
-" elixir
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
-Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
-
-" Perl
-Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
-Plug 'y-uuki/perl-local-lib-path.vim', { 'for': 'perl' }
-
-" Ruby
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'vim-scripts/ruby-matchit', { 'for': 'ruby' }
-
-" Crystal
-Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
-
-" JavaScript
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript'] }
-Plug 'posva/vim-vue', { 'for': ['javascript', 'typescript'] }
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
 call plug#end()
 
@@ -55,23 +44,16 @@ call plug#end()
 " Common
 "------------------------------------------------------------------------
 
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 
-set nocompatible
 set fileformats=unix,dos,mac
-set vb t_vb=
+set visualbell t_vb=
 set backspace=indent,eol,start
 set imdisable
 set whichwrap=b,s,h,l,<,>,[,]
 set fileformats=unix,dos,mac
 set hidden
-
-"----------------------------------------------------
-" Backup
-"----------------------------------------------------
-set writebackup
-set backup
-set backupdir=~/backup
+set swapfile
 
 "----------------------------------------------------
 " Search
@@ -108,9 +90,9 @@ match ZenkakuSpace /　/
 " Indent
 "----------------------------------------------------
 set noautoindent
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 
 "----------------------------------------------------
@@ -119,6 +101,7 @@ set expandtab
 set termencoding=utf-8
 set encoding=utf-8
 set fileencoding=utf-8
+scriptencoding utf-8
 
 autocmd BufNewFile,BufRead * set iminsert=0
 
@@ -141,7 +124,6 @@ colorscheme gruvbox
 "----------------------------------------------------
 " deoplete
 "----------------------------------------------------
-
 let g:deoplete#enable_at_startup = 1
 
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -149,7 +131,7 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 "----------------------------------------------------
 " neosnippet
 "----------------------------------------------------
-let g:neosnippet#snippets_directory = "~/.vim/snippets"
+let g:neosnippet#snippets_directory = '~/.vim/snippets'
 
 imap <C-k> <plug>(neosnippet_expand_or_jump)
 smap <C-k> <plug>(neosnippet_expand_or_jump)
@@ -157,7 +139,22 @@ smap <C-k> <plug>(neosnippet_expand_or_jump)
 "----------------------------------------------------
 " Filer
 "----------------------------------------------------
-nnoremap <silent> <leader>f :NERDTreeToggle <CR>
+let g:vimfiler_as_default_explorer = 1
+
+call vimfiler#custom#profile('default', 'context', {
+\   'safe' : 0,
+\ })
+nnoremap <silent> <leader>f :VimFiler -split -simple -winwidth=25 -no-quit<CR>
+
+"----------------------------------------------------
+" unite-outline
+"----------------------------------------------------
+nnoremap <silent> <leader>o <ESC>:Unite -vertical -winwidth=30 -no-quit outline<Return>
+
+"----------------------------------------------------
+" previm
+"----------------------------------------------------
+let g:previm_open_cmd = 'open -a Safari'
 
 "----------------------------------------------------
 " Easy Align
@@ -175,14 +172,14 @@ nmap <leader>a <Plug>(EasyAlign)
 "----------------------------------------------------
 
 let g:quickrun_config = {
-\   "_" : {
-\     "runner" : "vimproc",
-\     "hook/time/enable" : 1,
-\     "outputter/buffer/split" : "vertical :rightbelow 40sp",
+\   '_' : {
+\     'runner' : 'vimproc',
+\     'hook/time/enable' : 1,
+\     'outputter/buffer/split' : 'vertical :rightbelow 40sp',
 \   }
 \ }
 
-"let g:quickrun_config["perl"] = {
+"let g:quickrun_config['perl'] = {
 "\   'cmdopt': '-Ilib',
 "\   'exec': 'carton exec perl %o %s',
 "\}
@@ -205,9 +202,9 @@ let g:ale_fixers = {
 \}
 
 
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 
 " Perl
 let g:ale_perl_perl_executable = 'perl'
-let g:ale_perl_perl_options = '-c -Mwarnings -Ilib'
+let g:ale_perl_perl_options = '-c -Mwarnings -Ilib -Iblib/arch -Iblib/lib -Ilocal/lib/perl5'
 let g:ale_perl_perltidy_options = ''

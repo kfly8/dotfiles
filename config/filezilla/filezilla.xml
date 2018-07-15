@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<FileZilla3 version="3.32.0" platform="mac">
+	<Settings>
+		<Setting name="Use Pasv mode">1</Setting>
+		<Setting name="Limit local ports">0</Setting>
+		<Setting name="Limit ports low">6000</Setting>
+		<Setting name="Limit ports high">7000</Setting>
+		<Setting name="Limit ports offset">0</Setting>
+		<Setting name="External IP mode">0</Setting>
+		<Setting name="External IP" />
+		<Setting name="External address resolver">http://ip.filezilla-project.org/ip.php</Setting>
+		<Setting name="Last resolved IP" />
+		<Setting name="No external ip on local conn">1</Setting>
+		<Setting name="Pasv reply fallback mode">0</Setting>
+		<Setting name="Timeout">20</Setting>
+		<Setting name="Logging Debug Level">0</Setting>
+		<Setting name="Logging Raw Listing">0</Setting>
+		<Setting name="fzsftp executable" />
+		<Setting name="fzstorj executable" />
+		<Setting name="Allow transfermode fallback">1</Setting>
+		<Setting name="Reconnect count">2</Setting>
+		<Setting name="Reconnect delay">5</Setting>
+		<Setting name="Enable speed limits">0</Setting>
+		<Setting name="Speedlimit inbound">1000</Setting>
+		<Setting name="Speedlimit outbound">100</Setting>
+		<Setting name="Speedlimit burst tolerance">0</Setting>
+		<Setting name="Preallocate space">0</Setting>
+		<Setting name="View hidden files">0</Setting>
+		<Setting name="Preserve timestamps">0</Setting>
+		<Setting name="Socket recv buffer size (v2)">4194304</Setting>
+		<Setting name="Socket send buffer size (v2)">262144</Setting>
+		<Setting name="FTP Keep-alive commands">0</Setting>
+		<Setting name="FTP Proxy type">0</Setting>
+		<Setting name="FTP Proxy host" />
+		<Setting name="FTP Proxy user" />
+		<Setting name="FTP Proxy password" />
+		<Setting name="FTP Proxy login sequence" />
+		<Setting name="SFTP keyfiles" />
+		<Setting name="SFTP compression">0</Setting>
+		<Setting name="Proxy type">0</Setting>
+		<Setting name="Proxy host" />
+		<Setting name="Proxy port">0</Setting>
+		<Setting name="Proxy user" />
+		<Setting name="Proxy password" />
+		<Setting name="Logging file" />
+		<Setting name="Logging filesize limit">10</Setting>
+		<Setting name="Logging show detailed logs">0</Setting>
+		<Setting name="Size format">0</Setting>
+		<Setting name="Size thousands separator">1</Setting>
+		<Setting name="Size decimal places">1</Setting>
+		<Setting name="TCP Keepalive Interval">15</Setting>
+		<Setting name="Cache TTL">600</Setting>
+		<Setting name="Number of Transfers">2</Setting>
+		<Setting name="Ascii Binary mode">0</Setting>
+		<Setting name="Auto Ascii files">am|asp|bat|c|cfm|cgi|conf|cpp|css|dhtml|diz|h|hpp|htm|html|in|inc|java|js|jsp|lua|m4|mak|md5|nfo|nsi|pas|patch|php|phtml|pl|po|py|qmail|sh|sha1|sha256|sha512|shtml|sql|svg|tcl|tpl|txt|vbs|xhtml|xml|xrc</Setting>
+		<Setting name="Auto Ascii no extension">1</Setting>
+		<Setting name="Auto Ascii dotfiles">1</Setting>
+		<Setting name="Language Code" />
+		<Setting name="Last Server Path">1 0 3 var 3 www 6 vhosts 21 test.mobilefactory.jp 11 application 6 themes 13 mobilefactory 7 recruit 6 common 3 css</Setting>
+		<Setting name="Concurrent download limit">0</Setting>
+		<Setting name="Concurrent upload limit">0</Setting>
+		<Setting name="Update Check">1</Setting>
+		<Setting name="Update Check Interval">7</Setting>
+		<Setting name="Last automatic update check">2018-04-23 05:44:29</Setting>
+		<Setting name="Last automatic update version">3.32.0</Setting>
+		<Setting name="Update Check New Version">nightly 2018-04-19 http://filezilla-project.org/nightlies/2018-04-19/x86_64-apple-darwin13.4.0/FileZilla3.app.tar.bz2 10940983 sha512 58b3f3408f554b4b9e897566caf8a6853eaed1697b6e88b0f8870a708e5303419ceb0da4a7483fa25812c75e5e8a241af8e961d94223dbb1a9f75c730372a34a 
+release 3.32.0 https://dl2.cdn.filezilla-project.org/FileZilla_3.32.0_macosx-x86.app.tar.bz2 10725473 sha512 5b268f0238ab420ac4ecae70f69359a287a17352463312851472ce36b8c8171bc3438b735223dd6a4b96b4c6963415bf80528cbaceaa7a6c1d0e31c24094bc19
+</Setting>
+		<Setting name="Update Check Check Beta">0</Setting>
+		<Setting name="Show debug menu">0</Setting>
+		<Setting name="File exists action download">0</Setting>
+		<Setting name="File exists action upload">0</Setting>
+		<Setting name="Allow ascii resume">0</Setting>
+		<Setting name="Greeting version">3.32.0</Setting>
+		<Setting name="Greeting resources" />
+		<Setting name="Onetime Dialogs" />
+		<Setting name="Show Tree Local">0</Setting>
+		<Setting name="Show Tree Remote">0</Setting>
+		<Setting name="File Pane Layout">0</Setting>
+		<Setting name="File Pane Swap">0</Setting>
+		<Setting name="Last local directory">/Users/k-kobayashi/Desktop/</Setting>
+		<Setting name="Filelist directory sort">0</Setting>
+		<Setting name="Filelist name sort">1</Setting>
+		<Setting name="Queue successful autoclear">0</Setting>
+		<Setting name="Queue column widths">180 60 180 80 60 150</Setting>
+		<Setting name="Local filelist colwidths">120 80 100 120</Setting>
+		<Setting name="Remote filelist colwidths">281 75 80 100 80 80</Setting>
+		<Setting name="Window position and size">0 52 68 1223 505 </Setting>
+		<Setting name="Splitter positions (v2)">97 -132 500000000 244 244 500000000</Setting>
+		<Setting name="Local filelist sortorder">0 0</Setting>
+		<Setting name="Remote filelist sortorder">1 0</Setting>
+		<Setting name="Time Format" />
+		<Setting name="Date Format" />
+		<Setting name="Show message log">0</Setting>
+		<Setting name="Show queue">0</Setting>
+		<Setting name="Default editor" />
+		<Setting name="Always use default editor">0</Setting>
+		<Setting name="Inherit system associations">1</Setting>
+		<Setting name="Custom file associations" />
+		<Setting name="Comparison mode">1</Setting>
+		<Setting name="Comparison threshold">1</Setting>
+		<Setting name="Site Manager position">0 1781 56 733 475 </Setting>
+		<Setting name="Icon theme">default</Setting>
+		<Setting name="Icon scale">125</Setting>
+		<Setting name="Timestamp in message log">0</Setting>
+		<Setting name="Sitemanager last selected">0/mfac test</Setting>
+		<Setting name="Local filelist shown columns">1111</Setting>
+		<Setting name="Remote filelist shown columns">111111</Setting>
+		<Setting name="Local filelist column order">0,1,2,3</Setting>
+		<Setting name="Remote filelist column order">0,1,2,3,4,5</Setting>
+		<Setting name="Filelist status bar">1</Setting>
+		<Setting name="Filter toggle state">0</Setting>
+		<Setting name="Show quickconnect bar">1</Setting>
+		<Setting name="Messagelog position">0</Setting>
+		<Setting name="Last connected site">0/mfac test</Setting>
+		<Setting name="File doubleclock action">0</Setting>
+		<Setting name="Dir doubleclock action">0</Setting>
+		<Setting name="Minimize to tray">0</Setting>
+		<Setting name="Search column widths" />
+		<Setting name="Search column shown" />
+		<Setting name="Search column order" />
+		<Setting name="Search window size">0 2136 119 750 500 </Setting>
+		<Setting name="Comparison hide identical">0</Setting>
+		<Setting name="Search sort order" />
+		<Setting name="Edit track local">1</Setting>
+		<Setting name="Prevent idle sleep">1</Setting>
+		<Setting name="Filteredit window size" />
+		<Setting name="Enable invalid char filter">1</Setting>
+		<Setting name="Invalid char replace">_</Setting>
+		<Setting name="Already connected choice">0</Setting>
+		<Setting name="Edit status dialog size" />
+		<Setting name="Display current speed">0</Setting>
+		<Setting name="Toolbar hidden">0</Setting>
+		<Setting name="Strip VMS revisions">0</Setting>
+		<Setting name="Show Site Manager on startup">0</Setting>
+		<Setting name="Prompt password save">0</Setting>
+		<Setting name="Persistent Choices">0</Setting>
+		<Setting name="Queue completion action">1</Setting>
+		<Setting name="Queue completion command" />
+		<Setting name="Drag and Drop disabled">0</Setting>
+		<Setting name="Disable update footer">0</Setting>
+		<Setting name="Master password encryptor" />
+		<Setting name="Config Location">/Users/k-kobayashi/.config/filezilla/</Setting>
+		<Setting name="Kiosk mode">0</Setting>
+		<Setting name="Disable update check">0</Setting>
+		<Setting name="Cache directory" />
+		<LastServer>
+			<Host>52.69.211.153</Host>
+			<Port>22</Port>
+			<Protocol>1</Protocol>
+			<Type>0</Type>
+			<User>mfcweb</User>
+			<Keyfile>/Users/k-kobayashi/.ssh/mfcweb.pem</Keyfile>
+			<Logontype>5</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>mfac test</Name>
+		</LastServer>
+	</Settings>
+</FileZilla3>

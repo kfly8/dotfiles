@@ -1,5 +1,6 @@
 .DS_Store
 *.swp
+*~
 node_modules
 dist
 .tmp
@@ -10,3 +11,6 @@ test/bower_components
 /vendor/bundle
 cpanfile.snapshot
 package-lock.json
+temp
+test.db
+local
