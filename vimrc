@@ -19,6 +19,7 @@ Plug 'Shougo/unite.vim',
 Plug 'Shougo/vimfiler.vim',
 Plug 'Shougo/unite-outline',
 Plug 'kannokanno/previm',
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'do': ':GoInstallBinaries', 'for': 'go' }
@@ -29,8 +30,8 @@ Plug 'y-uuki/perl-local-lib-path.vim', { 'for': 'perl' }
 Plug 'vim-ruby/vim-ruby',              { 'for': 'ruby' }
 Plug 'vim-scripts/ruby-matchit',       { 'for': 'ruby' }
 Plug 'rhysd/vim-crystal',              { 'for': 'crystal' }
-Plug 'pangloss/vim-javascript',        { 'for': ['javascript', 'typescript'] }
-Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript'] }
+Plug 'pangloss/vim-javascript',        { 'for': ['javascript', 'typescript', 'vue'] }
+Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'leafgarland/typescript-vim',     { 'for': 'typescript' }
 Plug 'godlygeek/tabular',              { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown',        { 'for': 'markdown' }
@@ -149,12 +150,19 @@ nnoremap <silent> <leader>f :VimFiler -split -simple -winwidth=25 -no-quit<CR>
 "----------------------------------------------------
 " unite-outline
 "----------------------------------------------------
-nnoremap <silent> <leader>o <ESC>:Unite -vertical -winwidth=30 -no-quit outline<Return>
+nnoremap <silent> <leader>o <ESC>:Unite -vertical -winwidth=60 -no-quit outline<Return>
 
 "----------------------------------------------------
 " previm
 "----------------------------------------------------
 let g:previm_open_cmd = 'open -a Safari'
+
+nmap <leader>p :PrevimOpen<Return>
+
+"----------------------------------------------------
+" indent-guildes 
+"----------------------------------------------------
+let g:indent_guides_enable_on_vim_startup = 1
 
 "----------------------------------------------------
 " Easy Align
@@ -204,7 +212,4 @@ let g:ale_fixers = {
 
 let g:ale_fix_on_save = 0
 
-" Perl
-let g:ale_perl_perl_executable = 'perl'
-let g:ale_perl_perl_options = '-c -Mwarnings -Ilib -Iblib/arch -Iblib/lib -Ilocal/lib/perl5'
-let g:ale_perl_perltidy_options = ''
+

@@ -29,7 +29,6 @@ export PATH=$PATH:$PYENV_ROOT/shims:$PYENV_ROOT/bin
 export RBENV_ROOT=~/.rbenv
 export PATH=$PATH:$RBENV_ROOT/shims:$RBENV_ROOT/bin
 
-export MYSQLENV_ROOT=~/.mysqlenv
-export PATH=$PATH:$MYSQLENV_ROOT/bin:$MYSQLENV_ROOT/shims:$MYSQLENV_ROOT/mysql-build/bin:$MYSQLENV_ROOT/mysqls/5.6.23/scripts
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 export MONO_GAC_PREFIX="/usr/local"
