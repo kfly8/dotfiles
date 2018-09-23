@@ -18,6 +18,10 @@ if [[ ! -d ~/.plenv ]]; then
   git clone https://github.com/tokuhirom/plenv.git ~/.plenv
 fi
 
+if [[ ! -d ~/.plenv/plugins/perl-build ]]; then
+  git clone https://github.com/tokuhirom/Perl-Build.git ~/.plenv/plugins/perl-build/
+fi
+
 if [[ ! -d ~/.rakudobrew ]]; then
   git clone https://github.com/tadzik/rakudobrew.git ~/.rakudobrew
 fi
@@ -25,7 +29,7 @@ fi
 eval "$(goenv init -)"
 eval "$(exenv init -)"
 eval "$(ndenv init -)"
-eval "$(plenv init -)"
+eval "$(plenv init - zsh)"
 eval "$(rakudobrew init -)"
 
 

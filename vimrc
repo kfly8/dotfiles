@@ -37,6 +37,7 @@ Plug 'godlygeek/tabular',              { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown',        { 'for': 'markdown' }
 
 " Color Scheme
+set background=dark
 Plug 'morhetz/gruvbox'
 
 call plug#end()

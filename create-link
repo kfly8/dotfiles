@@ -1,7 +1,6 @@
 #!/bin/sh
 cd $(dirname $0)
 
-ln -s $PWD/config       $HOME/.config
 ln -s $PWD/zshenv       $HOME/.zshenv
 ln -s $PWD/zprofile     $HOME/.zprofile
 ln -s $PWD/zshrc        $HOME/.zshrc
@@ -14,4 +13,5 @@ ln -s $PWD/tmux.conf    $HOME/.tmux.conf
 ln -s $PWD/peco         $HOME/.peco
 ln -s $PWD/editorconfig $HOME/.editorconfig
 ln -s $PWD/proverc      $HOME/.proverc
+ln -s $PWD/hyper.js     $HOME/.hyper.js
 ln -s $PWD/Brewfile     $HOME/Brewfile

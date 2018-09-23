@@ -102,3 +102,4 @@ zle -N peco-src
 if [[ -f ~/.zshrc.local ]]; then
     source ~/.zshrc.local
 fi
+
