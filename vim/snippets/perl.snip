@@ -24,7 +24,7 @@ snippet subtest
         ${2:code}
     };
 
-snippet package
+snippet pac
     package ${1:`join([substitute(substitute(expand("%:h"), 'lib/', '', ''), '/', '::', 'g'), expand("%:t:r")], '::')`};
     use strict;
     use warnings;

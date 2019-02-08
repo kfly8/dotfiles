@@ -22,8 +22,8 @@
   editor = "vim -u NONE -i NONE -N -c 'syntax on' \"+e ++enc=utf-8\"" # force encoding utf-8 in log message.
   pager = "lv -c"
 [user]
-  name = Kenta, Kobayashi
-  email = kentafly88@gmail.com
+  name = kfly8
+  email = kfly@cpan.org
 [push]
   default = current
 [pull]

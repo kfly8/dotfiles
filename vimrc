@@ -25,7 +25,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'fatih/vim-go',                   { 'do': ':GoInstallBinaries', 'for': 'go' }
 Plug 'elixir-lang/vim-elixir',         { 'for': 'elixir' }
 Plug 'slashmili/alchemist.vim',        { 'for': 'elixir' }
-Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny lodash' }
+Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp moose highlight-all-pragmas test-more try-tiny lodash' }
 Plug 'y-uuki/perl-local-lib-path.vim', { 'for': 'perl' }
 Plug 'vim-ruby/vim-ruby',              { 'for': 'ruby' }
 Plug 'vim-scripts/ruby-matchit',       { 'for': 'ruby' }
@@ -35,6 +35,7 @@ Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript', 'vu
 Plug 'leafgarland/typescript-vim',     { 'for': 'typescript' }
 Plug 'godlygeek/tabular',              { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown',        { 'for': 'markdown' }
+Plug 'jparise/vim-graphql'
 
 " Color Scheme
 set background=dark
@@ -56,6 +57,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set fileformats=unix,dos,mac
 set hidden
 set swapfile
+set virtualedit=block
 
 "----------------------------------------------------
 " Search
@@ -128,7 +130,7 @@ colorscheme gruvbox
 "----------------------------------------------------
 let g:deoplete#enable_at_startup = 1
 
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "----------------------------------------------------
 " neosnippet

@@ -32,3 +32,5 @@ export PATH=$PATH:$RBENV_ROOT/shims:$RBENV_ROOT/bin
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 export MONO_GAC_PREFIX="/usr/local"
+
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"

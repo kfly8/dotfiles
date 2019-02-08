@@ -1,7 +1,7 @@
 " Perl highlighting for Signatures keywords
 
-syntax match perlStatementProc "\<\%(func\|method\|fun\)\>"
-syntax match perlFunction +\<\%(func\|method\|fun\)\>\_s*+ nextgroup=perlSubName
+syntax match perlStatementProc "\<\%(method\|fun\)\>"
+syntax match perlFunction +\<\%(method\|fun\)\>\_s*+ nextgroup=perlSubName
 
 syntax match perlStatementProc "\<\%(let\|static\|const\)\>"
 
