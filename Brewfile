@@ -38,7 +38,7 @@ brew 'direnv'
 brew 'mysql'
 
 cask_args appdir: '/Applications'
-# cask 'google-chrome'
+cask 'google-chrome'
 cask 'firefox'
 cask 'hyper'
 cask 'slack'
