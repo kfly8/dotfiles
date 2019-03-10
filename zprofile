@@ -10,8 +10,8 @@ if [[ ! -d ~/.exenv ]]; then
   git clone git://github.com/mururu/exenv.git ~/.exenv
 fi
 
-if [[ ! -d ~/.ndenv ]]; then
-  git clone https://github.com/riywo/ndenv ~/.ndenv
+if [[ ! -d ~/.nodenv ]]; then
+  git clone https://github.com/nodenv/nodenv.git ~/.nodenv
 fi
 
 if [[ ! -d ~/.plenv ]]; then
@@ -28,7 +28,7 @@ fi
 
 eval "$(goenv init -)"
 eval "$(exenv init -)"
-eval "$(ndenv init -)"
+eval "$(nodenv init -)"
 eval "$(plenv init - zsh)"
 eval "$(rakudobrew init -)"
 

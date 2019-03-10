@@ -15,3 +15,4 @@ ln -s $PWD/editorconfig $HOME/.editorconfig
 ln -s $PWD/proverc      $HOME/.proverc
 ln -s $PWD/hyper.js     $HOME/.hyper.js
 ln -s $PWD/Brewfile     $HOME/Brewfile
+ln -s $PWD/carbon-now.json     $HOME/.carbon-now.json

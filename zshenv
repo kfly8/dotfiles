@@ -14,8 +14,8 @@ export PATH=$PATH:$GOENV_ROOT/bin
 export EXENV_ROOT=~/.exenv
 export PATH=$PATH:$EXENV_ROOT/bin
 
-export NDENV_ROOT=~/.ndenv
-export PATH=$PATH:$NDENV_ROOT/shims:$NDENV_ROOT/bin
+export NODENV_ROOT=~/.nodenv
+export PATH=$PATH:$NODENV_ROOT/bin
 
 export PLENV_ROOT=~/.plenv
 export PATH=$PATH:$PLENV_ROOT/shims:$PLENV_ROOT/bin
