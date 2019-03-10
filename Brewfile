@@ -52,3 +52,9 @@ cask 'zoomus'
 cask 'visual-studio-code'
 cask 'kindle'
 cask 'Dropbox'
+
+# fonts
+tap  'homebrew/cask-fonts'
+cask 'font-exo'
+cask 'font-hack'
+
