@@ -19,6 +19,7 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 
 zplug "peco/peco", as:command, from:gh-r, frozen:1
+zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "motemen/ghq", as:command, from:gh-r, rename-to:ghq
 zplug "stedolan/jq", as:command, from:gh-r, rename-to:jq
 
@@ -61,39 +62,38 @@ alias la="ls -lhbFa"
 #----------------------
 
 bindkey -e
-bindkey '^r' peco-select-history
-bindkey '^f' peco-src
+bindkey '^r' fzf-select-history
+bindkey '^f' fzf-src
 
 
 #----------------------
 # function
 #----------------------
 
-function peco-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(history -n 1 | \
-    eval $tac | \
-            peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle clear-screen
-}
-zle -N peco-select-history
+export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border'
 
-function peco-src () {
-    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    fi
-    zle clear-screen
+function fzf-select-history() {
+  local tac
+  if which tac > /dev/null; then
+    tac="tac"
+  else
+    tac="tail -r"
+  fi
+  BUFFER=$(history -n 1 | eval $tac | fzf --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle reset-prompt
 }
-zle -N peco-src
+zle -N fzf-select-history
 
+function fzf-src () {
+  local selected_dir=$(ghq list | fzf --query="$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd $(ghq root)/${selected_dir}"
+    zle accept-line
+  fi
+  zle reset-prompt
+}
+zle -N fzf-src
 
 #----------------------
 # local
@@ -103,3 +103,5 @@ if [[ -f ~/.zshrc.local ]]; then
     source ~/.zshrc.local
 fi
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

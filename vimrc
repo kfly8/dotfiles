@@ -20,6 +20,8 @@ Plug 'Shougo/vimfiler.vim',
 Plug 'Shougo/unite-outline',
 Plug 'kannokanno/previm',
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'do': ':GoInstallBinaries', 'for': 'go' }
