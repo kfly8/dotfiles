@@ -35,6 +35,7 @@ brew 'exenv'
 brew 'nodenv'
 brew 'direnv'
 brew 'mysql'
+brew 'asciinema'
 
 cask_args appdir: '/Applications'
 #cask 'google-chrome'

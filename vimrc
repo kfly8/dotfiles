@@ -33,6 +33,7 @@ Plug 'vim-ruby/vim-ruby',              { 'for': 'ruby' }
 Plug 'vim-scripts/ruby-matchit',       { 'for': 'ruby' }
 Plug 'rhysd/vim-crystal',              { 'for': 'crystal' }
 Plug 'pangloss/vim-javascript',        { 'for': ['javascript', 'typescript', 'vue'] }
+Plug 'jelera/vim-javascript-syntax',   { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'leafgarland/typescript-vim',     { 'for': 'typescript' }
 Plug 'godlygeek/tabular',              { 'for': 'markdown' }
@@ -91,7 +92,6 @@ set wrap
 highlight link ZenkakuSpace Error
 match ZenkakuSpace /　/
 
-
 "----------------------------------------------------
 " Indent
 "----------------------------------------------------
@@ -111,6 +111,8 @@ scriptencoding utf-8
 
 autocmd BufNewFile,BufRead * set iminsert=0
 
+language en_US.UTF-8
+
 "----------------------------------------------------
 " File type
 "----------------------------------------------------
@@ -122,6 +124,7 @@ au BufRead,BufNewFile *.t    set filetype=perl
 " Color Scheme
 "----------------------------------------------------
 colorscheme gruvbox
+let g:gruvbox_contrast_dark='soft'
 
 "------------------------------------------------------------------------
 " Plugin Config
@@ -130,7 +133,7 @@ colorscheme gruvbox
 "----------------------------------------------------
 " deoplete
 "----------------------------------------------------
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
 
 imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
@@ -225,3 +228,4 @@ let g:ale_list_window_size = 5
 
 let g:ale_fix_on_save = 0
 
+hi Search guibg=peru guifg=wheat

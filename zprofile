@@ -46,3 +46,13 @@ export GOROOT=`go env GOROOT`
 export GOPATH=$HOME
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
+
+#--------------------------
+# Google Cloud SDK
+#--------------------------
+export GOOGLE_CLOUD_SDK_ROOT=~/bin/google-cloud-sdk
+export PATH="$PATH:$GOOGLE_CLOUD_SDK_ROOT/bin"
+
+source $GOOGLE_CLOUD_SDK_ROOT/completion.zsh.inc
+source $GOOGLE_CLOUD_SDK_ROOT/path.zsh.inc
+

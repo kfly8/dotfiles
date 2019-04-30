@@ -1,21 +1,12 @@
-snippet u
-    use strict;
-    use warnings;
-    use utf8;
+snippet s
+    use strictures 2;
 
 snippet dd
-    use Data::Dumper;
-    warn Dumper 
+    use DDP;
+    p ${1}
 
 snippet test
-    use strict;
-    use warnings;
-    use utf8;
-    use Test::More;
-
-    subtest '${1}' => sub {
-        ${2:code}
-    };
+    use Test2::V0;
 
     done_testing;
 
