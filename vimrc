@@ -14,14 +14,9 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
 Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
-Plug 'thinca/vim-quickrun',     { 'on': 'QuickRun' }
 Plug 'Shougo/unite.vim',
 Plug 'Shougo/vimfiler.vim',
-Plug 'Shougo/unite-outline',
-Plug 'kannokanno/previm',
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'do': ':GoInstallBinaries', 'for': 'go' }
@@ -133,7 +128,7 @@ let g:gruvbox_contrast_dark='soft'
 "----------------------------------------------------
 " deoplete
 "----------------------------------------------------
-let g:deoplete#enable_at_startup = 0
+let g:deoplete#enable_at_startup = 1
 
 imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
@@ -156,18 +151,6 @@ call vimfiler#custom#profile('default', 'context', {
 nnoremap <silent> <leader>f :VimFiler -split -simple -winwidth=25 -no-quit<CR>
 
 "----------------------------------------------------
-" unite-outline
-"----------------------------------------------------
-nnoremap <silent> <leader>o <ESC>:Unite -vertical -winwidth=60 -no-quit outline<Return>
-
-"----------------------------------------------------
-" previm
-"----------------------------------------------------
-let g:previm_open_cmd = 'open -a Safari'
-
-nmap <leader>p :PrevimOpen<Return>
-
-"----------------------------------------------------
 " indent-guildes 
 "----------------------------------------------------
 let g:indent_guides_enable_on_vim_startup = 1
@@ -177,31 +160,11 @@ let g:indent_guides_enable_on_vim_startup = 1
 "----------------------------------------------------
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap <leader>a <Plug>(EasyAlign)
+xmap <Leader>a <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap <leader>a <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
 
-
-"----------------------------------------------------
-" quickrun
-"----------------------------------------------------
-
-let g:quickrun_config = {
-\   '_' : {
-\     'runner' : 'vimproc',
-\     'hook/time/enable' : 1,
-\     'outputter/buffer/split' : 'vertical :rightbelow 40sp',
-\   }
-\ }
-
-"let g:quickrun_config['perl'] = {
-"\   'cmdopt': '-Ilib',
-"\   'exec': 'carton exec perl %o %s',
-"\}
-
-nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
-nnoremap <silent> <leader>r :QuickRun<CR>
 
 "----------------------------------------------------
 " ale
