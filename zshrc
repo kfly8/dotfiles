@@ -25,7 +25,7 @@ zplug "stedolan/jq", as:command, from:gh-r, rename-to:jq
 
 #zplug "agnoster/agnoster-zsh-theme", as:theme
 zplug mafredri/zsh-async, from:github
-zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "

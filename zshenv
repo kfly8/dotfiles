@@ -29,7 +29,10 @@ export PATH=$PATH:$PYENV_ROOT/shims:$PYENV_ROOT/bin
 export RBENV_ROOT=~/.rbenv
 export PATH=$PATH:$RBENV_ROOT/shims:$RBENV_ROOT/bin
 
+source $HOME/.cargo/env
+
 #export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="$PATH:/usr/local/bin"
 export PATH="$(brew --prefix mysql-client)/bin:$PATH"
 export LIBRARY_PATH=$(brew --prefix openssl)/lib:$LIBRARY_PATH
 

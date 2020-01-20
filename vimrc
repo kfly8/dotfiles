@@ -4,9 +4,9 @@
 
 call plug#begin('~/.vim/plugged/')
 
-Plug 'Shougo/vimproc.vim',      { 'do': 'make' }
+Plug 'Shougo/vimproc.vim',   { 'do': 'make' }
 Plug 'Shougo/denite.nvim'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/neosnippet'
@@ -16,17 +16,12 @@ Plug 'w0rp/ale'
 Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 Plug 'Shougo/unite.vim',
 Plug 'Shougo/vimfiler.vim',
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Shougo/unite-outline',
 
 " Plugin Language
-Plug 'fatih/vim-go',                   { 'do': ':GoInstallBinaries', 'for': 'go' }
-Plug 'elixir-lang/vim-elixir',         { 'for': 'elixir' }
-Plug 'slashmili/alchemist.vim',        { 'for': 'elixir' }
+"Plug 'fatih/vim-go',                   { 'do': ':GoInstallBinaries', 'for': 'go' }
 Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp moose highlight-all-pragmas test-more try-tiny lodash' }
 Plug 'y-uuki/perl-local-lib-path.vim', { 'for': 'perl' }
-Plug 'vim-ruby/vim-ruby',              { 'for': 'ruby' }
-Plug 'vim-scripts/ruby-matchit',       { 'for': 'ruby' }
-Plug 'rhysd/vim-crystal',              { 'for': 'crystal' }
 Plug 'pangloss/vim-javascript',        { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'jelera/vim-javascript-syntax',   { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript', 'vue'] }
@@ -151,11 +146,6 @@ call vimfiler#custom#profile('default', 'context', {
 nnoremap <silent> <leader>f :VimFiler -split -simple -winwidth=25 -no-quit<CR>
 
 "----------------------------------------------------
-" indent-guildes 
-"----------------------------------------------------
-let g:indent_guides_enable_on_vim_startup = 1
-
-"----------------------------------------------------
 " Easy Align
 "----------------------------------------------------
 
@@ -173,8 +163,12 @@ nmap <Leader>a <Plug>(EasyAlign)
 let g:ale_sign_column_always = 1
 
 let g:ale_linters = {
-\   'perl': ['perl', 'perlcritic']
+\   'perl': ['perl']
 \}
+
+"let g:ale_linters = {
+"\   'perl': ['perl', 'perlcritic']
+"\}
 
 let g:ale_fixers = {
 \   'perl': ['perltidy']

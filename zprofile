@@ -1,7 +1,4 @@
 
-#--------------------------
-# *env
-#--------------------------
 if [[ ! -d ~/.goenv ]]; then
   git clone https://github.com/syndbg/goenv.git ~/.goenv
 fi
@@ -26,6 +23,10 @@ if [[ ! -d ~/.rakudobrew ]]; then
   git clone https://github.com/tadzik/rakudobrew.git ~/.rakudobrew
 fi
 
+if [[ ! -d ~/.cargo ]]; then
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+
 eval "$(goenv init -)"
 eval "$(exenv init -)"
 eval "$(nodenv init -)"
@@ -33,9 +34,6 @@ eval "$(plenv init - zsh)"
 eval "$(rakudobrew init -)"
 
 
-#--------------------------
-# golang
-#--------------------------
 if (( ! ${+commands[go]} )); then
   GOLATEST=`goenv install --list | tail -1`
   `echo $GOLATEST | xargs goenv install & goenv rehash`
@@ -47,12 +45,10 @@ export GOPATH=$HOME
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 
-#--------------------------
-# Google Cloud SDK
-#--------------------------
 export GOOGLE_CLOUD_SDK_ROOT=~/bin/google-cloud-sdk
 export PATH="$PATH:$GOOGLE_CLOUD_SDK_ROOT/bin"
 
 source $GOOGLE_CLOUD_SDK_ROOT/completion.zsh.inc
 source $GOOGLE_CLOUD_SDK_ROOT/path.zsh.inc
 
+export PATH="$HOME/.cargo/bin:$PATH"
