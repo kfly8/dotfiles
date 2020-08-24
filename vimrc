@@ -3,10 +3,9 @@
 "----------------------------------------------------
 
 call plug#begin('~/.vim/plugged/')
-
 Plug 'Shougo/vimproc.vim',   { 'do': 'make' }
 Plug 'Shougo/denite.nvim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/neosnippet'
@@ -19,19 +18,16 @@ Plug 'Shougo/vimfiler.vim',
 Plug 'Shougo/unite-outline',
 
 " Plugin Language
-"Plug 'fatih/vim-go',                   { 'do': ':GoInstallBinaries', 'for': 'go' }
-Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp moose highlight-all-pragmas test-more try-tiny lodash' }
-Plug 'y-uuki/perl-local-lib-path.vim', { 'for': 'perl' }
+Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
+Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
+Plug 'yuuki/perl-local-lib-path.vim',  { 'for': 'perl' }
 Plug 'pangloss/vim-javascript',        { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'jelera/vim-javascript-syntax',   { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'leafgarland/typescript-vim',     { 'for': 'typescript' }
-Plug 'godlygeek/tabular',              { 'for': 'markdown' }
-Plug 'plasticboy/vim-markdown',        { 'for': 'markdown' }
-Plug 'jparise/vim-graphql'
+Plug 'rhysd/vim-gfm-syntax',           { 'for': 'markdown' }
 
 " Color Scheme
-set background=dark
 Plug 'morhetz/gruvbox'
 
 call plug#end()
@@ -51,6 +47,9 @@ set fileformats=unix,dos,mac
 set hidden
 set swapfile
 set virtualedit=block
+
+set undofile
+set undodir=/tmp/vim/undodir
 
 "----------------------------------------------------
 " Search
@@ -113,8 +112,9 @@ au BufRead,BufNewFile *.t    set filetype=perl
 "----------------------------------------------------
 " Color Scheme
 "----------------------------------------------------
+set background=dark
+let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
-let g:gruvbox_contrast_dark='soft'
 
 "------------------------------------------------------------------------
 " Plugin Config
@@ -163,26 +163,34 @@ nmap <Leader>a <Plug>(EasyAlign)
 let g:ale_sign_column_always = 1
 
 let g:ale_linters = {
-\   'perl': ['perl']
+\   'perl': ['perl'],
+\   'javascript': ['eslint'],
 \}
 
-"let g:ale_linters = {
-"\   'perl': ['perl', 'perlcritic']
-"\}
-
 let g:ale_fixers = {
-\   'perl': ['perltidy']
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
 \}
 
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
-
 let g:ale_open_list = 1
+
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
 
 " エラーと警告がなくなっても開いたままにする
 let g:ale_keep_list_window_open = 1
 let g:ale_list_window_size = 5
 
-let g:ale_fix_on_save = 0
+let g:ale_fix_on_save = 1
 
 hi Search guibg=peru guifg=wheat
+
+"----------------------------------------------------
+" markdown
+"----------------------------------------------------
+
+let g:markdown_fenced_languages = ['perl', 'typescript', 'javascript']
+
+
