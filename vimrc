@@ -16,6 +16,7 @@ Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 Plug 'Shougo/unite.vim',
 Plug 'Shougo/vimfiler.vim',
 Plug 'Shougo/unite-outline',
+Plug 'editorconfig/editorconfig-vim'
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
