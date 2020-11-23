@@ -13,19 +13,16 @@ source ~/.zplug/init.zsh
 
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
 
-#zplug "b4b4r07/enhancd", use:init.sh
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions", defer:2
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-autosuggestions", defer:2
 
-zplug "peco/peco", as:command, from:gh-r, frozen:1
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "motemen/ghq", as:command, from:gh-r, rename-to:ghq
 zplug "stedolan/jq", as:command, from:gh-r, rename-to:jq
 
-#zplug "agnoster/agnoster-zsh-theme", as:theme
 zplug mafredri/zsh-async, from:github
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -53,9 +50,15 @@ setopt share_history
 # alias
 #----------------------
 
-alias ll="ls -lhbF"
-alias la="ls -lhbFa"
+alias ls="exa"
+alias l="exa --oneline"
+alias ll="exa -lh --git"
+alias la="exa -lha --git"
+alias tree="exa --tree"
 
+alias cat="bat"
+alias find="fd"
+#alias grep="rg"
 
 #----------------------
 # bindkey
@@ -67,10 +70,16 @@ bindkey '^f' fzf-src
 
 
 #----------------------
-# function
+# fzf
 #----------------------
 
-export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border'
+#export FZF_DEFAULT_OPTS='--ansi --height 50% --layout=reverse --border'
+export FZF_DEFAULT_OPTS='--ansi --color=fg+:11 --height 70% --reverse --select-1 --exit-0 --multi'
+
+export FZF_DEFAULT_COMMAND='fd --type file --color=always'
+
+
+export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
 
 function fzf-select-history() {
   local tac

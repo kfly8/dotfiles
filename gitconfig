@@ -21,9 +21,6 @@
 	excludesfile = ~/.gitignore
   editor = "vim -u NONE -i NONE -N -c 'syntax on' \"+e ++enc=utf-8\"" # force encoding utf-8 in log message.
   pager = "lv -c"
-[user]
-  name = kfly8
-  email = kfly@cpan.org
 [push]
   default = current
 [pull]
@@ -41,5 +38,13 @@
 [branch]
   autosetupmerge = false
   autosetuprebase = always
+
 [ghq]
   root = ~/src
+
+[include]
+  path = ~/.gitconfig.inc
+
+[includeIf "gitdir:~/src/"]
+  path = ~/.gitconfig-ghq.inc
+

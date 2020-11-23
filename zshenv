@@ -1,4 +1,3 @@
-
 export LANG=ja_JP.UTF-8
 
 export PAGER=less
@@ -11,9 +10,6 @@ export EDITOR=vim
 export GOENV_ROOT=~/.goenv
 export PATH=$PATH:$GOENV_ROOT/bin
 
-export EXENV_ROOT=~/.exenv
-export PATH=$PATH:$EXENV_ROOT/bin
-
 export NODENV_ROOT=~/.nodenv
 export PATH=$PATH:$NODENV_ROOT/bin
 
@@ -25,9 +21,6 @@ export PATH=$PATH:$RAKUDOBREW_ROOT/bin
 
 export PYENV_ROOT=~/.pyenv
 export PATH=$PATH:$PYENV_ROOT/shims:$PYENV_ROOT/bin
-
-export RBENV_ROOT=~/.rbenv
-export PATH=$PATH:$RBENV_ROOT/shims:$RBENV_ROOT/bin
 
 source $HOME/.cargo/env
 
