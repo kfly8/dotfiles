@@ -24,10 +24,13 @@ export PATH=$PATH:$PYENV_ROOT/shims:$PYENV_ROOT/bin
 
 source $HOME/.cargo/env
 
-#export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="$PATH:/usr/local/bin"
-export PATH="$(brew --prefix mysql-client)/bin:$PATH"
-export LIBRARY_PATH=$(brew --prefix openssl)/lib:$LIBRARY_PATH
+
+# brew --prefix mysql-client
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+# brew --prefix openssl
+export LIBRARY_PATH="/usr/local/opt/openssl@1.1/lib:$LIBRARY_PATH"
 
 export MONO_GAC_PREFIX="/usr/local"
 
