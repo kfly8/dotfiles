@@ -36,6 +36,16 @@ zplug load
 prompt_context () { }
 
 #----------------------
+# cdr
+#----------------------
+autoload -U chpwd_recent_dirs cdr
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ":chpwd:*" recent-dirs-max 500
+zstyle ":chpwd:*" recent-dirs-default on
+zstyle ":completion:*" recent-dirs-insert always
+zstyle ":completion:*:*:cdr:*:*" menu select=2
+
+#----------------------
 # history
 #----------------------
 
@@ -72,12 +82,8 @@ bindkey '^f' fzf-src
 # fzf
 #----------------------
 
-#export FZF_DEFAULT_OPTS='--ansi --height 50% --layout=reverse --border'
-export FZF_DEFAULT_OPTS='--ansi --color=fg+:11 --height 70% --reverse --select-1 --exit-0 --multi'
-
 export FZF_DEFAULT_COMMAND='fd --type file --color=always'
-
-
+export FZF_DEFAULT_OPTS='--ansi --color=fg+:11 --height 70% --reverse --select-1 --exit-0 --multi'
 export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
 
 function fzf-select-history() {
@@ -102,6 +108,15 @@ function fzf-src () {
   zle reset-prompt
 }
 zle -N fzf-src
+
+alias cdd='fzf-cdr'
+function fzf-cdr() {
+  target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
+  target_dir=`echo ${target_dir/\~/$HOME}`
+  if [ -n "$target_dir" ]; then
+    cd $target_dir
+  fi
+}
 
 #----------------------
 # local
