@@ -16,6 +16,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
+Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/glyph-palette.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
@@ -24,7 +25,7 @@ Plug 'lambdalisue/fern-git-status.vim'
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
 Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
-Plug 'y-uuki/perl-local-lib-path.vim',  { 'for': 'perl' }
+Plug 'y-uuki/perl-local-lib-path.vim', { 'for': 'perl' }
 Plug 'pangloss/vim-javascript',        { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'jelera/vim-javascript-syntax',   { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript', 'vue'] }
@@ -51,7 +52,6 @@ set fileformats=unix,dos,mac
 set hidden
 set swapfile
 set virtualedit=block
-set modifiable
 
 set undofile
 set undodir=/tmp/vim/undodir
@@ -110,7 +110,6 @@ language en_US.UTF-8
 "----------------------------------------------------
 " File type
 "----------------------------------------------------
-au BufRead,BufNewFile *.erb  set filetype=html
 au BufRead,BufNewFile *.psgi set filetype=perl
 au BufRead,BufNewFile *.t    set filetype=perl
 
@@ -148,25 +147,12 @@ set runtimepath+=~/.vim/snippets
 "----------------------------------------------------
 " Filer
 "----------------------------------------------------
-"let g:vimfiler_as_default_explorer = 1
-
-"call vimfiler#custom#profile('default', 'context', {
-"\   'safe' : 0,
-"\ })
-nnoremap <silent> <leader>f :Fern . -drawer -width=40 -toggle -keep<CR>
+nnoremap <silent> <leader>f :Fern . -drawer -width=35 -toggle -keep<CR>
 
 let g:fern#renderer = "nerdfont"
-
-" Disable listing ignored files/directories
 let g:fern_git_status#disable_ignored = 1
-
-" Disable listing untracked files
 let g:fern_git_status#disable_untracked = 1
-
-" Disable listing status of submodules
 let g:fern_git_status#disable_submodules = 1
-
-" Disable listing status of directories
 let g:fern_git_status#disable_directories = 1
 
 "----------------------------------------------------
@@ -200,8 +186,8 @@ let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_open_list = 1
 
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
 
 " エラーと警告がなくなっても開いたままにする
 let g:ale_keep_list_window_open = 1
@@ -216,4 +202,11 @@ hi Search guibg=peru guifg=wheat
 "----------------------------------------------------
 
 let g:markdown_fenced_languages = ['perl', 'typescript', 'javascript']
+
+"----------------------------------------------------
+" fzf
+"----------------------------------------------------
+nnoremap <leader><leader> :GFiles<CR>
+nnoremap <leader>b        :Buffers<CR>
+nnoremap <leader>l        :Lines<CR>
 
