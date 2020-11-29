@@ -16,7 +16,6 @@ zplug "zsh-users/zsh-completions", defer:2
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-autosuggestions", defer:2
 
-zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "motemen/ghq", as:command, from:gh-r, rename-to:ghq
 zplug "stedolan/jq", as:command, from:gh-r, rename-to:jq
 

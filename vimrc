@@ -8,15 +8,18 @@ Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
 Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
-Plug 'Shougo/unite.vim',
-Plug 'Shougo/vimfiler.vim',
-Plug 'Shougo/unite-outline',
 Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/glyph-palette.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/fern-git-status.vim'
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
@@ -48,6 +51,7 @@ set fileformats=unix,dos,mac
 set hidden
 set swapfile
 set virtualedit=block
+set modifiable
 
 set undofile
 set undodir=/tmp/vim/undodir
@@ -129,22 +133,41 @@ let g:deoplete#enable_at_startup = 1
 imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "----------------------------------------------------
-" neosnippet
+" snippet
 "----------------------------------------------------
-let g:neosnippet#snippets_directory = '~/.vim/snippets'
 
-imap <C-k> <plug>(neosnippet_expand_or_jump)
-smap <C-k> <plug>(neosnippet_expand_or_jump)
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+let g:UltiSnipsEditSplit="vertical"
+
+let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
+set runtimepath+=~/.vim/snippets
 
 "----------------------------------------------------
 " Filer
 "----------------------------------------------------
-let g:vimfiler_as_default_explorer = 1
+"let g:vimfiler_as_default_explorer = 1
 
-call vimfiler#custom#profile('default', 'context', {
-\   'safe' : 0,
-\ })
-nnoremap <silent> <leader>f :VimFiler -split -simple -winwidth=25 -no-quit<CR>
+"call vimfiler#custom#profile('default', 'context', {
+"\   'safe' : 0,
+"\ })
+nnoremap <silent> <leader>f :Fern . -drawer -width=40 -toggle -keep<CR>
+
+let g:fern#renderer = "nerdfont"
+
+" Disable listing ignored files/directories
+let g:fern_git_status#disable_ignored = 1
+
+" Disable listing untracked files
+let g:fern_git_status#disable_untracked = 1
+
+" Disable listing status of submodules
+let g:fern_git_status#disable_submodules = 1
+
+" Disable listing status of directories
+let g:fern_git_status#disable_directories = 1
 
 "----------------------------------------------------
 " Easy Align
@@ -193,5 +216,4 @@ hi Search guibg=peru guifg=wheat
 "----------------------------------------------------
 
 let g:markdown_fenced_languages = ['perl', 'typescript', 'javascript']
-
 
