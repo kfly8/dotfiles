@@ -21,6 +21,7 @@ Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/glyph-palette.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/fern-git-status.vim'
+Plug 'junegunn/goyo.vim'
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
@@ -193,7 +194,7 @@ let g:ale_sign_warning = ''
 let g:ale_keep_list_window_open = 1
 let g:ale_list_window_size = 5
 
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 
 hi Search guibg=peru guifg=wheat
 

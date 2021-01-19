@@ -7,6 +7,10 @@ if [[ ! -d ~/.nodenv ]]; then
   git clone https://github.com/nodenv/nodenv.git ~/.nodenv
 fi
 
+if [[ ! -d ~/.pyenv ]]; then
+  git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+fi
+
 if [[ ! -d ~/.plenv ]]; then
   git clone https://github.com/tokuhirom/plenv.git ~/.plenv
 fi
