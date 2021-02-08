@@ -1,3 +1,8 @@
+export LANG=ja_JP.UTF-8
+
+export PAGER=less
+export EDITOR=vim
+
 eval "$(direnv hook zsh)"
 
 #----------------------
@@ -33,6 +38,79 @@ zplug load
 
 # redefine prompt_context for hiding user@hostname
 prompt_context () { }
+
+
+#--------------------------
+# *env
+#--------------------------
+export GOENV_ROOT=~/.goenv
+export PATH=$PATH:$GOENV_ROOT/bin
+
+export NODENV_ROOT=~/.nodenv
+export PATH=$PATH:$NODENV_ROOT/bin
+
+export PLENV_ROOT=~/.plenv
+export PATH=$PATH:$PLENV_ROOT/shims:$PLENV_ROOT/bin
+
+export RAKUDOBREW_ROOT=~/.rakudobrew
+export PATH=$PATH:$RAKUDOBREW_ROOT/bin
+
+source $HOME/.cargo/env
+
+export PATH="$PATH:/usr/local/bin"
+
+# brew --prefix python
+export PATH="/usr/local/opt/python3/bin:$PATH"
+
+# brew --prefix mysql-client
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+# brew --prefix openssl
+export LIBRARY_PATH="/usr/local/opt/openssl@1.1/lib:$LIBRARY_PATH"
+
+export MONO_GAC_PREFIX="/usr/local"
+
+if [[ ! -d ~/.goenv ]]; then
+  git clone https://github.com/syndbg/goenv.git ~/.goenv
+fi
+
+if [[ ! -d ~/.nodenv ]]; then
+  git clone https://github.com/nodenv/nodenv.git ~/.nodenv
+fi
+
+if [[ ! -d ~/.plenv ]]; then
+  git clone https://github.com/tokuhirom/plenv.git ~/.plenv
+fi
+
+if [[ ! -d ~/.plenv/plugins/perl-build ]]; then
+  git clone https://github.com/tokuhirom/Perl-Build.git ~/.plenv/plugins/perl-build/
+fi
+
+if [[ ! -d ~/.rakudobrew ]]; then
+  git clone https://github.com/tadzik/rakudobrew.git ~/.rakudobrew
+fi
+
+if [[ ! -d ~/.cargo ]]; then
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+
+eval "$(goenv init -)"
+eval "$(nodenv init -)"
+eval "$(plenv init - zsh)"
+eval "$(rakudobrew init -)"
+
+if (( ! ${+commands[go]} )); then
+  GOLATEST=`goenv install --list | tail -1`
+  `echo $GOLATEST | xargs goenv install & goenv rehash`
+  `echo $GOLATEST | xargs goenv global`
+fi
+
+export GOROOT=`go env GOROOT`
+export GOPATH=$HOME
+
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH="$HOME/.cargo/bin:$PATH"
+
 
 #----------------------
 # cdr
@@ -124,6 +202,5 @@ function fzf-cdr() {
 if [[ -f ~/.zshrc.local ]]; then
     source ~/.zshrc.local
 fi
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

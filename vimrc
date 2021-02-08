@@ -26,7 +26,7 @@ Plug 'junegunn/goyo.vim'
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
 Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
-Plug 'y-uuki/perl-local-lib-path.vim', { 'for': 'perl' }
+Plug 'yuuki/perl-local-lib-path.vim', { 'for': 'perl' }
 Plug 'pangloss/vim-javascript',        { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'jelera/vim-javascript-syntax',   { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript', 'vue'] }
