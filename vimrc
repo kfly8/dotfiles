@@ -12,7 +12,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
 Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
@@ -21,7 +21,10 @@ Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/glyph-palette.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/fern-git-status.vim'
+Plug 'lambdalisue/fern-hijack.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'wakatime/vim-wakatime'
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }

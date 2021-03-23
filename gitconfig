@@ -9,15 +9,15 @@
   new = whatchanged HEAD@{1}..HEAD --reverse --stat
   tree = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
   wt   = whatchanged --stat
-[color]
-  diff = auto
-  status = auto
-  branch = auto
-  ui = always
 [core]
   excludesfile = ~/.gitignore
-  editor = "vim -u NONE -i NONE -N -c 'syntax on' \"+e ++enc=utf-8\"" # force encoding utf-8 in log message.
-  pager = "lv -c"
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  syntax-theme = Monokai Extended
+  features = side-by-side line-numbers decorations
+  whitespace-error-style = 22 reverse
 [push]
   default = current
 [pull]
@@ -39,9 +39,19 @@
 [ghq]
   root = ~/src
 
+[user]
+  name = kobaken
+  email = kentafly88@gmail.com
+
 [include]
   path = ~/.gitconfig.inc
 
 [includeIf "gitdir:~/src/"]
   path = ~/.gitconfig-ghq.inc
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 

@@ -25,7 +25,7 @@ zplug "motemen/ghq", as:command, from:gh-r, rename-to:ghq
 zplug "stedolan/jq", as:command, from:gh-r, rename-to:jq
 
 zplug mafredri/zsh-async, from:github
-zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -35,10 +35,6 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
-
-# redefine prompt_context for hiding user@hostname
-prompt_context () { }
-
 
 #--------------------------
 # *env
@@ -137,8 +133,8 @@ setopt share_history
 #----------------------
 
 alias ls="exa"
-alias l="exa --oneline"
-alias ll="exa -lh --git"
+alias l="exa --oneline --git-ignore"
+alias ll="exa -lh --git --git-ignore"
 alias la="exa -lha --git"
 alias tree="exa --tree"
 
@@ -204,3 +200,4 @@ if [[ -f ~/.zshrc.local ]]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
