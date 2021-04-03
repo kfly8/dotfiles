@@ -29,7 +29,8 @@ Plug 'wakatime/vim-wakatime'
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
 Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
-Plug 'yuuki/perl-local-lib-path.vim', { 'for': 'perl' }
+Plug 'yuuki/perl-local-lib-path.vim',  { 'for': 'perl' }
+Plug 'skaji/syntax-check-perl',        { 'for': 'perl' }
 Plug 'pangloss/vim-javascript',        { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'jelera/vim-javascript-syntax',   { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript', 'vue'] }
@@ -176,8 +177,10 @@ nmap <Leader>a <Plug>(EasyAlign)
 
 let g:ale_sign_column_always = 1
 
+"\   'perl': ['syntax-check', 'perlcritic'],
 let g:ale_linters = {
-\   'perl': ['perl'],
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'perl': ['syntax-check'],
 \   'javascript': ['eslint'],
 \}
 
