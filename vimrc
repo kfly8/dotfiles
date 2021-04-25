@@ -76,7 +76,7 @@ set title
 set number
 set ruler
 set list
-set listchars=tab:-\ ,extends:<
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set showcmd
 set laststatus=2
 set showmatch
@@ -200,7 +200,7 @@ let g:ale_sign_warning = ''
 let g:ale_keep_list_window_open = 1
 let g:ale_list_window_size = 5
 
-let g:ale_fix_on_save = 0
+let g:ale_fix_on_save = 1
 
 hi Search guibg=peru guifg=wheat
 
