@@ -25,6 +25,7 @@ Plug 'lambdalisue/fern-hijack.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'wakatime/vim-wakatime'
+Plug 'vim-scripts/taglist.vim'
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
