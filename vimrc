@@ -37,6 +37,8 @@ Plug 'jelera/vim-javascript-syntax',   { 'for': ['javascript', 'typescript', 'vu
 Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'leafgarland/typescript-vim',     { 'for': 'typescript' }
 Plug 'rhysd/vim-gfm-syntax',           { 'for': 'markdown' }
+Plug 'rust-lang/rust.vim',             { 'for': 'rust' }
+Plug 'neoclide/coc.nvim',              { 'branch': 'release' }
 
 " Color Scheme
 Plug 'morhetz/gruvbox'
