@@ -56,13 +56,13 @@ source $HOME/.cargo/env
 export PATH="$PATH:/usr/local/bin"
 
 # brew --prefix python
-export PATH="/usr/local/opt/python3/bin:$PATH"
+export PATH="/usr/local/opt/python3/bin:/opt/homebrew/opt/python@3.9:$PATH"
 
 # brew --prefix mysql-client
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+export PATH="/usr/local/opt/mysql-client/bin:/opt/homebrew/opt/mysql-client:$PATH"
 
 # brew --prefix openssl
-export LIBRARY_PATH="/usr/local/opt/openssl@1.1/lib:$LIBRARY_PATH"
+export LIBRARY_PATH="/usr/local/opt/openssl@1.1/lib:/opt/homebrew/opt/openssl@1.1:$LIBRARY_PATH"
 
 export MONO_GAC_PREFIX="/usr/local"
 

@@ -38,7 +38,7 @@ brew 'fd'
 brew 'exa'
 brew 'ripgrep'
 brew 'the_silver_searcher'
-brew 'delta'
+brew 'git-delta'
 brew 'greymd/tools/teip'
 brew 'gh'
 
