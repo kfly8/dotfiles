@@ -9,7 +9,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'itchyny/lightline.vim'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -38,7 +38,6 @@ Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript', 'vu
 Plug 'leafgarland/typescript-vim',     { 'for': 'typescript' }
 Plug 'rhysd/vim-gfm-syntax',           { 'for': 'markdown' }
 Plug 'rust-lang/rust.vim',             { 'for': 'rust' }
-"Plug 'neoclide/coc.nvim',              { 'branch': 'release' }
 
 " Color Scheme
 Plug 'morhetz/gruvbox'
@@ -184,13 +183,18 @@ let g:ale_sign_column_always = 1
 let g:ale_linters = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'perl': ['syntax-check'],
+\   'rust': ['cargo', 'rls'],
 \   'javascript': ['eslint'],
 \}
 
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
+\   'rust': ['rustfmt'],
 \}
+
+let g:ale_rust_rls_toolchain = 'stable'
+let g:ale_completion_enabled = 1
 
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
