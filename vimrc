@@ -10,6 +10,8 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'itchyny/lightline.vim'
 Plug 'dense-analysis/ale'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'rhysd/vim-lsp-ale'
 Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -62,6 +64,11 @@ set virtualedit=block
 
 set undofile
 set undodir=/tmp/vim/undodir
+
+set ballooneval
+set balloonevalterm
+set mouse=a
+set ttymouse=xterm
 
 "----------------------------------------------------
 " Search
@@ -179,10 +186,9 @@ nmap <Leader>a <Plug>(EasyAlign)
 
 let g:ale_sign_column_always = 1
 
-"\   'perl': ['syntax-check', 'perlcritic'],
 let g:ale_linters = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'perl': ['syntax-check'],
+\   'perl': ['syntax-check', 'perlcritic'],
 \   'rust': ['cargo', 'rls'],
 \   'javascript': ['eslint'],
 \}
