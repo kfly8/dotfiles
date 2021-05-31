@@ -3,6 +3,7 @@ cd $(dirname $0)
 
 ln -s $PWD/zshrc        $HOME/.zshrc
 ln -s $PWD/vimrc        $HOME/.vimrc
+ln -s $PWD/vimrc        $HOME/.config/nvim/init.vim
 ln -s $PWD/vim          $HOME/.vim
 ln -s $PWD/gitconfig    $HOME/.gitconfig
 ln -s $PWD/gitmessage   $HOME/.gitmessage
