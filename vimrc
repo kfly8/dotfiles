@@ -65,10 +65,7 @@ set virtualedit=block
 set undofile
 set undodir=/tmp/vim/undodir
 
-set ballooneval
-set balloonevalterm
-set mouse=a
-set ttymouse=xterm
+set completeopt=menuone,noinsert
 
 "----------------------------------------------------
 " Search
