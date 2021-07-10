@@ -30,6 +30,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'vim-scripts/taglist.vim'
 Plug 'markonm/traces.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'dhruvasagar/vim-table-mode'
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
