@@ -41,6 +41,7 @@ brew 'the_silver_searcher'
 brew 'git-delta'
 brew 'greymd/tools/teip'
 brew 'gh'
+brew 'jq'
 
 cask_args appdir: '/Applications'
 #cask 'google-chrome'
