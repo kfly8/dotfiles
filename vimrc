@@ -68,7 +68,7 @@ set virtualedit=block
 set undofile
 set undodir=/tmp/vim/undodir
 
-set completeopt=menuone,noinsert
+set completeopt=menuone
 
 "----------------------------------------------------
 " Search
