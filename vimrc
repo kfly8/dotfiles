@@ -31,6 +31,7 @@ Plug 'vim-scripts/taglist.vim'
 Plug 'markonm/traces.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
