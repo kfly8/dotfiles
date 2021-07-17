@@ -223,6 +223,7 @@ hi Search guibg=peru guifg=wheat
 "----------------------------------------------------
 
 let g:markdown_fenced_languages = ['perl', 'typescript', 'javascript']
+let g:gfm_syntax_emoji_conceal = 1
 
 "----------------------------------------------------
 " fzf
