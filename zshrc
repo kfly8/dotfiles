@@ -79,10 +79,6 @@ if [[ ! -d ~/.plenv/plugins/perl-build ]]; then
   git clone https://github.com/tokuhirom/Perl-Build.git ~/.plenv/plugins/perl-build/
 fi
 
-if [[ ! -d ~/.rakudobrew ]]; then
-  git clone https://github.com/tadzik/rakudobrew.git ~/.rakudobrew
-fi
-
 if [[ ! -d ~/.cargo ]]; then
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
@@ -90,7 +86,6 @@ fi
 eval "$(goenv init -)"
 eval "$(nodenv init -)"
 eval "$(plenv init - zsh)"
-eval "$(rakudobrew init -)"
 
 if (( ! ${+commands[go]} )); then
   GOLATEST=`goenv install --list | tail -1`

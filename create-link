@@ -1,6 +1,8 @@
 #!/bin/sh
 cd $(dirname $0)
 
+mkdir -p $HOME/.config/nvim
+
 ln -s $PWD/zshrc        $HOME/.zshrc
 ln -s $PWD/vimrc        $HOME/.vimrc
 ln -s $PWD/vimrc        $HOME/.config/nvim/init.vim
