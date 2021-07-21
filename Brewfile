@@ -35,6 +35,7 @@ brew 'git-delta'
 brew 'greymd/tools/teip'
 brew 'gh'
 brew 'jq'
+brew 'vim'
 
 cask_args appdir: '/Applications'
 #cask 'google-chrome'
