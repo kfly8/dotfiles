@@ -37,15 +37,6 @@ brew 'gh'
 brew 'jq'
 brew 'vim'
 
-cask_args appdir: '/Applications'
-#cask 'google-chrome'
-#cask 'firefox'
-#cask 'slack'
-#cask 'Karabiner-Elements'
-#cask 'marp'
-#cask 'zoomus'
-#cask 'visual-studio-code'
-
 # fonts
 tap  'homebrew/cask-fonts'
 cask 'font-hack-nerd-font'
