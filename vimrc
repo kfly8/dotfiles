@@ -51,6 +51,8 @@ Plug 'rust-lang/rust.vim',             { 'for': 'rust' }
 Plug 'morhetz/gruvbox'
 Plug 'tomasr/molokai'
 Plug 'joshdick/onedark.vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'dracula/vim'
 
 call plug#end()
 
