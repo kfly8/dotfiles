@@ -36,6 +36,7 @@ brew 'greymd/tools/teip'
 brew 'gh'
 brew 'jq'
 brew 'vim'
+brew 'tldr'
 
 # fonts
 tap  'homebrew/cask-fonts'
