@@ -37,6 +37,7 @@ brew 'gh'
 brew 'jq'
 brew 'vim'
 brew 'tldr'
+brew 'navi'
 
 # fonts
 tap  'homebrew/cask-fonts'
