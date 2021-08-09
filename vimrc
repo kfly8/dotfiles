@@ -168,7 +168,7 @@ set runtimepath+=~/.vim/snippets
 "----------------------------------------------------
 " Filer
 "----------------------------------------------------
-nnoremap <silent> <leader>f :Fern . -drawer -width=35 -toggle -keep<CR>
+nmap <silent> <leader>f :Fern . -drawer -width=35 -toggle -keep<CR>
 
 let g:fern#renderer = "nerdfont"
 let g:fern_git_status#disable_ignored = 1
@@ -185,7 +185,6 @@ xmap <Leader>a <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap <Leader>a <Plug>(EasyAlign)
-
 
 "----------------------------------------------------
 " ale
@@ -234,7 +233,7 @@ let g:gfm_syntax_emoji_conceal = 1
 "----------------------------------------------------
 " fzf
 "----------------------------------------------------
-nnoremap <leader><leader> :GFiles<CR>
-nnoremap <leader>b        :Buffers<CR>
-nnoremap <leader>l        :Lines<CR>
+nmap <leader><leader> :GFiles<CR>
+nmap <leader>b        :Buffers<CR>
+nmap <leader>l        :Lines<CR>
 
