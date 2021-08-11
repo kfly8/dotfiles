@@ -53,6 +53,7 @@ Plug 'tomasr/molokai'
 Plug 'joshdick/onedark.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'dracula/vim'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
