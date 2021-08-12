@@ -33,7 +33,6 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'preservim/tagbar'
 Plug 'mhinz/vim-startify'
-Plug 'liuchengxu/vim-clap'
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
@@ -53,7 +52,7 @@ Plug 'tomasr/molokai'
 Plug 'joshdick/onedark.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'dracula/vim'
-Plug 'altercation/vim-colors-solarized'
+Plug 'sainnhe/sonokai'
 
 call plug#end()
 
