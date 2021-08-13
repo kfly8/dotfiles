@@ -20,6 +20,7 @@ zplug "zplug/zplug", hook-build:'zplug --self-manage'
 zplug "zsh-users/zsh-completions", defer:2
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-autosuggestions", defer:2
+zplug "zsh-users/zsh-history-substring-search", defer:2
 
 zplug mafredri/zsh-async, from:github
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
