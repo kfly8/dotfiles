@@ -1,6 +1,6 @@
 {
   "latest-preset": {
-    "t": "solarized light",
+    "t": "monokai",
     "bg": "none",
     "wt": "none",
     "wc": true,
@@ -20,7 +20,7 @@
     "type": "png"
   },
   "code": {
-    "t": "solarized light",
+    "t": "monokai",
     "bg": "none",
     "wt": "none",
     "wc": true,
