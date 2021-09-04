@@ -238,8 +238,3 @@ nmap <leader><leader> :GFiles<CR>
 nmap <leader>b        :Buffers<CR>
 nmap <leader>l        :Lines<CR>
 
-"----------------------------------------------------
-" snek
-"----------------------------------------------------
-xmap <leader>s :Snek<CR>
-
