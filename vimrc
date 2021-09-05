@@ -105,8 +105,18 @@ set wildmenu
 set textwidth=0
 set wrap
 
-highlight link ZenkakuSpace Error
-match ZenkakuSpace /　/
+function! ZenkakuSpace()
+  hi ZenkakuSpace cterm=reverse ctermfg=darkgrey gui=reverse guifg=darkgrey
+endfunction
+
+if has('syntax')
+  augroup ZenkakuSpace
+  autocmd!
+  autocmd ColorScheme       * call ZenkakuSpace()
+  autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+  augroup END
+  call ZenkakuSpace()
+endif
 
 "----------------------------------------------------
 " Indent
