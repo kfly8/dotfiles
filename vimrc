@@ -34,6 +34,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'preservim/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'nicwest/vim-camelsnek'
+Plug 'tpope/vim-surround'
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
