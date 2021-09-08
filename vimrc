@@ -35,6 +35,7 @@ Plug 'preservim/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'nicwest/vim-camelsnek'
 Plug 'tpope/vim-surround'
+Plug 'cohama/lexima.vim'
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
