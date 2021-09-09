@@ -56,6 +56,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'dracula/vim'
 Plug 'sainnhe/sonokai'
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
