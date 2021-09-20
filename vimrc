@@ -33,7 +33,6 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'preservim/tagbar'
 Plug 'mhinz/vim-startify'
-Plug 'nicwest/vim-camelsnek'
 Plug 'tpope/vim-surround'
 Plug 'cohama/lexima.vim'
 Plug 'ujihisa/neco-look'
