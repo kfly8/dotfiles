@@ -15,3 +15,4 @@ temp
 test.db
 local
 tags
+.env
