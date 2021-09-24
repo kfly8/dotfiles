@@ -30,7 +30,6 @@ Plug 'wakatime/vim-wakatime'
 Plug 'markonm/traces.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'preservim/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
@@ -48,6 +47,8 @@ Plug 'jelera/vim-javascript-syntax',   { 'for': ['javascript', 'typescript', 'vu
 Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript', 'vue'] }
 Plug 'leafgarland/typescript-vim',     { 'for': 'typescript' }
 Plug 'rhysd/vim-gfm-syntax',           { 'for': 'markdown' }
+Plug 'mzlogin/vim-markdown-toc',       { 'for': 'markdown' }
+Plug 'iamcco/markdown-preview.nvim',   { 'for': 'markdown', 'do': 'cd app && yarn install'  }
 Plug 'rust-lang/rust.vim',             { 'for': 'rust' }
 
 " Color Scheme
