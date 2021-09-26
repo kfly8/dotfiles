@@ -36,6 +36,7 @@ Plug 'tpope/vim-surround'
 Plug 'cohama/lexima.vim'
 Plug 'ujihisa/neco-look'
 Plug 'junegunn/limelight.vim'
+Plug 'skanehira/gyazo.vim'
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
@@ -212,6 +213,7 @@ let g:ale_linters = {
 \   'perl': ['syntax-check', 'perlcritic'],
 \   'rust': ['cargo', 'rls'],
 \   'javascript': ['eslint'],
+\   'markdown': ['textlint'],
 \}
 
 let g:ale_fixers = {
