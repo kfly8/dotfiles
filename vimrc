@@ -57,8 +57,6 @@ Plug 'morhetz/gruvbox'
 Plug 'tomasr/molokai'
 Plug 'joshdick/onedark.vim'
 Plug 'nanotech/jellybeans.vim'
-Plug 'sainnhe/sonokai'
-Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
