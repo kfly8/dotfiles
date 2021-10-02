@@ -29,12 +29,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'wakatime/vim-wakatime'
 Plug 'markonm/traces.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'dhruvasagar/vim-table-mode'
 Plug 'preservim/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
 Plug 'cohama/lexima.vim'
-Plug 'ujihisa/neco-look'
 Plug 'junegunn/limelight.vim'
 Plug 'skanehira/gyazo.vim'
 
@@ -50,6 +48,7 @@ Plug 'leafgarland/typescript-vim',     { 'for': 'typescript' }
 Plug 'rhysd/vim-gfm-syntax',           { 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc',       { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim',   { 'for': 'markdown', 'do': 'cd app && yarn install'  }
+Plug 'dhruvasagar/vim-table-mode',     { 'for': 'markdown' }
 Plug 'rust-lang/rust.vim',             { 'for': 'rust' }
 
 " Color Scheme
