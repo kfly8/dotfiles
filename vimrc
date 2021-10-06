@@ -54,7 +54,6 @@ Plug 'rust-lang/rust.vim',             { 'for': 'rust' }
 " Color Scheme
 Plug 'morhetz/gruvbox'
 Plug 'tomasr/molokai'
-Plug 'joshdick/onedark.vim'
 Plug 'nanotech/jellybeans.vim'
 
 call plug#end()
