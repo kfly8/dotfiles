@@ -38,6 +38,7 @@ brew 'jq'
 brew 'vim'
 brew 'tldr'
 brew 'navi'
+brew 'httpie'
 
 # fonts
 tap  'homebrew/cask-fonts'
