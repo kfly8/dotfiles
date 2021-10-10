@@ -8,7 +8,6 @@
   df = diff --no-prefix
   new = whatchanged HEAD@{1}..HEAD --reverse --stat
   tree = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
-  wt   = whatchanged --stat
 [core]
   excludesfile = ~/.gitignore
   pager = delta
