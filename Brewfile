@@ -39,6 +39,8 @@ brew 'vim'
 brew 'tldr'
 brew 'navi'
 brew 'httpie'
+brew 'dust'
+brew 'procs'
 
 # fonts
 tap  'homebrew/cask-fonts'
