@@ -46,9 +46,6 @@ export PATH=$PATH:$NODENV_ROOT/bin
 export PLENV_ROOT=~/.plenv
 export PATH=$PATH:$PLENV_ROOT/shims:$PLENV_ROOT/bin
 
-export RAKUDOBREW_ROOT=~/.rakudobrew
-export PATH=$PATH:$RAKUDOBREW_ROOT/bin
-
 source $HOME/.cargo/env
 
 export PATH="$PATH:/usr/local/bin"
