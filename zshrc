@@ -99,6 +99,13 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 export PATH=$PATH:$HOME/flutter/bin
 
+
+#----------------------
+# gcloud
+#----------------------
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+
 #----------------------
 # cdr
 #----------------------
