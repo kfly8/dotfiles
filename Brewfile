@@ -43,3 +43,4 @@ brew 'procs'
 # fonts
 tap  'homebrew/cask-fonts'
 cask 'font-hack-nerd-font'
+cask 'google-cloud-sdk'
