@@ -251,6 +251,10 @@ nmap <leader>b        :Buffers<CR>
 nmap <leader>l        :Lines<CR>
 
 "----------------------------------------------------
-" Goyo
+" Goyo & Limelight
 "----------------------------------------------------
-let g:goyo_width = 120
+let g:goyo_width = 80
+let g:limelight_conceal_ctermfg = 'gray'
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
