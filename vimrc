@@ -33,7 +33,6 @@ Plug 'preservim/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
 Plug 'cohama/lexima.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'skanehira/gyazo.vim'
 
 " Plugin Language
@@ -251,10 +250,6 @@ nmap <leader>b        :Buffers<CR>
 nmap <leader>l        :Lines<CR>
 
 "----------------------------------------------------
-" Goyo & Limelight
+" Goyo
 "----------------------------------------------------
 let g:goyo_width = 80
-let g:limelight_conceal_ctermfg = 'gray'
-
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
