@@ -32,8 +32,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
-Plug 'cohama/lexima.vim'
-Plug 'skanehira/gyazo.vim'
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
