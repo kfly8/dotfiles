@@ -17,7 +17,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/glyph-palette.vim'
@@ -250,4 +249,4 @@ nmap <leader>l        :Lines<CR>
 "----------------------------------------------------
 " Goyo
 "----------------------------------------------------
-let g:goyo_width = 80
+let g:goyo_width = 70
