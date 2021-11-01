@@ -39,6 +39,7 @@ brew 'navi'
 brew 'httpie'
 brew 'dust'
 brew 'procs'
+brew 'sqlc'
 
 # fonts
 tap  'homebrew/cask-fonts'
