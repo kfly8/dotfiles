@@ -40,6 +40,7 @@ brew 'httpie'
 brew 'dust'
 brew 'procs'
 brew 'sqlc'
+brew 'commitizen'
 
 # fonts
 tap  'homebrew/cask-fonts'
