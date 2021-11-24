@@ -41,6 +41,7 @@ brew 'dust'
 brew 'procs'
 brew 'sqlc'
 brew 'commitizen'
+brew 'knqyf263/pet/pet'
 
 # fonts
 tap  'homebrew/cask-fonts'
