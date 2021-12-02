@@ -36,9 +36,9 @@ Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries
 Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny class' }
 Plug 'yuuki/perl-local-lib-path.vim',  { 'for': 'perl' }
 Plug 'skaji/syntax-check-perl',        { 'for': 'perl' }
-Plug 'pangloss/vim-javascript',        { 'for': ['javascript', 'typescript', 'vue'] }
-Plug 'jelera/vim-javascript-syntax',   { 'for': ['javascript', 'typescript', 'vue'] }
-Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript', 'vue'] }
+Plug 'pangloss/vim-javascript',        { 'for': ['javascript', 'typescript', 'vue', 'javascript.jsx'] }
+Plug 'jelera/vim-javascript-syntax',   { 'for': ['javascript', 'typescript', 'vue', 'javascript.jsx'] }
+Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript', 'vue', 'javascript.jsx'] }
 Plug 'leafgarland/typescript-vim',     { 'for': 'typescript' }
 Plug 'rhysd/vim-gfm-syntax',           { 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc',       { 'for': 'markdown' }
