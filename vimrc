@@ -40,6 +40,8 @@ Plug 'pangloss/vim-javascript',        { 'for': ['javascript', 'typescript', 'vu
 Plug 'jelera/vim-javascript-syntax',   { 'for': ['javascript', 'typescript', 'vue', 'javascript.jsx'] }
 Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript', 'vue', 'javascript.jsx'] }
 Plug 'leafgarland/typescript-vim',     { 'for': 'typescript' }
+Plug 'tpope/vim-endwise',              { 'for': 'ruby' }
+Plug 'tpope/vim-rails',                { 'for': 'ruby' }
 Plug 'rhysd/vim-gfm-syntax',           { 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc',       { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim',   { 'for': 'markdown', 'do': 'cd app && yarn install'  }
