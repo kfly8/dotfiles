@@ -46,6 +46,9 @@ export PATH=$PATH:$NODENV_ROOT/bin
 export PLENV_ROOT=~/.plenv
 export PATH=$PATH:$PLENV_ROOT/shims:$PLENV_ROOT/bin
 
+export RBENV_ROOT=~/.rbenv
+export PATH=$PATH:$RBENV_ROOT/shims:$RBENV_ROOT/bin
+
 source $HOME/.cargo/env
 
 export PATH="$PATH:/usr/local/bin"
@@ -84,6 +87,7 @@ fi
 eval "$(goenv init -)"
 eval "$(nodenv init -)"
 eval "$(plenv init - zsh)"
+eval "$(rbenv init -)"
 
 if (( ! ${+commands[go]} )); then
   GOLATEST=`goenv install --list | tail -1`
