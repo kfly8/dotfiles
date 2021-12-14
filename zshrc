@@ -101,8 +101,11 @@ export GOPATH=$HOME
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH="$HOME/.cargo/bin:$PATH"
 
-export PATH=$PATH:$HOME/flutter/bin
+#----------------------
+# flutter
+#----------------------
 
+export PATH=$PATH:$HOME/flutter/bin
 
 #----------------------
 # gcloud
