@@ -11,7 +11,7 @@ ln -s $PWD/gitconfig    $HOME/.gitconfig
 ln -s $PWD/gitmessage   $HOME/.gitmessage
 ln -s $PWD/gitignore    $HOME/.gitignore
 ln -s $PWD/tmux.conf    $HOME/.tmux.conf
-ln -s $PWD/editorconfig $HOME/.editorconfig
+ln -s $PWD/editorconfig $HOME/src/.editorconfig
 ln -s $PWD/textlintrc   $HOME/.textlintrc
 ln -s $PWD/proverc      $HOME/.proverc
 ln -s $PWD/Brewfile     $HOME/Brewfile

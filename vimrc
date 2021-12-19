@@ -235,7 +235,7 @@ hi Search guibg=peru guifg=wheat
 " markdown
 "----------------------------------------------------
 
-let g:markdown_fenced_languages = ['perl', 'typescript', 'javascript']
+let g:markdown_fenced_languages = ['perl', 'typescript', 'javascript', 'ruby']
 let g:gfm_syntax_emoji_conceal = 1
 
 "----------------------------------------------------
