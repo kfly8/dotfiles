@@ -47,11 +47,11 @@ export PLENV_ROOT=~/.plenv
 export PATH=$PATH:$PLENV_ROOT/shims:$PLENV_ROOT/bin
 
 export RBENV_ROOT=~/.rbenv
-export PATH=$PATH:$RBENV_ROOT/shims:$RBENV_ROOT/bin
+export PATH=$PATH:$RBENV_ROOT/bin
 
 source $HOME/.cargo/env
 
-export PATH="$PATH:/usr/local/bin"
+export PATH="/usr/local/bin:$PATH"
 
 # brew --prefix python
 export PATH="/usr/local/opt/python3/bin:/opt/homebrew/opt/python@3.9:$PATH"
@@ -60,7 +60,7 @@ export PATH="/usr/local/opt/python3/bin:/opt/homebrew/opt/python@3.9:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:/opt/homebrew/opt/mysql-client:$PATH"
 
 # brew --prefix openssl
-export LIBRARY_PATH="/usr/local/opt/openssl@1.1/lib:/opt/homebrew/opt/openssl@1.1:$LIBRARY_PATH"
+#export LIBRARY_PATH="/usr/local/opt/openssl@1.1/lib:/opt/homebrew/opt/openssl@1.1:$LIBRARY_PATH"
 
 export MONO_GAC_PREFIX="/usr/local"
 
@@ -77,7 +77,15 @@ if [[ ! -d ~/.plenv ]]; then
 fi
 
 if [[ ! -d ~/.plenv/plugins/perl-build ]]; then
-  git clone https://github.com/tokuhirom/Perl-Build.git ~/.plenv/plugins/perl-build/
+  git clone https://github.com/tokuhirom/Perl-Build.git ~/.plenv/plugins/perl-build
+fi
+
+if [[ ! -d ~/.rbenv ]]; then
+  git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+fi
+
+if [[ ! -d ~/.rbenv/plugins/ruby-build ]]; then
+  git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 fi
 
 if [[ ! -d ~/.cargo ]]; then
@@ -136,6 +144,8 @@ setopt share_history
 #----------------------
 # alias
 #----------------------
+
+alias vim="nvim"
 
 alias ls="exa"
 alias l="exa --oneline --git-ignore"

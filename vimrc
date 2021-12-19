@@ -5,9 +5,6 @@
 call plug#begin('~/.vim/plugged/')
 Plug 'Shougo/vimproc.vim',   { 'do': 'make' }
 Plug 'Shougo/denite.nvim'
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'itchyny/lightline.vim'
 Plug 'dense-analysis/ale'
 Plug 'prabirshrestha/vim-lsp'
@@ -30,6 +27,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
@@ -153,10 +151,8 @@ colorscheme gruvbox
 "------------------------------------------------------------------------
 
 "----------------------------------------------------
-" deoplete
+" completion
 "----------------------------------------------------
-let g:deoplete#enable_at_startup = 1
-
 imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "----------------------------------------------------
@@ -249,3 +245,4 @@ nmap <leader>l        :Lines<CR>
 " Goyo
 "----------------------------------------------------
 let g:goyo_width = 80
+
