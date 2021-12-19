@@ -126,11 +126,12 @@ endif
 "----------------------------------------------------
 " Indent
 "----------------------------------------------------
-set noautoindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set noautoindent
+set smartindent
 
 "----------------------------------------------------
 " Encoding
@@ -262,7 +263,7 @@ let g:goyo_width = 80
 " coc.nvim
 "----------------------------------------------------
 let g:coc_global_extensions = [
-\    'coc-tsserver', 
+\    'coc-tsserver',
 \    'coc-eslint8',
 \    'coc-prettier',
 \    'coc-git',

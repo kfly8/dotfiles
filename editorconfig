@@ -23,3 +23,6 @@ indent_size = 2
 [*.{yml,yaml}]
 indent_size = 2
 
+[*.{pl,t}]
+indent_size = 4
+
