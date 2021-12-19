@@ -7,8 +7,6 @@ Plug 'Shougo/vimproc.vim',   { 'do': 'make' }
 Plug 'Shougo/denite.nvim'
 Plug 'itchyny/lightline.vim'
 Plug 'dense-analysis/ale'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'rhysd/vim-lsp-ale'
 Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -28,6 +26,7 @@ Plug 'preservim/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
@@ -48,6 +47,7 @@ Plug 'rust-lang/rust.vim',             { 'for': 'rust' }
 
 " Color Scheme
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 
 call plug#end()
 
@@ -144,7 +144,7 @@ au BufRead,BufNewFile *.t    set filetype=perl
 "----------------------------------------------------
 set background=dark
 let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
+colorscheme gruvbox-material
 
 "------------------------------------------------------------------------
 " Plugin Config
