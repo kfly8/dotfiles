@@ -10,3 +10,4 @@
 /config/direnv/
 /config/asciinema/
 .vscode
+/vim/sessions

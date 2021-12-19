@@ -6,18 +6,30 @@ call plug#begin('~/.vim/plugged/')
 Plug 'Shougo/vimproc.vim',   { 'do': 'make' }
 Plug 'Shougo/denite.nvim'
 Plug 'itchyny/lightline.vim'
-Plug 'dense-analysis/ale'
 Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 Plug 'editorconfig/editorconfig-vim'
+
+" fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/remote', 'do': ':UpdateRemotePlugins' }
+
+" snippets
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+" filer
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/glyph-palette.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/fern-git-status.vim'
 Plug 'lambdalisue/fern-hijack.vim'
+
+" ale, coc
+Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'junegunn/goyo.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'markonm/traces.vim'
@@ -25,8 +37,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Plugin Language
 Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
@@ -45,9 +55,10 @@ Plug 'iamcco/markdown-preview.nvim',   { 'for': 'markdown', 'do': 'cd app && yar
 Plug 'dhruvasagar/vim-table-mode',     { 'for': 'markdown' }
 Plug 'rust-lang/rust.vim',             { 'for': 'rust' }
 
-" Color Scheme
+" Color Scheme and extentions
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -245,4 +256,19 @@ nmap <leader>l        :Lines<CR>
 " Goyo
 "----------------------------------------------------
 let g:goyo_width = 80
+
+
+"----------------------------------------------------
+" coc.nvim
+"----------------------------------------------------
+let g:coc_global_extensions = [
+\    'coc-tsserver', 
+\    'coc-eslint8',
+\    'coc-prettier',
+\    'coc-git',
+\    'coc-fzf-preview',
+\    'coc-lists',
+\    'coc-solargraph',
+\    'coc-perl'
+\]
 
