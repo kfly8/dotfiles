@@ -269,6 +269,7 @@ let g:coc_global_extensions = [
 \    'coc-fzf-preview',
 \    'coc-lists',
 \    'coc-solargraph',
-\    'coc-perl'
+\    'coc-perl',
+\    'coc-go'
 \]
 
