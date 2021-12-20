@@ -5,7 +5,6 @@ mkdir -p $HOME/.config/nvim
 
 ln -s $PWD/zshrc        $HOME/.zshrc
 ln -s $PWD/vimrc        $HOME/.vimrc
-ln -s $PWD/vimrc        $HOME/.config/nvim/init.vim
 ln -s $PWD/vim          $HOME/.vim
 ln -s $PWD/gitconfig    $HOME/.gitconfig
 ln -s $PWD/gitmessage   $HOME/.gitmessage
@@ -17,3 +16,9 @@ ln -s $PWD/textlintrc   $HOME/.textlintrc
 ln -s $PWD/proverc      $HOME/.proverc
 ln -s $PWD/Brewfile     $HOME/Brewfile
 ln -s $PWD/carbon-now.json     $HOME/.carbon-now.json
+
+ln -s $PWD/vimrc                                $HOME/.config/nvim/init.vim
+ln -s $PWD/config/nvim/coc-settings.json        $HOME/.config/nvim/coc-settings.json
+ln -s $PWD/config/pet/snippet.toml              $HOME/.config/pet/snippet.toml
+ln -s $PWD/config/efm-langserver/config.yaml    $HOME/.config/efm-langserver/config.yaml
+

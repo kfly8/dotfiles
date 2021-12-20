@@ -1,0 +1,5 @@
+languages:
+  markdown:
+    lint-command: 'npx textlint --format unix --preset ja-technical-writing ${INPUT}'
+    lint-formats:
+      - '%f:%l:%n: %m'

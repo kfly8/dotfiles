@@ -1,0 +1,9 @@
+[[snippets]]
+  description = "show all files"
+  command = "ls -la"
+  output = ""
+
+[[snippets]]
+  description = "show files"
+  command = "ls -l"
+  output = ""
