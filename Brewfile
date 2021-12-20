@@ -41,6 +41,7 @@ brew 'sqlc'
 brew 'commitizen'
 brew 'knqyf263/pet/pet'
 brew 'readline'
+brew 'efm-langserver'
 
 # fonts
 tap  'homebrew/cask-fonts'

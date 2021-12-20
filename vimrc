@@ -26,9 +26,9 @@ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/fern-git-status.vim'
 Plug 'lambdalisue/fern-hijack.vim'
 
-" ale, coc
-Plug 'dense-analysis/ale'
+" coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'cappyzawa/trim.nvim'
 
 Plug 'junegunn/goyo.vim'
 Plug 'wakatime/vim-wakatime'
@@ -200,44 +200,6 @@ xmap <Leader>a <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap <Leader>a <Plug>(EasyAlign)
-
-"----------------------------------------------------
-" ale
-"----------------------------------------------------
-
-let g:ale_sign_column_always = 1
-
-let g:ale_linters = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'perl': ['syntax-check', 'perlcritic'],
-\   'rust': ['cargo', 'rls'],
-\   'javascript': ['eslint'],
-\   'markdown': ['textlint'],
-\}
-
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'typescript': ['prettier'],
-\   'rust': ['rustfmt'],
-\}
-
-let g:ale_rust_rls_toolchain = 'stable'
-let g:ale_completion_enabled = 1
-
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-let g:ale_open_list = 1
-
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
-
-" エラーと警告がなくなっても開いたままにする
-let g:ale_keep_list_window_open = 1
-let g:ale_list_window_size = 5
-
-let g:ale_fix_on_save = 1
-
-hi Search guibg=peru guifg=wheat
 
 "----------------------------------------------------
 " markdown
