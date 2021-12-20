@@ -214,6 +214,7 @@ let g:gfm_syntax_emoji_conceal = 1
 nmap <leader><leader> :GFiles<CR>
 nmap <leader>b        :Buffers<CR>
 nmap <leader>l        :Lines<CR>
+nmap <leader>c        :Commands<CR>
 
 "----------------------------------------------------
 " Goyo
@@ -224,15 +225,21 @@ let g:goyo_width = 80
 "----------------------------------------------------
 " coc.nvim
 "----------------------------------------------------
+
+set updatetime=100
+set signcolumn=yes
+
 let g:coc_global_extensions = [
+\    'coc-fzf-preview',
 \    'coc-tsserver',
 \    'coc-eslint8',
 \    'coc-prettier',
 \    'coc-git',
-\    'coc-fzf-preview',
 \    'coc-lists',
 \    'coc-solargraph',
 \    'coc-perl',
-\    'coc-go'
+\    'coc-go',
+\    'coc-rls',
+\    'coc-json'
 \]
 
