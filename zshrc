@@ -1,7 +1,7 @@
 export LANG=ja_JP.UTF-8
 
 export PAGER=less
-export EDITOR=vim
+export EDITOR=nvim
 
 eval "$(direnv hook zsh)"
 
