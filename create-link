@@ -14,6 +14,7 @@ ln -s $PWD/editorconfig $HOME/.editorconfig
 ln -s $PWD/editorconfig $HOME/src/.editorconfig
 ln -s $PWD/textlintrc   $HOME/.textlintrc
 ln -s $PWD/proverc      $HOME/.proverc
+ln -s $PWD/gemrc        $HOME/.gemrc
 ln -s $PWD/Brewfile     $HOME/Brewfile
 ln -s $PWD/carbon-now.json     $HOME/.carbon-now.json
 
