@@ -49,8 +49,6 @@ export PATH=$PATH:$PLENV_ROOT/shims:$PLENV_ROOT/bin
 export RBENV_ROOT=~/.rbenv
 export PATH=$PATH:$RBENV_ROOT/bin
 
-source $HOME/.cargo/env
-
 export PATH="/usr/local/bin:$PATH"
 
 # brew --prefix python
@@ -88,10 +86,6 @@ if [[ ! -d ~/.rbenv/plugins/ruby-build ]]; then
   git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 fi
 
-if [[ ! -d ~/.cargo ]]; then
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-fi
-
 eval "$(goenv init -)"
 eval "$(nodenv init -)"
 eval "$(plenv init - zsh)"
@@ -104,10 +98,9 @@ if (( ! ${+commands[go]} )); then
 fi
 
 export GOROOT=`go env GOROOT`
-export GOPATH=$HOME
+export GOPATH=$HOME/.go
 
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export PATH="$HOME/.cargo/bin:$PATH"
 
 #----------------------
 # flutter
