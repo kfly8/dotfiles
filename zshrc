@@ -21,6 +21,7 @@ zplug "zsh-users/zsh-completions", defer:2
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-autosuggestions", defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:2
+zplug 'asdf-vm/asdf'
 
 zplug mafredri/zsh-async, from:github
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
@@ -40,9 +41,6 @@ zplug load
 export GOENV_ROOT=~/.goenv
 export PATH=$PATH:$GOENV_ROOT/bin
 
-export NODENV_ROOT=~/.nodenv
-export PATH=$PATH:$NODENV_ROOT/bin
-
 export PLENV_ROOT=~/.plenv
 export PATH=$PATH:$PLENV_ROOT/shims:$PLENV_ROOT/bin
 
@@ -50,6 +48,14 @@ export RBENV_ROOT=~/.rbenv
 export PATH=$PATH:$RBENV_ROOT/bin
 
 export PATH="/usr/local/bin:$PATH"
+
+# asdf
+if [[ -f $ZPLUG_REPOS/asdf-vm/asdf/asdf.sh ]]; then
+  source $ZPLUG_REPOS/asdf-vm/asdf/asdf.sh
+fi
+if [[ -f $ZPLUG_REPOS/asdf-vm/asdf/completions/asdf.zsh ]]; then
+  source $ZPLUG_REPOS/asdf-vm/asdf/completions/asdf.zsh
+fi
 
 # brew --prefix python
 export PATH="/usr/local/opt/python3/bin:/opt/homebrew/opt/python@3.9:$PATH"
@@ -64,10 +70,6 @@ export MONO_GAC_PREFIX="/usr/local"
 
 if [[ ! -d ~/.goenv ]]; then
   git clone https://github.com/syndbg/goenv.git ~/.goenv
-fi
-
-if [[ ! -d ~/.nodenv ]]; then
-  git clone https://github.com/nodenv/nodenv.git ~/.nodenv
 fi
 
 if [[ ! -d ~/.plenv ]]; then

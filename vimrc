@@ -8,6 +8,7 @@ Plug 'Shougo/denite.nvim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 Plug 'editorconfig/editorconfig-vim'
+Plug 'Yggdroot/indentLine'
 
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -150,6 +151,7 @@ language en_US.UTF-8
 "----------------------------------------------------
 au BufRead,BufNewFile *.psgi set filetype=perl
 au BufRead,BufNewFile *.t    set filetype=perl
+au BufRead,BufNewFile *.mustache set filetype=html
 
 "----------------------------------------------------
 " Color Scheme

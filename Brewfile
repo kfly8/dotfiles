@@ -42,6 +42,8 @@ brew 'commitizen'
 brew 'knqyf263/pet/pet'
 brew 'readline'
 brew 'efm-langserver'
+brew 'asdf'
+brew 'mkcert'
 
 # fonts
 tap  'homebrew/cask-fonts'
