@@ -4,11 +4,12 @@
 
 call plug#begin('~/.vim/plugged/')
 Plug 'Shougo/vimproc.vim',   { 'do': 'make' }
-Plug 'Shougo/denite.nvim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
+Plug 'sago35/mark.vim'
+Plug 'cappyzawa/trim.nvim'
 
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -27,9 +28,12 @@ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/fern-git-status.vim'
 Plug 'lambdalisue/fern-hijack.vim'
 
-" coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'cappyzawa/trim.nvim'
+" lsp
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
 
 Plug 'junegunn/goyo.vim'
 Plug 'wakatime/vim-wakatime'
@@ -55,6 +59,7 @@ Plug 'mzlogin/vim-markdown-toc',       { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim',   { 'for': 'markdown', 'do': 'cd app && yarn install'  }
 Plug 'dhruvasagar/vim-table-mode',     { 'for': 'markdown' }
 Plug 'rust-lang/rust.vim',             { 'for': 'rust' }
+Plug 'mattn/vim-sqlfmt',               { 'for': 'sql'}
 
 " Color Scheme and extentions
 Plug 'morhetz/gruvbox'
@@ -99,7 +104,7 @@ set title
 set number
 set ruler
 set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:»-,trail:~,eol:↲,extends:»,precedes:«,nbsp:%
 set showcmd
 set laststatus=2
 set showmatch
@@ -169,13 +174,9 @@ colorscheme gruvbox-material
 "----------------------------------------------------
 imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
-"----------------------------------------------------
-" snippet
-"----------------------------------------------------
-
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
 let g:UltiSnipsEditSplit="vertical"
 
@@ -185,30 +186,13 @@ set runtimepath+=~/.vim/snippets
 "----------------------------------------------------
 " Filer
 "----------------------------------------------------
-nmap <silent> <leader>f :Fern . -drawer -width=35 -toggle -keep<CR>
+nmap <silent> <leader>f :Fern . -drawer -width=50 -toggle -keep<CR>
 
 let g:fern#renderer = "nerdfont"
 let g:fern_git_status#disable_ignored = 1
 let g:fern_git_status#disable_untracked = 1
 let g:fern_git_status#disable_submodules = 1
 let g:fern_git_status#disable_directories = 1
-
-"----------------------------------------------------
-" Easy Align
-"----------------------------------------------------
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap <Leader>a <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap <Leader>a <Plug>(EasyAlign)
-
-"----------------------------------------------------
-" markdown
-"----------------------------------------------------
-
-let g:markdown_fenced_languages = ['perl', 'typescript', 'javascript', 'ruby']
-let g:gfm_syntax_emoji_conceal = 1
 
 "----------------------------------------------------
 " fzf
@@ -223,25 +207,19 @@ nmap <leader>c        :Commands<CR>
 "----------------------------------------------------
 let g:goyo_width = 80
 
-
 "----------------------------------------------------
-" coc.nvim
+" lsp
 "----------------------------------------------------
 
 set updatetime=100
 set signcolumn=yes
 
-let g:coc_global_extensions = [
-\    'coc-fzf-preview',
-\    'coc-tsserver',
-\    'coc-eslint8',
-\    'coc-prettier',
-\    'coc-git',
-\    'coc-lists',
-\    'coc-solargraph',
-\    'coc-perl',
-\    'coc-go',
-\    'coc-rls',
-\    'coc-json'
-\]
+let g:lsp_settings_filetype_perl = 'perlnavigator'
+let g:lsp_settings_filetype_ruby = ['solargraph']
+
+let g:lsp_diagnostics_signs_enabled = 1
+let g:lsp_diagnostics_signs_error = {'text': '✗'}
+let g:lsp_diagnostics_signs_warning = {'text': 'W'}
+let g:lsp_diagnostics_signs_information = {'text': 'i'}
+let g:lsp_diagnostics_signs_hint = {'text': 'H'}
 

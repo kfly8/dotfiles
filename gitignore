@@ -9,6 +9,7 @@ app/bower_components
 test/bower_components
 /*.lock
 /vendor/bundle
+vendor
 cpanfile.snapshot
 package-lock.json
 temp
@@ -16,3 +17,7 @@ test.db
 local
 tags
 .env
+.vscode
+.local.vimrc
+.carmel
+.envrc

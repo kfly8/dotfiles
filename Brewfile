@@ -44,6 +44,7 @@ brew 'readline'
 brew 'efm-langserver'
 brew 'asdf'
 brew 'mkcert'
+brew 'sqlparse'
 
 # fonts
 tap  'homebrew/cask-fonts'

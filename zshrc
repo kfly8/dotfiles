@@ -146,7 +146,7 @@ alias ls="exa"
 alias l="exa --oneline --git-ignore"
 alias ll="exa -lh --git --git-ignore"
 alias la="exa -lha --git"
-alias tree="exa --tree"
+alias tree="exa --tree --git-ignore"
 
 alias cat="bat"
 alias find="fd"
