@@ -36,20 +36,16 @@ fi
 zplug load
 
 #--------------------------
-# *env
+# homebrew
 #--------------------------
-export GOENV_ROOT=~/.goenv
-export PATH=$PATH:$GOENV_ROOT/bin
-
-export PLENV_ROOT=~/.plenv
-export PATH=$PATH:$PLENV_ROOT/shims:$PLENV_ROOT/bin
-
-export RBENV_ROOT=~/.rbenv
-export PATH=$PATH:$RBENV_ROOT/bin
 
 export PATH="/usr/local/bin:$PATH"
+export MONO_GAC_PREFIX="/usr/local"
 
+#--------------------------
 # asdf
+#--------------------------
+
 if [[ -f $ZPLUG_REPOS/asdf-vm/asdf/asdf.sh ]]; then
   source $ZPLUG_REPOS/asdf-vm/asdf/asdf.sh
 fi
@@ -58,50 +54,24 @@ if [[ -f $ZPLUG_REPOS/asdf-vm/asdf/completions/asdf.zsh ]]; then
 fi
 
 # brew --prefix python
-export PATH="/usr/local/opt/python3/bin:/opt/homebrew/opt/python@3.9:$PATH"
-
-# brew --prefix mysql-client
-export PATH="/usr/local/opt/mysql-client/bin:/opt/homebrew/opt/mysql-client:$PATH"
+#export PATH="/usr/local/opt/python3/bin:/opt/homebrew/opt/python@3.9:$PATH"
 
 # brew --prefix openssl
 #export LIBRARY_PATH="/usr/local/opt/openssl@1.1/lib:/opt/homebrew/opt/openssl@1.1:$LIBRARY_PATH"
 
-export MONO_GAC_PREFIX="/usr/local"
+#----------------------
+# mysql
+#----------------------
 
-if [[ ! -d ~/.goenv ]]; then
-  git clone https://github.com/syndbg/goenv.git ~/.goenv
-fi
+# brew --prefix mysql-client
+export PATH="/usr/local/opt/mysql-client/bin:/opt/homebrew/opt/mysql-client:$PATH"
 
-if [[ ! -d ~/.plenv ]]; then
-  git clone https://github.com/tokuhirom/plenv.git ~/.plenv
-fi
-
-if [[ ! -d ~/.plenv/plugins/perl-build ]]; then
-  git clone https://github.com/tokuhirom/Perl-Build.git ~/.plenv/plugins/perl-build
-fi
-
-if [[ ! -d ~/.rbenv ]]; then
-  git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-fi
-
-if [[ ! -d ~/.rbenv/plugins/ruby-build ]]; then
-  git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-fi
-
-eval "$(goenv init -)"
-eval "$(nodenv init -)"
-eval "$(plenv init - zsh)"
-eval "$(rbenv init -)"
-
-if (( ! ${+commands[go]} )); then
-  GOLATEST=`goenv install --list | tail -1`
-  `echo $GOLATEST | xargs goenv install & goenv rehash`
-  `echo $GOLATEST | xargs goenv global`
-fi
+#----------------------
+# Go
+#----------------------
 
 export GOROOT=`go env GOROOT`
 export GOPATH=$HOME/.go
-
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 #----------------------
@@ -109,12 +79,6 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 #----------------------
 
 export PATH=$PATH:$HOME/flutter/bin
-
-#----------------------
-# gcloud
-#----------------------
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 #----------------------
 # cdr
@@ -159,7 +123,6 @@ alias find="fd"
 bindkey -e
 bindkey '^r' fzf-select-history
 bindkey '^f' fzf-src
-
 
 #----------------------
 # fzf
@@ -211,6 +174,12 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+#----------------------
+# gcloud
+#----------------------
 
-# heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/kfly8/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+if [[ ! -d /usr/local/Caskroom/google-cloud-sdk ]]; then
+    source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+    source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+fi
+
