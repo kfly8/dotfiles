@@ -3,7 +3,6 @@
 "----------------------------------------------------
 
 call plug#begin('~/.vim/plugged/')
-Plug 'Shougo/vimproc.vim',   { 'do': 'make' }
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 Plug 'editorconfig/editorconfig-vim'
@@ -16,9 +15,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/remote', 'do': ':UpdateRemotePlugins' }
 
-" snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 " filer
 Plug 'lambdalisue/fern.vim'
@@ -31,9 +27,15 @@ Plug 'lambdalisue/fern-hijack.vim'
 " lsp
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
+
+" comp
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'Shougo/neco-vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+Plug 'prabirshrestha/asyncomplete-necovim.vim'
 
 Plug 'junegunn/goyo.vim'
 Plug 'wakatime/vim-wakatime'
@@ -172,16 +174,22 @@ colorscheme gruvbox-material
 "----------------------------------------------------
 " completion
 "----------------------------------------------------
-imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
+let g:UltiSnipsExpandTrigger="<C-k>"
 let g:UltiSnipsEditSplit="vertical"
-
 let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
 set runtimepath+=~/.vim/snippets
+
+if has('python3')
+  silent! call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_options({
+      \ 'name': 'ultisnips',
+      \ 'whitelist': ['*'],
+      \ 'completor': function('asyncomplete#sources#ultisnips#completor'),
+      \ }))
+endif
 
 "----------------------------------------------------
 " Filer
@@ -216,6 +224,9 @@ set signcolumn=yes
 
 let g:lsp_settings_filetype_perl = 'perlnavigator'
 let g:lsp_settings_filetype_ruby = ['solargraph']
+
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_virtual_text_enabled = 0
 
 let g:lsp_diagnostics_signs_enabled = 1
 let g:lsp_diagnostics_signs_error = {'text': '✗'}
