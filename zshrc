@@ -2,9 +2,6 @@ export LANG=ja_JP.UTF-8
 
 export PAGER=less
 export EDITOR=nvim
-
-eval "$(direnv hook zsh)"
-
 #----------------------
 # Plugin
 #----------------------
@@ -35,12 +32,6 @@ fi
 
 zplug load
 
-#--------------------------
-# homebrew
-#--------------------------
-
-export PATH="/usr/local/bin:$PATH"
-export MONO_GAC_PREFIX="/usr/local"
 
 #--------------------------
 # asdf
@@ -53,18 +44,18 @@ if [[ -f $ZPLUG_REPOS/asdf-vm/asdf/completions/asdf.zsh ]]; then
   source $ZPLUG_REPOS/asdf-vm/asdf/completions/asdf.zsh
 fi
 
-# brew --prefix python
-#export PATH="/usr/local/opt/python3/bin:/opt/homebrew/opt/python@3.9:$PATH"
+#--------------------------
+# direnv
+#--------------------------
 
-# brew --prefix openssl
-#export LIBRARY_PATH="/usr/local/opt/openssl@1.1/lib:/opt/homebrew/opt/openssl@1.1:$LIBRARY_PATH"
+eval "$(direnv hook zsh)"
 
-#----------------------
-# mysql
-#----------------------
+#--------------------------
+# homebrew
+#--------------------------
 
-# brew --prefix mysql-client
-export PATH="/usr/local/opt/mysql-client/bin:/opt/homebrew/opt/mysql-client:$PATH"
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/usr/local/opt/mysql-client/bin:/opt/homebrew/opt/mysql-client"
 
 #----------------------
 # Go
@@ -74,11 +65,6 @@ export GOROOT=`go env GOROOT`
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-#----------------------
-# flutter
-#----------------------
-
-export PATH=$PATH:$HOME/flutter/bin
 
 #----------------------
 # cdr
@@ -101,7 +87,7 @@ setopt hist_ignore_dups
 setopt share_history
 
 #----------------------
-# alias
+# alias & bindkey
 #----------------------
 
 alias vim="nvim"
@@ -116,9 +102,7 @@ alias cat="bat"
 alias find="fd"
 #alias grep="rg"
 
-#----------------------
-# bindkey
-#----------------------
+alias cdd='fzf-cdr'
 
 bindkey -e
 bindkey '^r' fzf-select-history
@@ -155,7 +139,6 @@ function fzf-src () {
 }
 zle -N fzf-src
 
-alias cdd='fzf-cdr'
 function fzf-cdr() {
   target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
   target_dir=`echo ${target_dir/\~/$HOME}`
@@ -173,13 +156,4 @@ if [[ -f ~/.zshrc.local ]]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#----------------------
-# gcloud
-#----------------------
-
-if [[ ! -d /usr/local/Caskroom/google-cloud-sdk ]]; then
-    source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-    source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-fi
 

@@ -183,6 +183,8 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
 set runtimepath+=~/.vim/snippets
 
+let g:python3_host_prog = system('echo -n $(which python3)')
+
 if has('python3')
   silent! call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_options({
       \ 'name': 'ultisnips',
