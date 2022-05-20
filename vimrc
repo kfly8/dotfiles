@@ -15,7 +15,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/remote', 'do': ':UpdateRemotePlugins' }
 
-
 " filer
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/nerdfont.vim'
@@ -46,27 +45,16 @@ Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
 
 " Plugin Language
-"Plug 'fatih/vim-go',                   { 'for': 'go',   'do': ':GoUpdateBinaries' }
-"Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny class' }
-"Plug 'yuuki/perl-local-lib-path.vim',  { 'for': 'perl' }
-"Plug 'skaji/syntax-check-perl',        { 'for': 'perl' }
-"Plug 'pangloss/vim-javascript',        { 'for': ['javascript', 'typescript', 'vue', 'javascript.jsx'] }
-"Plug 'jelera/vim-javascript-syntax',   { 'for': ['javascript', 'typescript', 'vue', 'javascript.jsx'] }
-"Plug 'posva/vim-vue',                  { 'for': ['javascript', 'typescript', 'vue', 'javascript.jsx'] }
-"Plug 'leafgarland/typescript-vim',     { 'for': 'typescript' }
-"Plug 'tpope/vim-endwise',              { 'for': 'ruby' }
-"Plug 'tpope/vim-rails',                { 'for': 'ruby' }
-"Plug 'rhysd/vim-gfm-syntax',           { 'for': 'markdown' }
-"Plug 'mzlogin/vim-markdown-toc',       { 'for': 'markdown' }
-"Plug 'iamcco/markdown-preview.nvim',   { 'for': 'markdown', 'do': 'cd app && yarn install'  }
-"Plug 'dhruvasagar/vim-table-mode',     { 'for': 'markdown' }
-"Plug 'rust-lang/rust.vim',             { 'for': 'rust' }
-"Plug 'mattn/vim-sqlfmt',               { 'for': 'sql'}
+Plug 'tpope/vim-endwise',              { 'for': 'ruby' }
+Plug 'rhysd/vim-gfm-syntax',           { 'for': 'markdown' }
+Plug 'mzlogin/vim-markdown-toc',       { 'for': 'markdown' }
+Plug 'iamcco/markdown-preview.nvim',   { 'for': 'markdown', 'do': 'cd app && yarn install'  }
+Plug 'dhruvasagar/vim-table-mode',     { 'for': 'markdown' }
 
 " Color Scheme and extentions
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -224,9 +212,10 @@ let g:goyo_width = 80
 set updatetime=100
 set signcolumn=yes
 
-let g:lsp_settings_filetype_perl = 'perlnavigator'
+let g:lsp_settings_filetype_perl = ['perlnavigator']
 let g:lsp_settings_filetype_ruby = ['solargraph']
-let g:lsp_settings_filetype_sql = 'sql-language-server'
+let g:lsp_settings_filetype_sql = ['sql-language-server']
+let g:lsp_settings_filetype_go = ['gopls']
 
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_virtual_text_enabled = 0
@@ -237,7 +226,7 @@ let g:lsp_diagnostics_signs_warning = {'text': 'W'}
 let g:lsp_diagnostics_signs_information = {'text': 'i'}
 let g:lsp_diagnostics_signs_hint = {'text': 'H'}
 
-"let g:lsp_log_file = expand('~/vim-lsp.log')
+let g:lsp_log_file = expand('~/vim-lsp.log')
 
 let g:lsp_settings = {
 \    'perlnavigator': {
