@@ -18,6 +18,7 @@ ln -s $PWD/proverc         $HOME/.proverc
 ln -s $PWD/gemrc           $HOME/.gemrc
 ln -s $PWD/Brewfile        $HOME/Brewfile
 ln -s $PWD/tool-versions   $HOME/.tool-versions
+ln -s $PWD/default-perl-modules $HOME/.default-perl-modules
 
 ln -s $PWD/vimrc                    $HOME/.config/nvim/init.vim
 ln -s $PWD/config/pet/snippet.toml  $HOME/.config/pet/snippet.toml

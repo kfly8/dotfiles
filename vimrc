@@ -23,18 +23,11 @@ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/fern-git-status.vim'
 Plug 'lambdalisue/fern-hijack.vim'
 
-" lsp
+" comp
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
-
-" comp
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'Shougo/neco-vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
-Plug 'prabirshrestha/asyncomplete-necovim.vim'
 
 Plug 'junegunn/goyo.vim'
 Plug 'wakatime/vim-wakatime'
@@ -45,6 +38,7 @@ Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
 
 " Plugin Language
+Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
 Plug 'tpope/vim-endwise',              { 'for': 'ruby' }
 Plug 'rhysd/vim-gfm-syntax',           { 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc',       { 'for': 'markdown' }
@@ -160,28 +154,6 @@ colorscheme gruvbox-material
 "------------------------------------------------------------------------
 
 "----------------------------------------------------
-" completion
-"----------------------------------------------------
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-
-let g:UltiSnipsExpandTrigger="<C-k>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
-set runtimepath+=~/.vim/snippets
-
-let g:python3_host_prog = system('echo -n $(which python3)')
-
-if has('python3')
-  silent! call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_options({
-      \ 'name': 'ultisnips',
-      \ 'whitelist': ['*'],
-      \ 'completor': function('asyncomplete#sources#ultisnips#completor'),
-      \ }))
-endif
-
-"----------------------------------------------------
 " Filer
 "----------------------------------------------------
 nmap <silent> <leader>f :Fern . -drawer -width=50 -toggle -keep<CR>
@@ -206,10 +178,13 @@ nmap <leader>c        :Commands<CR>
 let g:goyo_width = 80
 
 "----------------------------------------------------
-" lsp
+" lsp & completion
 "----------------------------------------------------
+"
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
-set updatetime=100
 set signcolumn=yes
 
 let g:lsp_settings_filetype_perl = ['perlnavigator']
