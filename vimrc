@@ -28,6 +28,7 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'akaimo/asyncomplete-around.vim'
 
 Plug 'junegunn/goyo.vim'
 Plug 'wakatime/vim-wakatime'
@@ -44,6 +45,8 @@ Plug 'rhysd/vim-gfm-syntax',           { 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc',       { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim',   { 'for': 'markdown', 'do': 'cd app && yarn install'  }
 Plug 'dhruvasagar/vim-table-mode',     { 'for': 'markdown' }
+Plug 'hashivim/vim-terraform',         { 'for': 'terraform' }
+Plug 'jparise/vim-graphql',            { 'for': 'graphql' }
 
 " Color Scheme and extentions
 Plug 'morhetz/gruvbox'
@@ -184,6 +187,15 @@ let g:goyo_width = 80
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
+call asyncomplete#register_source(asyncomplete#sources#around#get_source_options({
+    \ 'name': 'around',
+    \ 'allowlist': ['*'],
+    \ 'priority': 10,
+    \ 'completor': function('asyncomplete#sources#around#completor'),
+    \ }))
+
+let g:asyncomplete_around_range = 50
 
 set signcolumn=yes
 

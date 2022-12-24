@@ -21,3 +21,8 @@ tags
 .local.vimrc
 .carmel
 .envrc
+go/
+hoge.pl
+initial_data.tar.gz
+dev/extra
+nytprof*
