@@ -1,6 +1,8 @@
 .DS_Store
 *.swp
+*.swo
 *~
+*.bak
 node_modules
 dist
 .tmp
@@ -23,6 +25,14 @@ tags
 .envrc
 go/
 hoge.pl
+hoge/
 initial_data.tar.gz
 dev/extra
 nytprof*
+
+*.db-shm
+*.db-wal
+.tool-versions
+.prove
+
+memo.md

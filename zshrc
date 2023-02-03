@@ -90,6 +90,8 @@ setopt share_history
 # alias & bindkey
 #----------------------
 
+alias vim="nvim"
+
 alias ls="exa"
 alias l="exa --oneline --git-ignore"
 alias ll="exa -lh --git --git-ignore"

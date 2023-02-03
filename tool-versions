@@ -1,10 +1,10 @@
-nodejs 16.13.1
+nodejs 16.18.0
 golang 1.18.1
 ruby 3.1.2
 python 3.10.4
 
 perl 5.36.0
-perl 5.36.0
+perl 5.34.1
 
 deno 1.23.2
 
@@ -15,5 +15,6 @@ bat 0.21.0
 exa 0.10.1
 ripgrep 13.0.0
 neovim 0.7.0
-perl 5.36.0
+vim 9.0.1205
 
+pre-commit 2.21.0

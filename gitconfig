@@ -1,4 +1,5 @@
 [alias]
+  cz = !npx git-cz
   ci = commit -v
   co = checkout
   br = branch
@@ -12,10 +13,11 @@
   excludesfile = ~/.gitignore
   pager = delta
 [interactive]
-  diffFilter = delta --color-only
+    diffFilter = delta --color-only
 [delta]
   syntax-theme = Monokai Extended
-  features = side-by-side line-numbers decorations
+  #features = side-by-side line-numbers decorations list-themes
+  features = line-numbers decorations list-themes
   whitespace-error-style = 22 reverse
 [push]
   default = current

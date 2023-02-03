@@ -24,11 +24,7 @@ Plug 'lambdalisue/fern-git-status.vim'
 Plug 'lambdalisue/fern-hijack.vim'
 
 " comp
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'akaimo/asyncomplete-around.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'junegunn/goyo.vim'
 Plug 'wakatime/vim-wakatime'
@@ -40,6 +36,7 @@ Plug 'tpope/vim-surround'
 
 " Plugin Language
 Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
+Plug 'yuuki/perl-local-lib-path.vim',  { 'for': 'perl' }
 Plug 'tpope/vim-endwise',              { 'for': 'ruby' }
 Plug 'rhysd/vim-gfm-syntax',           { 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc',       { 'for': 'markdown' }
@@ -49,7 +46,6 @@ Plug 'hashivim/vim-terraform',         { 'for': 'terraform' }
 Plug 'jparise/vim-graphql',            { 'for': 'graphql' }
 
 " Color Scheme and extentions
-Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -152,6 +148,11 @@ set background=dark
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox-material
 
+"----------------------------------------------------
+" Terminal
+"----------------------------------------------------
+tnoremap <Esc> <C-\><C-n>
+
 "------------------------------------------------------------------------
 " Plugin Config
 "------------------------------------------------------------------------
@@ -166,6 +167,8 @@ let g:fern_git_status#disable_ignored = 1
 let g:fern_git_status#disable_untracked = 1
 let g:fern_git_status#disable_submodules = 1
 let g:fern_git_status#disable_directories = 1
+
+let g:fern#default_exclude = '.bak$'
 
 "----------------------------------------------------
 " fzf
@@ -183,45 +186,32 @@ let g:goyo_width = 80
 "----------------------------------------------------
 " lsp & completion
 "----------------------------------------------------
-"
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-
-call asyncomplete#register_source(asyncomplete#sources#around#get_source_options({
-    \ 'name': 'around',
-    \ 'allowlist': ['*'],
-    \ 'priority': 10,
-    \ 'completor': function('asyncomplete#sources#around#completor'),
-    \ }))
-
-let g:asyncomplete_around_range = 50
 
 set signcolumn=yes
 
-let g:lsp_settings_filetype_perl = ['perlnavigator']
-let g:lsp_settings_filetype_ruby = ['solargraph']
-let g:lsp_settings_filetype_sql = ['sql-language-server']
-let g:lsp_settings_filetype_go = ['gopls']
+"----------------------------------------------------
+" Coc.vim
+"----------------------------------------------------
 
-let g:lsp_diagnostics_echo_cursor = 1
-let g:lsp_diagnostics_virtual_text_enabled = 0
+" 補完候補の移動
+inoremap <silent><expr> <TAB> coc#pum#visible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><S-TAB> coc#pum#visible() ? \<C-p>" : "\<S-Tab>"
 
-let g:lsp_diagnostics_signs_enabled = 1
-let g:lsp_diagnostics_signs_error = {'text': '✗'}
-let g:lsp_diagnostics_signs_warning = {'text': 'W'}
-let g:lsp_diagnostics_signs_information = {'text': 'i'}
-let g:lsp_diagnostics_signs_hint = {'text': 'H'}
+" 型情報をみる
+nnoremap <silent> K <Cmd>call <SID>show_documentation()<CR>
 
-let g:lsp_log_file = expand('~/vim-lsp.log')
+function! s:show_documentation() abort
+  if index(['vim','help'], &filetype) >= 0
+    execute 'h ' . expand('<cword>')
+  elseif coc#rpc#ready()
+    call CocActionAsync('doHover')
+  endif
+endfunction
 
-let g:lsp_settings = {
-\    'perlnavigator': {
-\        'workspace_config': {
-\            'perlnavigator': {
-\                'includePaths': ['lib', 't/lib']
-\            }
-\        }
-\    }
-\}
+"----------------------------------------------------
+" perl settings
+"----------------------------------------------------
 
+let g:perl_local_lib_path = "t/lib"
+autocmd FileType perl PerlLocalLibPath
+let g:perl_sub_signatures = 1

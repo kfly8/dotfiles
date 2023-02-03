@@ -1,0 +1,12 @@
+{
+  "languageserver": {
+    "perlnavigator": {
+      "command": "node",
+      "filetypes": [ "perl" ],
+      "args": [
+        "/Users/kfly8/.asdf/installs/nodejs/16.18.0/.npm/lib/node_modules/perlnavigator-server/out/server.js",
+        "--stdio"
+      ]
+    }
+  }
+}
