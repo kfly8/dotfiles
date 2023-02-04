@@ -235,8 +235,7 @@ function! LightlineTabFilename(n)
   let name   = fnamemodify(filepath, ':t')
   let tab_filename = parent . '/' . name
 
-  return filepath =~ '^fern://' ? 'Fern' :
-       \ ('' != tab_filename ? tab_filename : '[No Name]')
+  return ('' != tab_filename ? tab_filename : '[No Name]')
 endfunction
 
 "----------------------------------------------------
