@@ -198,7 +198,7 @@ inoremap <silent><expr> <TAB> coc#pum#visible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><S-TAB> coc#pum#visible() ? \<C-p>" : "\<S-Tab>"
 
 " 型情報をみる
-nnoremap <silent> K <Cmd>call <SID>show_documentation()<CR>
+nnoremap <silent><C-k> <Cmd>call <SID>show_documentation()<CR>
 
 function! s:show_documentation() abort
   if index(['vim','help'], &filetype) >= 0
@@ -206,6 +206,37 @@ function! s:show_documentation() abort
   elseif coc#rpc#ready()
     call CocActionAsync('doHover')
   endif
+endfunction
+
+"----------------------------------------------------
+" lightline
+"----------------------------------------------------
+
+" 常にタブを表示する
+set showtabline=2
+
+" マウス選択でタブ移動できるようにする
+set mouse=a
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
+      \ },
+      \ 'tab_component_function': {
+      \   'filename': 'LightlineTabFilename'
+      \ }
+    \ }
+
+function! LightlineTabFilename(n)
+  let bufnr    = tabpagebuflist(a:n)[tabpagewinnr(a:n) - 1]
+  let filepath = expand('#' . bufnr . ':p')
+
+  let parent = fnamemodify(fnamemodify(filepath, ':h'), ':t')
+  let name   = fnamemodify(filepath, ':t')
+  let tab_filename = parent . '/' . name
+
+  return filepath =~ '^fern://' ? 'Fern' :
+       \ ('' != tab_filename ? tab_filename : '[No Name]')
 endfunction
 
 "----------------------------------------------------
