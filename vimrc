@@ -215,9 +215,6 @@ endfunction
 " 常にタブを表示する
 set showtabline=2
 
-" マウス選択でタブ移動できるようにする
-set mouse=a
-
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
