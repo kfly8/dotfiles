@@ -21,7 +21,8 @@ zplug "zsh-users/zsh-history-substring-search", defer:2
 zplug 'asdf-vm/asdf'
 
 zplug mafredri/zsh-async, from:github
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+#zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -54,9 +55,13 @@ eval "$(direnv hook zsh)"
 # homebrew
 #--------------------------
 
-export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:/usr/local/opt/mysql-client/bin:/opt/homebrew/opt/mysql-client"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/opt/mysql-client/bin:/opt/homebrew/opt/mysql-client:$PATH"
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 
+export OPENSSL_PREFIX="/opt/homebrew/opt/openssl@1.1"
+export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
 #----------------------
 # Go
 #----------------------

@@ -193,9 +193,11 @@ set signcolumn=yes
 " Coc.vim
 "----------------------------------------------------
 
-" 補完候補の移動
-inoremap <silent><expr> <TAB> coc#pum#visible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><S-TAB> coc#pum#visible() ? \<C-p>" : "\<S-Tab>"
+inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
+inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<TAB>"
+inoremap <silent><expr> <Esc> coc#pum#visible() ? coc#pum#cancel() : "\<Esc>"
+inoremap <silent><expr> <C-h> coc#pum#visible() ? coc#pum#cancel() : "\<C-h>"
 
 " 型情報をみる
 nnoremap <silent><C-k> <Cmd>call <SID>show_documentation()<CR>
