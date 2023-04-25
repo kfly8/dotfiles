@@ -21,6 +21,7 @@
   whitespace-error-style = 22 reverse
 [push]
   default = current
+	autoSetupRemote = true
 [pull]
   rebase = true
 [commit]

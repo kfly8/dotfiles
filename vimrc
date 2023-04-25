@@ -25,6 +25,7 @@ Plug 'lambdalisue/fern-hijack.vim'
 
 " comp
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'github/copilot.vim', { 'do' : ':Copilot setup' }
 
 Plug 'junegunn/goyo.vim'
 Plug 'wakatime/vim-wakatime'
@@ -36,7 +37,7 @@ Plug 'tpope/vim-surround'
 
 " Plugin Language
 Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
-Plug 'yuuki/perl-local-lib-path.vim',  { 'for': 'perl' }
+Plug 'kfly8/perl-local-lib-path.vim',  { 'for': 'perl', 'branch': 'perl-project-root-files' }
 Plug 'tpope/vim-endwise',              { 'for': 'ruby' }
 Plug 'rhysd/vim-gfm-syntax',           { 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc',       { 'for': 'markdown' }
@@ -241,6 +242,6 @@ endfunction
 " perl settings
 "----------------------------------------------------
 
-let g:perl_local_lib_path = "t/lib"
 autocmd FileType perl PerlLocalLibPath
+let g:perl_local_lib_path = "t/lib"
 let g:perl_sub_signatures = 1
