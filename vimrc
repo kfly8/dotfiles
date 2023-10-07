@@ -23,6 +23,9 @@ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/fern-git-status.vim'
 Plug 'lambdalisue/fern-hijack.vim'
 
+" Tagbar
+Plug 'liuchengxu/vista.vim'
+
 " comp
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'github/copilot.vim', { 'do' : ':Copilot setup' }
@@ -36,7 +39,7 @@ Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
 
 " Plugin Language
-Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
+Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp highlight-all-pragmas moose test-more try-tiny heredoc-sql object-pad' }
 Plug 'kfly8/perl-local-lib-path.vim',  { 'for': 'perl', 'branch': 'perl-project-root-files' }
 Plug 'tpope/vim-endwise',              { 'for': 'ruby' }
 Plug 'rhysd/vim-gfm-syntax',           { 'for': 'markdown' }
@@ -45,6 +48,7 @@ Plug 'iamcco/markdown-preview.nvim',   { 'for': 'markdown', 'do': 'cd app && yar
 Plug 'dhruvasagar/vim-table-mode',     { 'for': 'markdown' }
 Plug 'hashivim/vim-terraform',         { 'for': 'terraform' }
 Plug 'jparise/vim-graphql',            { 'for': 'graphql' }
+Plug 'syusui-s/scrapbox-vim',          { 'for': 'scrapbox' }
 
 " Color Scheme and extentions
 Plug 'sainnhe/gruvbox-material'
@@ -179,6 +183,12 @@ nmap <leader>b        :Buffers<CR>
 nmap <leader>l        :Lines<CR>
 nmap <leader>c        :Commands<CR>
 
+
+"----------------------------------------------------
+" Vista
+"----------------------------------------------------
+nmap <leader>v        :Vista coc<CR>
+
 "----------------------------------------------------
 " Goyo
 "----------------------------------------------------
@@ -243,5 +253,5 @@ endfunction
 "----------------------------------------------------
 
 autocmd FileType perl PerlLocalLibPath
-let g:perl_local_lib_path = "t/lib"
+let g:perl_local_lib_path = "t/lib,blib/lib,blib/arch"
 let g:perl_sub_signatures = 1

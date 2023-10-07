@@ -58,6 +58,7 @@ eval "$(direnv hook zsh)"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:/opt/homebrew/opt/mysql-client:$PATH"
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+export PATH="$HOME/bin/cvs2svn-2.5.0:$PATH"
 
 export OPENSSL_PREFIX="/opt/homebrew/opt/openssl@1.1"
 export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
