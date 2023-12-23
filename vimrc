@@ -7,7 +7,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
-Plug 'sago35/mark.vim'
 Plug 'cappyzawa/trim.nvim'
 
 " fzf
@@ -23,9 +22,6 @@ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/fern-git-status.vim'
 Plug 'lambdalisue/fern-hijack.vim'
 
-" Tagbar
-Plug 'liuchengxu/vista.vim'
-
 " comp
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'github/copilot.vim', { 'do' : ':Copilot setup' }
@@ -33,10 +29,6 @@ Plug 'github/copilot.vim', { 'do' : ':Copilot setup' }
 Plug 'junegunn/goyo.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'markonm/traces.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'preservim/tagbar'
-Plug 'mhinz/vim-startify'
-Plug 'tpope/vim-surround'
 
 " Plugin Language
 Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp highlight-all-pragmas moose test-more try-tiny heredoc-sql object-pad' }
