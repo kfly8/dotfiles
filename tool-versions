@@ -1,5 +1,5 @@
 nodejs 18.16.1
-golang 1.18.1
+golang 1.21.0
 ruby 3.1.2
 python 3.10.4
 
@@ -17,3 +17,4 @@ ripgrep 13.0.0
 
 pre-commit 2.21.0
 sbt 1.9.3
+bun 1.0.15

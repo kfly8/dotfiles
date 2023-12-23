@@ -49,6 +49,7 @@ Plug 'dhruvasagar/vim-table-mode',     { 'for': 'markdown' }
 Plug 'hashivim/vim-terraform',         { 'for': 'terraform' }
 Plug 'jparise/vim-graphql',            { 'for': 'graphql' }
 Plug 'syusui-s/scrapbox-vim',          { 'for': 'scrapbox' }
+Plug 'ziglang/zig.vim',                { 'for': 'zig' }
 
 " Color Scheme and extentions
 Plug 'sainnhe/gruvbox-material'
@@ -145,6 +146,7 @@ language en_US.UTF-8
 au BufRead,BufNewFile *.psgi set filetype=perl
 au BufRead,BufNewFile *.t    set filetype=perl
 au BufRead,BufNewFile *.mustache set filetype=html
+au BufRead,BufNewFile *.tx set filetype=html
 
 "----------------------------------------------------
 " Color Scheme

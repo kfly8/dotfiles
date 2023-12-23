@@ -14,7 +14,7 @@ indent_size = 4
 [*.md]
 trim_trailing_whitespace = false
 
-[*.{js,ts,vue,json,json5}]
+[*.{js,ts,tsx,vue,json,json5}]
 indent_size = 2
 
 [*.rb]
@@ -26,7 +26,7 @@ indent_size = 2
 [*.{pl,t}]
 indent_size = 4
 
-[*.{html}]
+[*.{html,css}]
 indent_size = 2
 
 
