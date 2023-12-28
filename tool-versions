@@ -18,3 +18,4 @@ ripgrep 13.0.0
 pre-commit 2.21.0
 sbt 1.9.3
 bun 1.0.15
+rust 1.74.1

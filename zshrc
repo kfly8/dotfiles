@@ -35,6 +35,15 @@ zplug load
 
 
 #--------------------------
+# completion
+#--------------------------
+
+export FPATH="$HOME/.zsh/completion:$FPATH"
+
+autoload -U compinit
+compinit -i
+
+#--------------------------
 # asdf
 #--------------------------
 
@@ -63,6 +72,7 @@ export PATH="$HOME/bin/cvs2svn-2.5.0:$PATH"
 export OPENSSL_PREFIX="/opt/homebrew/opt/openssl@1.1"
 export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
+
 #----------------------
 # Go
 #----------------------
@@ -70,6 +80,11 @@ export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
 export GOROOT=`go env GOROOT`
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+#----------------------
+# Rust
+#----------------------
+export RUST_WITHOUT=rust-docs
 
 
 #----------------------

@@ -5,6 +5,7 @@ mkdir -p $HOME/.config/nvim
 mkdir -p $HOME/.config/pet
 
 ln -s $PWD/zshrc           $HOME/.zshrc
+ln -s $PWD/zsh             $HOME/.zsh
 ln -s $PWD/vimrc           $HOME/.vimrc
 ln -s $PWD/vim             $HOME/.vim
 ln -s $PWD/gitconfig       $HOME/.gitconfig
