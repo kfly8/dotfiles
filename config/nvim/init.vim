@@ -25,6 +25,8 @@ Plug 'lambdalisue/fern-hijack.vim'
 " comp
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'github/copilot.vim', { 'do' : ':Copilot setup' }
+Plug 'UltiRequiem/coc-zig', {'do': 'yarn install --frozen-lockfile'}
+Plug 'nvimdev/lspsaga.nvim'
 
 Plug 'junegunn/goyo.vim'
 Plug 'wakatime/vim-wakatime'
@@ -177,12 +179,6 @@ nmap <leader>b        :Buffers<CR>
 nmap <leader>l        :Lines<CR>
 nmap <leader>c        :Commands<CR>
 
-
-"----------------------------------------------------
-" Vista
-"----------------------------------------------------
-nmap <leader>v        :Vista coc<CR>
-
 "----------------------------------------------------
 " Goyo
 "----------------------------------------------------
@@ -247,5 +243,5 @@ endfunction
 "----------------------------------------------------
 
 autocmd FileType perl PerlLocalLibPath
-let g:perl_local_lib_path = "t/lib,blib/lib,blib/arch"
+let g:perl_local_lib_path = "./,t/lib,blib/lib,blib/arch"
 let g:perl_sub_signatures = 1

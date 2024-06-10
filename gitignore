@@ -12,20 +12,16 @@ test/bower_components
 /*.lock
 /vendor/bundle
 vendor
-cpanfile.snapshot
 package-lock.json
 temp
 test.db
-local
+/local
 tags
 .env
-.vscode
 .local.vimrc
 .carmel
 .envrc
 go/
-hoge.pl
-hoge/
 initial_data.tar.gz
 dev/extra
 nytprof*
@@ -37,7 +33,10 @@ nytprof*
 
 memo.md
 db/blog.db
+
 hoge.md
 hoge.scrapbox
-issue_jprp.json
+hoge.pl
+hoge/
 hoge.db
+hoge.txt

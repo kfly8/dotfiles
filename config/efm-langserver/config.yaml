@@ -1,5 +1,26 @@
-languages:
-  markdown:
+version: 2
+root-markers:
+  - .git/
+
+# FOR DEBUG
+log-file: /tmp/efm-langserver-output.log
+log-level: 3
+
+tools:
+  textlint: &textlint
     lint-command: 'npx textlint --format unix --preset ja-technical-writing ${INPUT}'
     lint-formats:
       - '%f:%l:%n: %m'
+
+  graphql-schema-linter: &graphql-schema-linter
+    lint-command: 'npx graphql-schema-linter --format compact'
+    lint-formats:
+      - '%f:%l:%c %m'
+    lint-after-open: true
+
+languages:
+  markdown:
+    - <<: *textlint
+  graphql:
+    - <<: *graphql-schema-linter
+

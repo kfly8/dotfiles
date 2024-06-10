@@ -69,10 +69,6 @@ export PATH="/usr/local/opt/mysql-client/bin:/opt/homebrew/opt/mysql-client:$PAT
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 export PATH="$HOME/bin/cvs2svn-2.5.0:$PATH"
 
-export OPENSSL_PREFIX="/opt/homebrew/opt/openssl@1.1"
-export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
-
 #----------------------
 # Go
 #----------------------
@@ -86,6 +82,15 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 #----------------------
 export RUST_WITHOUT=rust-docs
 
+#----------------------
+# Zig
+#----------------------
+export PATH="$HOME/src/github.com/zigtools/zls/zig-out/bin:$PATH"
+
+#----------------------
+# Grit
+#----------------------
+export PATH="$PATH:~/.grit/bin"
 
 #----------------------
 # cdr
@@ -178,3 +183,20 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+# grit
+export GRIT_INSTALL="$HOME/.grit"
+export PATH="$GRIT_INSTALL/bin:$PATH"
+
+
+#----------------------
+# LDFLAGS & CPPFLAGS & PKG_CONFIG_PATH
+#----------------------
+#
+export OPENSSL_PREFIX="/opt/homebrew/opt/openssl@1.1"
+export LIBJPEG_PREFIX="/opt/homebrew/opt/jpeg"
+
+export LDFLAGS="-L$OPENSSL_PREFIX/lib -L$LIBJPEG_PREFIX/lib"
+export CPPFLAGS="-I$OPENSSL_PREFIX/include -I$LIBJPEG_PREFIX/include"
+
+export PKG_CONFIG_PATH="$LIBJPEG_PREFIX/lib/pkgconfig"
