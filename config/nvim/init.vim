@@ -57,47 +57,13 @@ call plug#end()
 
 let g:mapleader = "\<Space>"
 
-set fileformats=unix,dos,mac
-set visualbell t_vb=
-set backspace=indent,eol,start
-set imdisable
-set whichwrap=b,s,h,l,<,>,[,]
-set fileformats=unix,dos,mac
-set hidden
-set swapfile
-set virtualedit=block
-
-set undofile
-set undodir=/tmp/vim/undodir
-
-set completeopt=menuone
-
-"----------------------------------------------------
-" Search
-"----------------------------------------------------
-set history=1000
-set smartcase
-set wrapscan
-set noincsearch
-
 "----------------------------------------------------
 " View
 "----------------------------------------------------
 set title
 set number
-set ruler
 set list
 set listchars=tab:»-,trail:~,eol:↲,extends:»,precedes:«,nbsp:%
-set showcmd
-set laststatus=2
-set showmatch
-set matchtime=2
-syntax on
-set hlsearch
-highlight Comment ctermfg=DarkCyan
-set wildmenu
-set textwidth=0
-set wrap
 
 function! ZenkakuSpace()
   hi ZenkakuSpace cterm=reverse ctermfg=darkgrey gui=reverse guifg=darkgrey
@@ -113,28 +79,6 @@ if has('syntax')
 endif
 
 "----------------------------------------------------
-" Indent
-"----------------------------------------------------
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set noautoindent
-set smartindent
-
-"----------------------------------------------------
-" Encoding
-"----------------------------------------------------
-set termencoding=utf-8
-set encoding=utf-8
-set fileencoding=utf-8
-scriptencoding utf-8
-
-autocmd BufNewFile,BufRead * set iminsert=0
-
-language en_US.UTF-8
-
-"----------------------------------------------------
 " File type
 "----------------------------------------------------
 au BufRead,BufNewFile *.psgi set filetype=perl
@@ -145,7 +89,6 @@ au BufRead,BufNewFile *.tx set filetype=html
 "----------------------------------------------------
 " Color Scheme
 "----------------------------------------------------
-set background=dark
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox-material
 
