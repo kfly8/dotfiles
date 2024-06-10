@@ -18,12 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   'itchyny/lightline.vim',
-
   { 'junegunn/vim-easy-align', cmd = 'EasyAlign' },
-
-  'Yggdroot/indentLine',
-
-  'cappyzawa/trim.nvim',
 
   -- fzf
   { 'junegunn/fzf', build = function() vim.fn['fzf#install']() end },
@@ -34,7 +29,6 @@ require('lazy').setup({
   { 'neoclide/coc.nvim', branch = 'release' },
   { 'github/copilot.vim', build = ':Copilot setup' },
   { 'UltiRequiem/coc-zig', build = 'yarn install --frozen-lockfile' },
-  'nvimdev/lspsaga.nvim',
 
   'junegunn/goyo.vim',
   'wakatime/vim-wakatime',
@@ -44,12 +38,8 @@ require('lazy').setup({
   { 'vim-perl/vim-perl', ft = 'perl', build = 'make clean carp highlight-all-pragmas moose test-more try-tiny heredoc-sql object-pad' },
   { 'kfly8/perl-local-lib-path.vim', ft = 'perl', branch = 'perl-project-root-files' },
   { 'rhysd/vim-gfm-syntax', ft = 'markdown' },
-  { 'mzlogin/vim-markdown-toc', ft = 'markdown' },
-  { 'iamcco/markdown-preview.nvim', ft = 'markdown', build = 'cd app && yarn install' },
-  { 'dhruvasagar/vim-table-mode', ft = 'markdown' },
   { 'hashivim/vim-terraform', ft = 'terraform' },
   { 'jparise/vim-graphql', ft = 'graphql' },
-  { 'syusui-s/scrapbox-vim', ft = 'scrapbox' },
   { 'ziglang/zig.vim', ft = 'zig' },
 
   -- Color Scheme and extentions
