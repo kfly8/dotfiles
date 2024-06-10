@@ -2,10 +2,9 @@
 " Plugin
 "----------------------------------------------------
 
-call plug#begin('~/.vim/plugged/')
+call plug#begin('~/.config/nvim/plugged/')
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
-Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'cappyzawa/trim.nvim'
 
@@ -13,14 +12,6 @@ Plug 'cappyzawa/trim.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/remote', 'do': ':UpdateRemotePlugins' }
-
-" filer
-Plug 'lambdalisue/fern.vim'
-Plug 'lambdalisue/nerdfont.vim'
-Plug 'lambdalisue/glyph-palette.vim'
-Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-Plug 'lambdalisue/fern-git-status.vim'
-Plug 'lambdalisue/fern-hijack.vim'
 
 " comp
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -35,7 +26,6 @@ Plug 'markonm/traces.vim'
 " Plugin Language
 Plug 'vim-perl/vim-perl',              { 'for': 'perl', 'do': 'make clean carp highlight-all-pragmas moose test-more try-tiny heredoc-sql object-pad' }
 Plug 'kfly8/perl-local-lib-path.vim',  { 'for': 'perl', 'branch': 'perl-project-root-files' }
-Plug 'tpope/vim-endwise',              { 'for': 'ruby' }
 Plug 'rhysd/vim-gfm-syntax',           { 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc',       { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim',   { 'for': 'markdown', 'do': 'cd app && yarn install'  }
@@ -57,14 +47,15 @@ call plug#end()
 
 let g:mapleader = "\<Space>"
 
-"----------------------------------------------------
-" View
-"----------------------------------------------------
-set title
 set number
 set list
 set listchars=tab:»-,trail:~,eol:↲,extends:»,precedes:«,nbsp:%
+set showtabline=2
+set signcolumn=yes
 
+"----------------------------------------------------
+" View
+"----------------------------------------------------
 function! ZenkakuSpace()
   hi ZenkakuSpace cterm=reverse ctermfg=darkgrey gui=reverse guifg=darkgrey
 endfunction
@@ -77,14 +68,6 @@ if has('syntax')
   augroup END
   call ZenkakuSpace()
 endif
-
-"----------------------------------------------------
-" File type
-"----------------------------------------------------
-au BufRead,BufNewFile *.psgi set filetype=perl
-au BufRead,BufNewFile *.t    set filetype=perl
-au BufRead,BufNewFile *.mustache set filetype=html
-au BufRead,BufNewFile *.tx set filetype=html
 
 "----------------------------------------------------
 " Color Scheme
@@ -102,19 +85,6 @@ tnoremap <Esc> <C-\><C-n>
 "------------------------------------------------------------------------
 
 "----------------------------------------------------
-" Filer
-"----------------------------------------------------
-nmap <silent> <leader>f :Fern . -drawer -width=50 -toggle -keep<CR>
-
-let g:fern#renderer = "nerdfont"
-let g:fern_git_status#disable_ignored = 1
-let g:fern_git_status#disable_untracked = 1
-let g:fern_git_status#disable_submodules = 1
-let g:fern_git_status#disable_directories = 1
-
-let g:fern#default_exclude = '.bak$'
-
-"----------------------------------------------------
 " fzf
 "----------------------------------------------------
 nmap <leader><leader> :GFiles<CR>
@@ -126,12 +96,6 @@ nmap <leader>c        :Commands<CR>
 " Goyo
 "----------------------------------------------------
 let g:goyo_width = 80
-
-"----------------------------------------------------
-" lsp & completion
-"----------------------------------------------------
-
-set signcolumn=yes
 
 "----------------------------------------------------
 " Coc.vim
@@ -158,9 +122,6 @@ endfunction
 " lightline
 "----------------------------------------------------
 
-" 常にタブを表示する
-set showtabline=2
-
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
@@ -181,10 +142,3 @@ function! LightlineTabFilename(n)
   return ('' != tab_filename ? tab_filename : '[No Name]')
 endfunction
 
-"----------------------------------------------------
-" perl settings
-"----------------------------------------------------
-
-autocmd FileType perl PerlLocalLibPath
-let g:perl_local_lib_path = "./,t/lib,blib/lib,blib/arch"
-let g:perl_sub_signatures = 1

@@ -1,1 +1,0 @@
-/Users/kfly8/dev/src/github.com/nsf/gocode/vim/ftplugin/go/gocomplete.vim

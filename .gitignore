@@ -1,6 +1,4 @@
-/vim/plugged
-/vim/.netrwhist
 *.DS_Store
 *.swp
 .vscode
-/vim/sessions
+/config/nvim/plugged
