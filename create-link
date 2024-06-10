@@ -18,4 +18,5 @@ mkdir -p $HOME/.config
 ln -s $PWD/config/nvim $HOME/.config/nvim
 ln -s $PWD/config/pet $HOME/.config/pet
 ln -s $PWD/config/efm-langserver $HOME/.config/efm-langserver
+ln -s $PWD/config/perlimports $HOME/.config/perlimports
 

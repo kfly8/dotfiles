@@ -17,23 +17,23 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  'itchyny/lightline.vim',
+  { 'itchyny/lightline.vim' },
   { 'junegunn/vim-easy-align', cmd = 'EasyAlign' },
 
   -- fzf
   { 'junegunn/fzf', build = function() vim.fn['fzf#install']() end },
-  'junegunn/fzf.vim',
+  { 'junegunn/fzf.vim' },
   { 'yuki-yano/fzf-preview.vim', branch = 'release/remote', build = ':UpdateRemotePlugins' },
 
   -- Completion
-  'neovim/nvim-lspconfig',
-  'hrsh7th/nvim-cmp',
-  'hrsh7th/cmp-nvim-lsp',
+  { 'neovim/nvim-lspconfig' },
+  { 'hrsh7th/nvim-cmp' },
+  { 'hrsh7th/cmp-nvim-lsp' },
   { 'github/copilot.vim', build = ':Copilot setup' },
 
-  'junegunn/goyo.vim',
-  'wakatime/vim-wakatime',
-  'markonm/traces.vim',
+  { 'junegunn/goyo.vim' },
+  { 'wakatime/vim-wakatime' },
+  { 'markonm/traces.vim' },
 
   -- Plugin Language
   { 'vim-perl/vim-perl', ft = 'perl', build = 'make clean carp highlight-all-pragmas moose test-more try-tiny heredoc-sql object-pad' },
@@ -44,7 +44,8 @@ require('lazy').setup({
   { 'ziglang/zig.vim', ft = 'zig' },
 
   -- Color Scheme and extentions
-  'sainnhe/gruvbox-material',
+  { 'sainnhe/gruvbox-material' },
+  { 'rebelot/kanagawa.nvim' },
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' }
 })
 
@@ -83,8 +84,9 @@ if vim.fn.has('syntax') then
   ZenkakuSpace()
 end
 
-vim.g.gruvbox_contrast_dark = 'hard'
-vim.cmd [[colorscheme gruvbox-material]]
+-- vim.g.gruvbox_contrast_dark = 'hard'
+-- vim.cmd [[colorscheme gruvbox-material]]
+vim.cmd [[colorscheme kanagawa]]
 
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
 
@@ -103,16 +105,24 @@ vim.g.goyo_width = 80
 
 -- LSP --
 local lspconfig = require('lspconfig')
-lspconfig.perlnavigator.setup{}
+lspconfig.perlnavigator.setup{
+    settings = {
+        perlnavigator = {
+            perlimportsLintEnabled = true,
+            perlimportsTidyEnabled = true,
+        }
+    }
+}
+
 lspconfig.tsserver.setup{}
 lspconfig.efm.setup{
+  -- SEE ALSO: .config/efm-langserver/config.yaml
   filetypes = { 'graphql', 'markdown' },
 }
 
 vim.keymap.set('n', '<C-k>',  '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-vim.keymap.set('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
 
 local cmp = require("cmp")
 cmp.setup({
@@ -157,3 +167,4 @@ function LightlineTabFilename(n)
 
   return (tab_filename ~= '' and tab_filename or '[No Name]')
 end
+
