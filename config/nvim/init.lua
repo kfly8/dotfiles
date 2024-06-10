@@ -26,9 +26,10 @@ require('lazy').setup({
   { 'yuki-yano/fzf-preview.vim', branch = 'release/remote', build = ':UpdateRemotePlugins' },
 
   -- Completion
-  { 'neoclide/coc.nvim', branch = 'release' },
+  'neovim/nvim-lspconfig',
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-nvim-lsp',
   { 'github/copilot.vim', build = ':Copilot setup' },
-  { 'UltiRequiem/coc-zig', build = 'yarn install --frozen-lockfile' },
 
   'junegunn/goyo.vim',
   'wakatime/vim-wakatime',
@@ -100,23 +101,39 @@ vim.api.nvim_set_keymap('n', '<leader>c', ':Commands<CR>', {noremap = true, sile
 -- Goyo --
 vim.g.goyo_width = 80
 
--- Coc.vim --
-vim.api.nvim_set_keymap('i', '<C-j>', 'coc#pum#visible() ? coc#pum#next(1) : "<C-j>"', {noremap = true, expr = true, silent = true})
-vim.api.nvim_set_keymap('i', '<C-k>', 'coc#pum#visible() ? coc#pum#prev(1) : "<C-k>"', {noremap = true, expr = true, silent = true})
-vim.api.nvim_set_keymap('i', '<Tab>', 'coc#pum#visible() ? coc#pum#confirm() : "<Tab>"', {noremap = true, expr = true, silent = true})
-vim.api.nvim_set_keymap('i', '<Esc>', 'coc#pum#visible() ? coc#pum#cancel() : "<Esc>"', {noremap = true, expr = true, silent = true})
-vim.api.nvim_set_keymap('i', '<C-h>', 'coc#pum#visible() ? coc#pum#cancel() : "<C-h>"', {noremap = true, expr = true, silent = true})
+-- LSP --
+local lspconfig = require('lspconfig')
+lspconfig.perlnavigator.setup{}
+lspconfig.tsserver.setup{}
+lspconfig.efm.setup{
+  filetypes = { 'graphql', 'markdown' },
+}
 
-vim.api.nvim_set_keymap('n', '<C-k>', '<Cmd>call v:lua.show_documentation()<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<C-k>',  '<cmd>lua vim.lsp.buf.hover()<CR>')
+vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+vim.keymap.set('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
 
-function show_documentation()
-  local filetype = vim.bo.filetype
-  if filetype == 'vim' or filetype == 'help' then
-    vim.cmd('h ' .. vim.fn.expand('<cword>'))
-  elseif vim.fn['coc#rpc#ready']() then
-    vim.fn.CocActionAsync('doHover')
-  end
-end
+local cmp = require("cmp")
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  sources = {
+    { name = "nvim_lsp" },
+  },
+  mapping = cmp.mapping.preset.insert({
+    ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
+    ['<Esc>'] = cmp.mapping.abort(),
+    ["<Tab>"] = cmp.mapping.confirm { select = true },
+  }),
+  experimental = {
+    ghost_text = true,
+  },
+})
 
 -- lightline --
 vim.g.lightline = {
