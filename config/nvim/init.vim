@@ -53,9 +53,6 @@ set listchars=tab:»-,trail:~,eol:↲,extends:»,precedes:«,nbsp:%
 set showtabline=2
 set signcolumn=yes
 
-"----------------------------------------------------
-" View
-"----------------------------------------------------
 function! ZenkakuSpace()
   hi ZenkakuSpace cterm=reverse ctermfg=darkgrey gui=reverse guifg=darkgrey
 endfunction
@@ -69,45 +66,31 @@ if has('syntax')
   call ZenkakuSpace()
 endif
 
-"----------------------------------------------------
-" Color Scheme
-"----------------------------------------------------
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox-material
 
-"----------------------------------------------------
-" Terminal
-"----------------------------------------------------
 tnoremap <Esc> <C-\><C-n>
 
 "------------------------------------------------------------------------
 " Plugin Config
 "------------------------------------------------------------------------
 
-"----------------------------------------------------
-" fzf
-"----------------------------------------------------
+" fzf ---
 nmap <leader><leader> :GFiles<CR>
 nmap <leader>b        :Buffers<CR>
 nmap <leader>l        :Lines<CR>
 nmap <leader>c        :Commands<CR>
 
-"----------------------------------------------------
-" Goyo
-"----------------------------------------------------
+" Goyo ---
 let g:goyo_width = 80
 
-"----------------------------------------------------
-" Coc.vim
-"----------------------------------------------------
-
+" Coc.vim ---
 inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
 inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<TAB>"
 inoremap <silent><expr> <Esc> coc#pum#visible() ? coc#pum#cancel() : "\<Esc>"
 inoremap <silent><expr> <C-h> coc#pum#visible() ? coc#pum#cancel() : "\<C-h>"
 
-" 型情報をみる
 nnoremap <silent><C-k> <Cmd>call <SID>show_documentation()<CR>
 
 function! s:show_documentation() abort
@@ -118,10 +101,7 @@ function! s:show_documentation() abort
   endif
 endfunction
 
-"----------------------------------------------------
-" lightline
-"----------------------------------------------------
-
+" lightline ---
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
@@ -131,6 +111,8 @@ let g:lightline = {
       \ }
     \ }
 
+" Vimのタブ名が、index.tsxだけで見づらかったので、直親ディレクトリ名も表示する
+" Ref: https://zenn.dev/kfly8/scraps/2b97b46ca25fbe
 function! LightlineTabFilename(n)
   let bufnr    = tabpagebuflist(a:n)[tabpagewinnr(a:n) - 1]
   let filepath = expand('#' . bufnr . ':p')
