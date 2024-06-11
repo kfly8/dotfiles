@@ -18,11 +18,12 @@
     "starship@latest",
     "eza@latest",
     "nodejs@latest",
-    "perl@latest",
     "perlnavigator@latest",
     "nodePackages.typescript-language-server@latest",
     "nerdfonts@latest",
-    "efm-langserver@latest"
+    "efm-langserver@latest",
+    "perl@latest",
+    "mise@latest"
   ],
   "shell": {
     "init_hook": [

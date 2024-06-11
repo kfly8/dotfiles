@@ -43,7 +43,7 @@ compinit -i
 
 eval "$(devbox global shellenv)"
 eval "$(direnv hook zsh)"
-
+eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 
 export PATH="/usr/local/bin:$PATH"
