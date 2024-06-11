@@ -21,7 +21,8 @@
     "perl@latest",
     "perlnavigator@latest",
     "nodePackages.typescript-language-server@latest",
-    "nerdfonts@latest"
+    "nerdfonts@latest",
+    "efm-langserver@latest"
   ],
   "shell": {
     "init_hook": [
