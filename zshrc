@@ -18,11 +18,6 @@ zplug "zsh-users/zsh-completions", defer:2
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-autosuggestions", defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:2
-zplug 'asdf-vm/asdf'
-
-zplug mafredri/zsh-async, from:github
-#zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
-zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -33,6 +28,7 @@ fi
 
 zplug load
 
+eval "$(starship init zsh)"
 
 #--------------------------
 # completion
@@ -44,15 +40,10 @@ autoload -U compinit
 compinit -i
 
 #--------------------------
-# asdf
+# devbox
 #--------------------------
 
-if [[ -f $ZPLUG_REPOS/asdf-vm/asdf/asdf.sh ]]; then
-  source $ZPLUG_REPOS/asdf-vm/asdf/asdf.sh
-fi
-if [[ -f $ZPLUG_REPOS/asdf-vm/asdf/completions/asdf.zsh ]]; then
-  source $ZPLUG_REPOS/asdf-vm/asdf/completions/asdf.zsh
-fi
+eval "$(devbox global shellenv)"
 
 #--------------------------
 # direnv
@@ -67,30 +58,6 @@ eval "$(direnv hook zsh)"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:/opt/homebrew/opt/mysql-client:$PATH"
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
-export PATH="$HOME/bin/cvs2svn-2.5.0:$PATH"
-
-#----------------------
-# Go
-#----------------------
-
-export GOROOT=`go env GOROOT`
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
-#----------------------
-# Rust
-#----------------------
-export RUST_WITHOUT=rust-docs
-
-#----------------------
-# Zig
-#----------------------
-export PATH="$HOME/src/github.com/zigtools/zls/zig-out/bin:$PATH"
-
-#----------------------
-# Grit
-#----------------------
-export PATH="$PATH:~/.grit/bin"
 
 #----------------------
 # cdr
