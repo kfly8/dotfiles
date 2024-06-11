@@ -28,8 +28,6 @@ fi
 
 zplug load
 
-eval "$(starship init zsh)"
-
 #--------------------------
 # completion
 #--------------------------
@@ -44,20 +42,11 @@ compinit -i
 #--------------------------
 
 eval "$(devbox global shellenv)"
-
-#--------------------------
-# direnv
-#--------------------------
-
 eval "$(direnv hook zsh)"
 
-#--------------------------
-# homebrew
-#--------------------------
+eval "$(starship init zsh)"
 
 export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/opt/mysql-client/bin:/opt/homebrew/opt/mysql-client:$PATH"
-export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 
 #----------------------
 # cdr
@@ -85,11 +74,11 @@ setopt share_history
 
 alias vim="nvim"
 
-alias ls="exa"
-alias l="exa --oneline --git-ignore"
-alias ll="exa -lh --git --git-ignore"
-alias la="exa -lha --git"
-alias tree="exa --tree --git-ignore"
+alias ls="eza"
+alias l="eza --oneline --git-ignore"
+alias ll="eza -lh --git --git-ignore"
+alias la="eza -lha --git"
+alias tree="eza --tree --git-ignore"
 
 alias cat="bat"
 alias find="fd"
@@ -150,20 +139,3 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
-# grit
-export GRIT_INSTALL="$HOME/.grit"
-export PATH="$GRIT_INSTALL/bin:$PATH"
-
-
-#----------------------
-# LDFLAGS & CPPFLAGS & PKG_CONFIG_PATH
-#----------------------
-#
-export OPENSSL_PREFIX="/opt/homebrew/opt/openssl@1.1"
-export LIBJPEG_PREFIX="/opt/homebrew/opt/jpeg"
-
-export LDFLAGS="-L$OPENSSL_PREFIX/lib -L$LIBJPEG_PREFIX/lib"
-export CPPFLAGS="-I$OPENSSL_PREFIX/include -I$LIBJPEG_PREFIX/include"
-
-export PKG_CONFIG_PATH="$LIBJPEG_PREFIX/lib/pkgconfig"
