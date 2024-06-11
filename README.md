@@ -1,25 +1,20 @@
-# Setup
+## Getting Started
+This project uses [devbox](https://github.com/jetify-com/devbox) to manage its development environment.
 
-## Create dotfiles link
-
+Install devbox:
 ```sh
-git clone https://github.com/kfly8/dotfiles.git
-cd dotfiles
-./create-link
+curl -fsSL https://get.jetpack.io/devbox | bash
 ```
 
-## Install tools
-
-```sh
-% asdf install
+Install dependencies:
+```sh 
+devbox global pull https://github.com/kfly8/dotfiles.git
 ```
 
-## Installing tools not supported by asdf
-
-- [Homebrew](https://brew.sh)
+## Update
 
 ```sh
-% /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-% brew bundle
-```
+devbox global add SOMEPACKAGE
 
+devbox global push https://github.com/kfly8/dotfiles.git
+```
