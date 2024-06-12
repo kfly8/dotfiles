@@ -36,5 +36,6 @@ create_symlink "$PWD/config/nvim"           "$HOME/.config/nvim"
 create_symlink "$PWD/config/pet"            "$HOME/.config/pet"
 create_symlink "$PWD/config/efm-langserver" "$HOME/.config/efm-langserver"
 create_symlink "$PWD/config/perlimports"    "$HOME/.config/perlimports"
+create_symlink "$PWD/config/starship.toml"  "$HOME/.config/starship.toml"
 
 echo 'Done!'
