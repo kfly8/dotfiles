@@ -104,6 +104,9 @@ vim.api.nvim_set_keymap('n', '<leader>c', ':Commands<CR>', {noremap = true, sile
 vim.g.goyo_width = 80
 
 -- LSP --
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 local lspconfig = require('lspconfig')
 lspconfig.perlnavigator.setup{
     settings = {
@@ -114,7 +117,17 @@ lspconfig.perlnavigator.setup{
     }
 }
 
-lspconfig.lua_ls.setup{}
+lspconfig.lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+    }
+  }
+}
+
 lspconfig.tsserver.setup{}
 lspconfig.efm.setup{
   -- SEE ALSO: .config/efm-langserver/config.yaml
@@ -140,6 +153,8 @@ lspconfig.yamlls.setup {
 }
 
 lspconfig.jsonls.setup {
+  cmd = { "vscode-json-languageserver", "--stdio" },
+  capabilities = capabilities,
   filetypes = {"json", "jsonc"},
   settings = {
     json = {
@@ -151,10 +166,6 @@ lspconfig.jsonls.setup {
         {
             fileMatch = {"tsconfig*.json"},
             url = "https://json.schemastore.org/tsconfig.json"
-        },
-        {
-            fileMatch = {".luarc.json"},
-            url = "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json"
         },
         {
             fileMatch = {"devbox.json"},
