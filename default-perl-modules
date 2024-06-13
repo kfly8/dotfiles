@@ -1,9 +1,0 @@
-Carton
-Carmel
-App::cpm
-Data::Printer
-Perl::Critic
-Perl::Critic::Policy::Perlsecret
-Perl::Critic::Policy::Variables::ProhibitUnusedVarsStricter
-Perl::Tidy
-App::perlimports
