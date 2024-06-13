@@ -19,13 +19,14 @@
     "eza@latest",
     "nodejs@latest",
     "perlnavigator@latest",
-    "nodePackages.typescript-language-server@latest",
     "nerdfonts@latest",
-    "efm-langserver@latest",
     "perl@latest",
     "mise@latest",
+    "efm-langserver@latest",
+    "nodePackages.typescript-language-server@latest",
     "yaml-language-server@latest",
-    "nodePackages_latest.vscode-json-languageserver@latest"
+    "lua-language-server@latest",
+    "vscode-langservers-extracted@latest"
   ],
   "shell": {
     "init_hook": [

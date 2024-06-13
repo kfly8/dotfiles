@@ -114,6 +114,7 @@ lspconfig.perlnavigator.setup{
     }
 }
 
+lspconfig.lua_ls.setup{}
 lspconfig.tsserver.setup{}
 lspconfig.efm.setup{
   -- SEE ALSO: .config/efm-langserver/config.yaml
@@ -136,6 +137,32 @@ lspconfig.yamlls.setup {
       }
     }
   }
+}
+
+lspconfig.jsonls.setup {
+  filetypes = {"json", "jsonc"},
+  settings = {
+    json = {
+      schemas = {
+        {
+            fileMatch = {"package.json"},
+            url = "https://json.schemastore.org/package.json"
+        },
+        {
+            fileMatch = {"tsconfig*.json"},
+            url = "https://json.schemastore.org/tsconfig.json"
+        },
+        {
+            fileMatch = {".luarc.json"},
+            url = "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json"
+        },
+        {
+            fileMatch = {"devbox.json"},
+            url = "https://raw.githubusercontent.com/jetify-com/devbox/0.11.0/.schema/devbox.schema.json"
+        },
+      }
+    }
+  },
 }
 
 vim.keymap.set('n', '<C-k>',  '<cmd>lua vim.lsp.buf.hover()<CR>')
