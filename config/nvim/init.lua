@@ -120,6 +120,24 @@ lspconfig.efm.setup{
   filetypes = { 'graphql', 'markdown' },
 }
 
+lspconfig.yamlls.setup {
+  settings = {
+    yaml = {
+      validate = true,
+      -- disable the schema store
+      schemaStore = {
+        enable = false,
+        url = "",
+      },
+      -- manually select schemas
+      schemas = {
+        ['https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json'] = 'docker-compose*.{yml,yaml}',
+        ['https://raw.githubusercontent.com/skaji/cpmfile/main/jsonschema.json'] = 'cpm.yml'
+      }
+    }
+  }
+}
+
 vim.keymap.set('n', '<C-k>',  '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')

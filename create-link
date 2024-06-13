@@ -30,6 +30,7 @@ create_symlink "$PWD/gitignore"       "$HOME/.gitignore"
 create_symlink "$PWD/tmux.conf"       "$HOME/.tmux.conf"
 create_symlink "$PWD/textlintrc"      "$HOME/.textlintrc"
 create_symlink "$PWD/proverc"         "$HOME/.proverc"
+create_symlink "$PWD/editorconfig"    "$HOME/.editorconfig"
 
 mkdir -p $HOME/.config
 create_symlink "$PWD/config/nvim"           "$HOME/.config/nvim"

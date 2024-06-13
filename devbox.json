@@ -23,7 +23,9 @@
     "nerdfonts@latest",
     "efm-langserver@latest",
     "perl@latest",
-    "mise@latest"
+    "mise@latest",
+    "yaml-language-server@latest",
+    "nodePackages_latest.vscode-json-languageserver@latest"
   ],
   "shell": {
     "init_hook": [
