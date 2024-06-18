@@ -18,6 +18,7 @@ vim.o.list = true
 vim.o.listchars = 'tab:»-,trail:~,eol:↲,extends:»,precedes:«,nbsp:%'
 vim.o.showtabline = 2
 vim.o.signcolumn = 'yes'
+vim.o.whichwrap = 'b,s,h,l,[,],<,>,~'
 
 function ZenkakuSpace()
   vim.cmd [[hi ZenkakuSpace cterm=reverse ctermfg=darkgrey gui=reverse guifg=darkgrey]]
@@ -39,7 +40,7 @@ vim.cmd [[colorscheme kanagawa]]
 ----------------------------------------------------------------
 
 -- Goyo --
-vim.g.goyo_width = 80
+vim.g.goyo_width = 100
 
 -- lightline --
 vim.g.lightline = {
