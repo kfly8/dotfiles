@@ -25,7 +25,7 @@ lspconfig.lua_ls.setup {
 lspconfig.tsserver.setup{}
 lspconfig.efm.setup{
   -- SEE ALSO: .config/efm-langserver/config.yaml
-  filetypes = { 'graphql', 'markdown' },
+  filetypes = { 'graphql', 'markdown', 'javascript' },
 }
 
 lspconfig.yamlls.setup {

@@ -12,15 +12,27 @@ tools:
     lint-formats:
       - '%f:%l:%n: %m'
 
+  eslint: &eslint
+    lint-command: 'npx eslint -f visualstudio --stdin --stdin-filename ${INPUT}'
+    lint-ignore-exit-code: true
+    lint-stdin: true
+    lint-formats:
+      - "%f(%l,%c): %tarning %m"
+      - "%f(%l,%c): %rror %m"
+
   graphql-schema-linter: &graphql-schema-linter
     lint-command: 'npx graphql-schema-linter --format compact'
     lint-formats:
       - '%f:%l:%c %m'
     lint-after-open: true
 
+
 languages:
   markdown:
     - <<: *textlint
+  javascript:
+    - <<: *eslint
   graphql:
+    - <<: *eslint
     - <<: *graphql-schema-linter
 
