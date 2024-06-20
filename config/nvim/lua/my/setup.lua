@@ -45,6 +45,7 @@ require('lazy').setup({
   -- Color Scheme and extentions
   { 'sainnhe/gruvbox-material' },
   { 'rebelot/kanagawa.nvim' },
-  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' }
+  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+  { 'norcalli/nvim-colorizer.lua' },
 })
 
