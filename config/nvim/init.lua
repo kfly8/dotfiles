@@ -49,6 +49,14 @@ require 'colorizer'.setup {
   html = { names = false; } -- Disable parsing "names" like Blue or Gray
 }
 
+-- MemoList --
+vim.g.memolist_path = os.getenv("MEMOLIST_DIR")
+vim.g.memolist_memo_suffix = "md"
+vim.g.memolist_fzf = 1
+vim.g.memolist_filename_prefix_none = 1
+vim.g.memolist_template_dir_path = "~/.config/memo/"
+vim.g.memolist_memo_suffix = "md"
+
 -- lightline --
 vim.g.lightline = {
   active = {

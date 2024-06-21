@@ -41,6 +41,7 @@ require('lazy').setup({
   { 'hashivim/vim-terraform', ft = 'terraform' },
   { 'jparise/vim-graphql', ft = 'graphql' },
   { 'ziglang/zig.vim', ft = 'zig' },
+  { 'glidenote/memolist.vim' },
 
   -- Color Scheme and extentions
   { 'sainnhe/gruvbox-material' },

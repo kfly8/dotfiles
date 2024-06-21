@@ -14,6 +14,9 @@ vim.keymap.set('n', '<C-k>',  '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 
+-- memolist
+vim.api.nvim_set_keymap('n', '<leader>mm', ':MemoNew<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>ml', ':MemoList<CR>', {noremap = true, silent = true})
 
 local cmp = require("cmp")
 cmp.setup({
