@@ -85,11 +85,11 @@ alias find="fd"
 #alias grep="rg"
 
 alias cdd='fzf-cdr'
+alias ml='fzf-memo'
 
 bindkey -e
 bindkey '^r' fzf-select-history
 bindkey '^f' fzf-src
-bindkey '^m' fzf-memo
 
 #----------------------
 # fzf
@@ -137,14 +137,13 @@ function fzf-cdr() {
 export MEMOLIST_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/memo"
 
 function fzf-memo () {
-  local selected_file=$(ls $MEMOLIST_DIR | fzf --query="$LBUFFER")
+  selected_file=$(ls $MEMOLIST_DIR | fzf --query="$LBUFFER")
+  echo $selected_file
+
   if [ -n "$selected_file" ]; then
-    BUFFER="nvim $MEMOLIST_DIR/${selected_file}"
-    zle accept-line
+    nvim $MEMOLIST_DIR/${selected_file}
   fi
-  zle reset-prompt
 }
-zle -N fzf-memo
 
 #----------------------
 # local
