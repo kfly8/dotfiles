@@ -7,15 +7,16 @@ vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = t
 vim.keymap.set("n", "<leader><leader>", "<cmd>lua require('fzf-lua').git_files()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>b", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>l", "<cmd>lua require('fzf-lua').lines()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>t", "<cmd>lua require('fzf-lua').tabs()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>f", "<cmd>lua require('fzf-lua').builtin()<CR>", { silent = true })
 
 -- lsp 関連のキーマップ
 vim.keymap.set('n', '<C-k>',  '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 
--- memolist
-vim.api.nvim_set_keymap('n', '<leader>mm', ':MemoNew<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>ml', ':MemoList<CR>', {noremap = true, silent = true})
+-- Memo
+vim.keymap.set('n', 'mm', "<cmd>lua Memo()<CR>", { noremap = true, silent = true })
 
 local cmp = require("cmp")
 cmp.setup({

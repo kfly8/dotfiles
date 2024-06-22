@@ -31,7 +31,6 @@ nytprof*
 .tool-versions
 .prove
 
-memo.md
 db/blog.db
 
 hoge.md
@@ -40,3 +39,4 @@ hoge.pl
 hoge/
 hoge.db
 hoge.txt
+.obsidian/

@@ -19,6 +19,7 @@ vim.o.listchars = 'tab:»-,trail:~,eol:↲,extends:»,precedes:«,nbsp:%'
 vim.o.showtabline = 2
 vim.o.signcolumn = 'yes'
 vim.o.whichwrap = 'b,s,h,l,[,],<,>,~'
+vim.o.splitright = true
 
 function ZenkakuSpace()
   vim.cmd [[hi ZenkakuSpace cterm=reverse ctermfg=darkgrey gui=reverse guifg=darkgrey]]
@@ -49,17 +50,6 @@ require 'colorizer'.setup {
   html = { names = false; } -- Disable parsing "names" like Blue or Gray
 }
 
--- MemoList --
-local MEMOLIST_DIR = os.getenv("MEMOLIST_DIR")
-
-vim.g.memolist_path = MEMOLIST_DIR
-vim.g.memolist_memo_suffix = "md"
-vim.g.memolist_fzf = 1
-vim.g.memolist_filename_prefix_none = 1
-vim.g.memolist_template_dir_path = "~/.config/memo/"
-vim.g.memolist_memo_suffix = "md"
-
-
 -- lightline --
 vim.g.lightline = {
   active = {
@@ -81,5 +71,34 @@ function LightlineTabFilename(n)
   local tab_filename = parent .. '/' .. name
 
   return (tab_filename ~= '' and tab_filename or '[No Name]')
+end
+
+-- Fzf --
+local MEMOLIST_DIR = os.getenv("MEMOLIST_DIR")
+
+function ActionMemoSelected(selected)
+  if selected[1] == nil then
+    vim.cmd("lcd " .. MEMOLIST_DIR .. " | enew")
+  else
+    local file_path = MEMOLIST_DIR .. "/" .. selected[1]
+    vim.cmd("edit " .. file_path)
+  end
+end
+
+function ActionVsplitMemoSelected(selected)
+  vim.cmd("vsplit")
+  ActionMemoSelected(selected)
+end
+
+function Memo()
+  require('fzf-lua').files({
+    cwd = MEMOLIST_DIR,
+    prompt = 'Memo> ',
+    previewer = true,
+    actions = {
+      ["default"] = ActionMemoSelected,
+      ["ctrl-v"] = ActionVsplitMemoSelected,
+    },
+  })
 end
 
