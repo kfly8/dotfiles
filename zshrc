@@ -46,7 +46,7 @@ eval "$(direnv hook zsh)"
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 
 #----------------------
 # cdr
@@ -85,7 +85,8 @@ alias find="fd"
 #alias grep="rg"
 
 alias cdd='fzf-cdr'
-alias ml='fzf-memo'
+alias mm='fzf-memo'
+alias memo='fzf-memo'
 
 bindkey -e
 bindkey '^r' fzf-select-history
@@ -136,12 +137,14 @@ function fzf-cdr() {
 
 export MEMOLIST_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/memo"
 
+# 既存ファイルを探しつつ、なければ新規作成のバッファを開く
 function fzf-memo () {
   selected_file=$(ls $MEMOLIST_DIR | fzf --query="$LBUFFER")
-  echo $selected_file
 
   if [ -n "$selected_file" ]; then
     nvim $MEMOLIST_DIR/${selected_file}
+  else
+    nvim -c "lcd $MEMOLIST_DIR"
   fi
 }
 

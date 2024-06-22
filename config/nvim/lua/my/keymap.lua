@@ -4,10 +4,9 @@ vim.g.mapleader = ' '
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
 
 -- fzf 関連のキーマップ
-vim.api.nvim_set_keymap('n', '<leader><leader>', ':GFiles<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>b', ':Buffers<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>l', ':Lines<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>c', ':Commands<CR>', {noremap = true, silent = true})
+vim.keymap.set("n", "<leader><leader>", "<cmd>lua require('fzf-lua').git_files()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>b", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>l", "<cmd>lua require('fzf-lua').lines()<CR>", { silent = true })
 
 -- lsp 関連のキーマップ
 vim.keymap.set('n', '<C-k>',  '<cmd>lua vim.lsp.buf.hover()<CR>')

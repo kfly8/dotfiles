@@ -20,9 +20,7 @@ require('lazy').setup({
   { 'junegunn/vim-easy-align', cmd = 'EasyAlign' },
 
   -- fzf
-  { 'junegunn/fzf', build = function() vim.fn['fzf#install']() end },
-  { 'junegunn/fzf.vim' },
-  { 'yuki-yano/fzf-preview.vim', branch = 'release/remote', build = ':UpdateRemotePlugins' },
+  { 'ibhagwan/fzf-lua', branch = 'main' },
 
   -- Completion
   { 'neovim/nvim-lspconfig' },
