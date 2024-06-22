@@ -76,28 +76,20 @@ end
 -- Fzf --
 local MEMOLIST_DIR = os.getenv("MEMOLIST_DIR")
 
-function ActionMemoSelected(selected)
-  if selected[1] == nil then
-    vim.cmd("lcd " .. MEMOLIST_DIR .. " | enew")
-  else
-    local file_path = MEMOLIST_DIR .. "/" .. selected[1]
-    vim.cmd("edit " .. file_path)
-  end
-end
-
-function ActionVsplitMemoSelected(selected)
-  vim.cmd("vsplit")
-  ActionMemoSelected(selected)
-end
-
 function Memo()
-  require('fzf-lua').files({
-    cwd = MEMOLIST_DIR,
-    prompt = 'Memo> ',
-    previewer = true,
+  require('fzf-lua').fzf_exec("ls", {
+    prompt="Memo> ",
+    cwd=MEMOLIST_DIR,
+    previewer=true,
     actions = {
-      ["default"] = ActionMemoSelected,
-      ["ctrl-v"] = ActionVsplitMemoSelected,
+      ["default"] = function (selected)
+        if selected[1] == nil then
+          vim.cmd("lcd " .. MEMOLIST_DIR .. " | enew")
+        else
+          local file_path = MEMOLIST_DIR .. "/" .. selected[1]
+          vim.cmd("edit " .. file_path)
+        end
+      end,
     },
   })
 end

@@ -17,6 +17,7 @@ vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 
 -- Memo
 vim.keymap.set('n', 'mm', "<cmd>lua Memo()<CR>", { noremap = true, silent = true })
+vim.keymap.set('n', 'memo', "<cmd>lua Memo()<CR>", { noremap = true, silent = true })
 
 local cmp = require("cmp")
 cmp.setup({
