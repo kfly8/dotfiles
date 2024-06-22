@@ -132,14 +132,13 @@ function fzf-cdr() {
 }
 
 #----------------------
-# memolist
+# Memo
 #----------------------
 
 export MEMOLIST_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/memo"
 
-# 既存ファイルを探しつつ、なければ新規作成のバッファを開く
 function fzf-memo () {
-  selected_file=$(ls $MEMOLIST_DIR | fzf --query="$LBUFFER")
+  selected_file=$(cd "$MEMOLIST_DIR" && ls | fzf --preview="bat {}" --query="$LBUFFER")
 
   if [ -n "$selected_file" ]; then
     nvim $MEMOLIST_DIR/${selected_file}
