@@ -138,7 +138,7 @@ function fzf-cdr() {
 export MEMOLIST_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/memo"
 
 function fzf-memo () {
-  selected_file=$(cd "$MEMOLIST_DIR" && ls | fzf --preview="bat {}" --query="$LBUFFER")
+  selected_file=$(cd "$MEMOLIST_DIR" && ls | fzf --preview="bat --color=always --style=numbers {}" --query="$LBUFFER")
 
   if [ -n "$selected_file" ]; then
     nvim $MEMOLIST_DIR/${selected_file}
