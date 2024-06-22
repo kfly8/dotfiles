@@ -80,7 +80,7 @@ function Memo()
   require('fzf-lua').fzf_exec("ls", {
     prompt="Memo> ",
     cwd=MEMOLIST_DIR,
-    previewer=true,
+    previewer="builtin",
     actions = {
       ["default"] = function (selected)
         if selected[1] == nil then
