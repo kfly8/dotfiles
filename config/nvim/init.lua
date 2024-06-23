@@ -74,19 +74,17 @@ function LightlineTabFilename(n)
 end
 
 -- Fzf --
-local MEMOLIST_DIR = os.getenv("MEMOLIST_DIR")
-
-function Memo()
+function Memo(prompt, dir)
   require('fzf-lua').fzf_exec("ls", {
-    prompt="Memo> ",
-    cwd=MEMOLIST_DIR,
+    prompt=prompt,
+    cwd=dir,
     previewer="builtin",
     actions = {
       ["default"] = function (selected)
         if selected[1] == nil then
-          vim.cmd("lcd " .. MEMOLIST_DIR .. " | enew")
+          vim.cmd("lcd " .. dir .. " | enew")
         else
-          local file_path = MEMOLIST_DIR .. "/" .. selected[1]
+          local file_path = dir .. "/" .. selected[1]
           vim.cmd("edit " .. file_path)
         end
       end,

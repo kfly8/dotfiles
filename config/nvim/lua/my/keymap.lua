@@ -1,7 +1,7 @@
 vim.g.mapleader = ' '
 
 -- ターミナルモードで、Escキーを押すとノーマルモードに戻す
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
 
 -- fzf 関連のキーマップ
 vim.keymap.set("n", "<leader><leader>", "<cmd>lua require('fzf-lua').git_files()<CR>", { silent = true })
@@ -16,8 +16,13 @@ vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 
 -- Memo
-vim.keymap.set('n', 'mm', "<cmd>lua Memo()<CR>", { noremap = true, silent = true })
-vim.keymap.set('n', 'memo', "<cmd>lua Memo()<CR>", { noremap = true, silent = true })
+local MEMO_DIR = os.getenv("OBSIDIAN_MEMO_DIR")
+local ENGLISH_DIR = os.getenv("OBSIDIAN_ENGLISH_DIR")
+
+vim.keymap.set('n', 'mm', function() Memo('Obsidian Memo> ', MEMO_DIR) end, { noremap = true, silent = true })
+vim.keymap.set('n', 'memo', function() Memo('Obsidian Memo> ', MEMO_DIR) end, { noremap = true, silent = true })
+vim.keymap.set('n', 'ee', function() Memo('Obsidian English> ', ENGLISH_DIR) end, { noremap = true, silent = true })
+vim.keymap.set('n', 'english', function() Memo('Obsidian English> ', ENGLISH_DIR) end, { noremap = true, silent = true })
 
 local cmp = require("cmp")
 cmp.setup({

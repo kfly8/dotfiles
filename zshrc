@@ -85,8 +85,10 @@ alias find="fd"
 #alias grep="rg"
 
 alias cdd='fzf-cdr'
-alias mm='fzf-memo'
-alias memo='fzf-memo'
+alias mm='() { fzf-memo $OBSIDIAN_MEMO_DIR; }'
+alias memo='() { fzf-memo $OBSIDIAN_MEMO_DIR; }'
+alias ee='() { fzf-memo $OBSIDIAN_ENGLISH_DIR; }'
+alias english='() { fzf-memo $OBSIDIAN_ENGLISH_DIR; }'
 
 bindkey -e
 bindkey '^r' fzf-select-history
@@ -135,16 +137,23 @@ function fzf-cdr() {
 # Memo
 #----------------------
 
-export MEMOLIST_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/memo"
+export OBSIDIAN_MEMO_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/memo"
+export OBSIDIAN_ENGLISH_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/English"
 
 function fzf-memo () {
-  selected_file=$(cd "$MEMOLIST_DIR" && ls | fzf --preview="bat --color=always --style=numbers {}" --query="$LBUFFER")
-  fzf_exit_code=$?
+  if [ -z "$1" ]; then
+    echo "Usage: fzf-memo <directory>"
+    return 1
+  fi
+
+  local dir=$1
+  local selected_file=$(cd "$dir" && fd . | fzf --preview="bat --color=always --style=numbers {}" --query="$LBUFFER")
+  local fzf_exit_code=$?
 
   if [ -n "$selected_file" ]; then
-    nvim $MEMOLIST_DIR/${selected_file}
+    nvim $dir/${selected_file}
   elif [ $fzf_exit_code -eq 1 ]; then
-    nvim -c "lcd $MEMOLIST_DIR"
+    nvim -c "lcd $dir"
   else
     # do nothing when fzf is terminated by other reasons
   fi
