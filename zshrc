@@ -139,11 +139,14 @@ export MEMOLIST_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents
 
 function fzf-memo () {
   selected_file=$(cd "$MEMOLIST_DIR" && ls | fzf --preview="bat --color=always --style=numbers {}" --query="$LBUFFER")
+  fzf_exit_code=$?
 
   if [ -n "$selected_file" ]; then
     nvim $MEMOLIST_DIR/${selected_file}
-  else
+  elif [ $fzf_exit_code -eq 1 ]; then
     nvim -c "lcd $MEMOLIST_DIR"
+  else
+    # do nothing when fzf is terminated by other reasons
   fi
 }
 
