@@ -87,7 +87,7 @@ alias find="fd"
 alias cdd='fzf-cdr'
 alias mm='() { fzf-memo $OBSIDIAN_MEMO_DIR; }'
 alias memo='() { fzf-memo $OBSIDIAN_MEMO_DIR; }'
-alias ee='() { fzf-memo $OBSIDIAN_ENGLISH_DIR; }'
+alias en='() { fzf-memo $OBSIDIAN_ENGLISH_DIR; }'
 alias english='() { fzf-memo $OBSIDIAN_ENGLISH_DIR; }'
 
 bindkey -e

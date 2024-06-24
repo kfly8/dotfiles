@@ -21,7 +21,7 @@ local ENGLISH_DIR = os.getenv("OBSIDIAN_ENGLISH_DIR")
 
 vim.keymap.set('n', 'mm', function() Memo('Obsidian Memo> ', MEMO_DIR) end, { noremap = true, silent = true })
 vim.keymap.set('n', 'memo', function() Memo('Obsidian Memo> ', MEMO_DIR) end, { noremap = true, silent = true })
-vim.keymap.set('n', 'ee', function() Memo('Obsidian English> ', ENGLISH_DIR) end, { noremap = true, silent = true })
+vim.keymap.set('n', 'en', function() Memo('Obsidian English> ', ENGLISH_DIR) end, { noremap = true, silent = true })
 vim.keymap.set('n', 'english', function() Memo('Obsidian English> ', ENGLISH_DIR) end, { noremap = true, silent = true })
 
 local cmp = require("cmp")
