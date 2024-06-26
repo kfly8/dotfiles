@@ -147,7 +147,7 @@ function fzf-memo () {
   fi
 
   local dir=$1
-  local selected_file=$(cd "$dir" && fd . | fzf --preview="bat --color=always --style=numbers {}" --query="$LBUFFER")
+  selected_file=$(cd "$dir" && fd . | fzf --preview="bat --color=always --style=numbers {}" --query="$LBUFFER")
   local fzf_exit_code=$?
 
   if [ -n "$selected_file" ]; then

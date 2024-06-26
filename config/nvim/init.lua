@@ -55,23 +55,7 @@ vim.g.lightline = {
   active = {
     left = { {'mode', 'paste'}, {'readonly', 'relativepath', 'modified'} },
   },
-  tab_component_function = {
-    filename = 'LightlineTabFilename'
-  }
 }
-
--- Vimのタブ名が、index.tsxだけで見づらかったので、直親ディレクトリ名も表示する
--- Ref: https://zenn.dev/kfly8/scraps/2b97b46ca25fbe
-function LightlineTabFilename(n)
-  local bufnr = vim.fn.tabpagebuflist(n)[vim.fn.tabpagewinnr(n) - 1]
-  local filepath = vim.fn.expand('#' .. bufnr .. ':p')
-
-  local parent = vim.fn.fnamemodify(vim.fn.fnamemodify(filepath, ':h'), ':t')
-  local name = vim.fn.fnamemodify(filepath, ':t')
-  local tab_filename = parent .. '/' .. name
-
-  return (tab_filename ~= '' and tab_filename or '[No Name]')
-end
 
 -- Fzf --
 function Memo(prompt, dir)
