@@ -22,7 +22,30 @@ lspconfig.lua_ls.setup {
   }
 }
 
-lspconfig.tsserver.setup{}
+lspconfig.tsserver.setup {}
+
+-- Ref: https://rust-analyzer.github.io/manual.html#nvim-lsp
+lspconfig.rust_analyzer.setup({
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
+
 lspconfig.efm.setup{
   -- SEE ALSO: .config/efm-langserver/config.yaml
   filetypes = { 'graphql', 'markdown', 'javascript' },
