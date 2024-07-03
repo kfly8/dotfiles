@@ -27,4 +27,3 @@ Push the changes to the repository:
 ```sh
 devbox global push https://github.com/kfly8/dotfiles.git
 ```
-

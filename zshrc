@@ -46,6 +46,8 @@ eval "$(direnv hook zsh)"
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 
+# 実験
+# export PATH="$HOME/src/github.com/kfly8/PerlNavigator/server/bin:/usr/local/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 
 #----------------------
