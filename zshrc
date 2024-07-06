@@ -77,7 +77,7 @@ zstd_store=`nix-store --query --references $(which zstd) | grep "zstd-$zstd_vers
 mysql_store=`nix-store --query --references $(which mysql) | grep "mysql-wrapped"`
 
 # To build DBD::mysql
-export LIBRARY_PATH="$mysql_store/lib:$zstd_store/lib:$image_magick_store/lib:$LIBRARY_PATH"
+export LIBRARY_PATH="$mysql_store/lib:$zstd_store/lib:$LIBRARY_PATH"
 
 #----------------------
 # cdr
