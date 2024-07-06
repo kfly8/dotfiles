@@ -23,7 +23,6 @@
     "mise":                                    "latest",
     "efm-langserver":                          "latest",
     "nodePackages.typescript-language-server": "latest",
-    "yaml-language-server":                    "latest",
     "lua-language-server":                     "latest",
     "nodePackages.vscode-json-languageserver": "latest",
     "postgresql":                              "latest",
