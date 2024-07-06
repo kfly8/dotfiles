@@ -46,9 +46,38 @@ eval "$(direnv hook zsh)"
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 
-# 実験
+#--------------------------
+# Env
+#--------------------------
+
+export DEVBOX_GLOBAL="$HOME/.local/share/devbox/global/default/.devbox"
+
+# PerlNavigatorをカスタマイズしたときの名残
 # export PATH="$HOME/src/github.com/kfly8/PerlNavigator/server/bin:/usr/local/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+
+export OPENSSL_PREFIX="/usr/local/libressl"
+export PATH="$OPENSSL_PREFIX/bin:$PATH"
+
+export PGDATA=$DEVBOX_GLOBAL/virtenv/postgresql/data
+export PGHOST=$DEVBOX_GLOBAL/virtenv/postgresql
+
+export MYSQL_UNIX_PORT=$DEVBOX_GLOBAL/virtenv/mysql80/run/mysql.sock
+export MYSQL_PID_FILE=$DEVBOX_GLOBAL/virtenv/mysql80/run/mysql.pid
+export MYSQL_BASEDIR=$DEVBOX_GLOBAL/nix/profile/default
+export MYSQL_HOME=$DEVBOX_GLOBAL/virtenv/mysql80/run
+export MYSQL_DATADIR=$DEVBOX_GLOBAL/virtenv/mysql80/data
+
+# To build Net::SSLeay
+export LDFLAGS="-L$OPENSSL_PREFIX/lib"
+export CPPFLAGS="-I$OPENSSL_PREFIX/include"
+
+zstd_version=`zstd --version | perl -nl -e 'print $1 if /v([\d\.]+)/'`
+zstd_store=`nix-store --query --references $(which zstd) | grep "zstd-$zstd_version$"`
+mysql_store=`nix-store --query --references $(which mysql) | grep "mysql-wrapped"`
+
+# To build DBD::mysql
+export LIBRARY_PATH="$mysql_store/lib:$zstd_store/lib:$LIBRARY_PATH"
 
 #----------------------
 # cdr

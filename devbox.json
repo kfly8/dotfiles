@@ -25,7 +25,10 @@
     "nodePackages.typescript-language-server": "latest",
     "yaml-language-server":                    "latest",
     "lua-language-server":                     "latest",
-    "nodePackages.vscode-json-languageserver": "latest"
+    "nodePackages.vscode-json-languageserver": "latest",
+    "postgresql":                              "latest",
+    "mysql80":                                 "latest",
+    "zstd":                                    "latest"
   },
   "shell": {
     "init_hook": [
