@@ -12,7 +12,6 @@ vim.keymap.set("n", "<leader>f", "<cmd>lua require('fzf-lua').builtin()<CR>", { 
 
 -- lsp 関連のキーマップ
 vim.keymap.set('n', '<C-k>',  '<cmd>lua vim.lsp.buf.hover()<CR>')
-vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 
 -- Memo

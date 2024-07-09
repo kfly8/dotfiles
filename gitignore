@@ -40,3 +40,5 @@ hoge/
 hoge.db
 hoge.txt
 .obsidian/
+
+lib/Image/Magick.pm

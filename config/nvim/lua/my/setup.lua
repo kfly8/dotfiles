@@ -20,9 +20,6 @@ require('lazy').setup({
   -- fzf
   { 'ibhagwan/fzf-lua', branch = 'main' },
 
-  -- filter
-  { 'nvim-tree/nvim-tree.lua' },
-
   -- Completion
   { 'neovim/nvim-lspconfig' },
   { 'hrsh7th/nvim-cmp' },
