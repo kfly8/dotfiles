@@ -14,6 +14,12 @@ vim.keymap.set("n", "<leader>f", "<cmd>lua require('fzf-lua').builtin()<CR>", { 
 vim.keymap.set('n', '<C-k>',  '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 
+vim.keymap.set('i', '<C-CR>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true
+
 -- Memo
 local MEMO_DIR = os.getenv("OBSIDIAN_MEMO_DIR")
 local ENGLISH_DIR = os.getenv("OBSIDIAN_ENGLISH_DIR")

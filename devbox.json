@@ -27,7 +27,9 @@
     "nodePackages.vscode-json-languageserver": "latest",
     "postgresql":                              "latest",
     "mysql80":                                 "latest",
-    "zstd":                                    "latest"
+    "zstd":                                    "latest",
+    "sqldef":                                  "latest",
+    "yaml-language-server":                    "latest"
   },
   "shell": {
     "init_hook": [
