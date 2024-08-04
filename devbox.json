@@ -29,7 +29,8 @@
     "mysql80":                                 "latest",
     "zstd":                                    "latest",
     "sqldef":                                  "latest",
-    "yaml-language-server":                    "latest"
+    "yaml-language-server":                    "latest",
+    "gopls":                                   "latest"
   },
   "shell": {
     "init_hook": [
