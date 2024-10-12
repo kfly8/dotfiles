@@ -38,10 +38,10 @@ autoload -U compinit
 compinit -i
 
 #--------------------------
-# devbox
+# eval
 #--------------------------
 
-eval "$(devbox global shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(direnv hook zsh)"
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
@@ -49,8 +49,6 @@ eval "$(starship init zsh)"
 #--------------------------
 # Env
 #--------------------------
-
-export DEVBOX_GLOBAL="$HOME/.local/share/devbox/global/default/.devbox"
 
 # PerlNavigatorをカスタマイズしたときの名残
 # export PATH="$HOME/src/github.com/kfly8/PerlNavigator/server/bin:/usr/local/bin:$PATH"

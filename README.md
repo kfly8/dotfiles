@@ -1,29 +1,14 @@
 ## Getting Started
 
-This project uses [devbox](https://github.com/jetify-com/devbox) to manage its development environment.
+1. Install [Homebrew](https://brew.sh/)
+2. Bundle install
 
-Install devbox:
 ```sh
-curl -fsSL https://get.jetpack.io/devbox | bash
+brew bundle
 ```
 
-```sh 
-devbox global pull https://github.com/kfly8/dotfiles.git
-devbox global install
+3. Create a symbolic link to the dotfiles
 
-cd $(devbox global path)
+```sh
 ./create-link
-```
-
-
-## Edit the dotfiles
-
-Add a new dependency:
-```sh
-devbox global add SOMEPACKAGE
-```
-
-Push the changes to the repository:
-```sh
-devbox global push https://github.com/kfly8/dotfiles.git
 ```

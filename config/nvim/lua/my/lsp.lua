@@ -85,10 +85,6 @@ lspconfig.jsonls.setup {
             fileMatch = {"tsconfig*.json"},
             url = "https://json.schemastore.org/tsconfig.json"
         },
-        {
-            fileMatch = {"devbox.json"},
-            url = "https://raw.githubusercontent.com/jetify-com/devbox/0.11.0/.schema/devbox.schema.json"
-        },
       }
     }
   },

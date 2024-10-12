@@ -1,0 +1,35 @@
+brew "ghq"
+brew "direnv"
+brew "fzf"
+brew "ripgrep"
+brew "pre-commit"
+brew "git"
+brew "bat"
+brew "fd"
+brew "neovim"
+brew "delta"
+brew "httpie"
+brew "docker"
+brew "tree-sitter"
+brew "zsh"
+brew "starship"
+brew "eza"
+brew "nodejs"
+brew "mise"
+brew "zstd"
+
+brew "postgresql@14"
+brew "mysql@8.0"
+
+# LSP
+brew "efm-langserver"
+# brew "perlnavigator"
+brew "lua-language-server"
+brew "typescript-language-server"
+brew "yaml-language-server"
+
+brew "gopls"
+brew "gnupg"
+
+cask "font-hack-nerd-font"
+
