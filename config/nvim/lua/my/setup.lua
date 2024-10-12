@@ -43,5 +43,18 @@ require('lazy').setup({
   { 'rebelot/kanagawa.nvim' },
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
   { 'norcalli/nvim-colorizer.lua' },
+  { 'echasnovski/mini.nvim', version = '*' },
+  { 'echasnovski/mini.icons', version = '*' },
+  { 'nvim-tree/nvim-web-devicons' },
+
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    -- Optional dependencies
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+  }
 })
 
