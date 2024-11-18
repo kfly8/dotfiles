@@ -29,15 +29,6 @@ fi
 zplug load
 
 #--------------------------
-# completion
-#--------------------------
-
-export FPATH="$HOME/.zsh/completion:$FPATH"
-
-autoload -U compinit
-compinit -i
-
-#--------------------------
 # eval
 #--------------------------
 
@@ -45,6 +36,15 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(direnv hook zsh)"
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
+
+#--------------------------
+# completion
+#--------------------------
+
+export FPATH="$HOME/.zsh/completion:$FPATH"
+
+autoload -U compinit
+compinit -i
 
 #--------------------------
 # Env
