@@ -2,31 +2,6 @@ export LANG=ja_JP.UTF-8
 
 export PAGER=less
 export EDITOR=nvim
-#----------------------
-# Plugin
-#----------------------
-
-if [[ ! -d ~/.zplug/ ]]; then
-  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
-fi
-
-source ~/.zplug/init.zsh
-
-zplug "zplug/zplug", hook-build:'zplug --self-manage'
-
-zplug "zsh-users/zsh-completions", defer:2
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-autosuggestions", defer:2
-zplug "zsh-users/zsh-history-substring-search", defer:2
-
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-zplug load
 
 #--------------------------
 # eval
@@ -35,59 +10,40 @@ zplug load
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(direnv hook zsh)"
 eval "$(mise activate zsh)"
-eval "$(starship init zsh)"
-
-#--------------------------
-# completion
-#--------------------------
-
-export FPATH="$HOME/.zsh/completion:$FPATH"
-
-autoload -U compinit
-compinit -i
-
+#
 #--------------------------
 # Env
 #--------------------------
 
 # PerlNavigatorをカスタマイズしたときの名残
 # export PATH="$HOME/src/github.com/kfly8/PerlNavigator/server/bin:/usr/local/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-
-export OPENSSL_PREFIX="/usr/local/libressl"
+# export PATH="/opt/homebrew/bin/:/usr/local/bin:$PATH"
+#
+export OPENSSL_PREFIX="/opt/homebrew/opt/libressl"
 export PATH="$OPENSSL_PREFIX/bin:$PATH"
+#
+# # FIXME
+# #export PGDATA=$DEVBOX_GLOBAL/virtenv/postgresql/data
+# #export PGHOST=$DEVBOX_GLOBAL/virtenv/postgresql
+#
+# # export MYSQL_UNIX_PORT=$DEVBOX_GLOBAL/virtenv/mysql80/run/mysql.sock
+# # export MYSQL_PID_FILE=$DEVBOX_GLOBAL/virtenv/mysql80/run/mysql.pid
+# # export MYSQL_BASEDIR=$DEVBOX_GLOBAL/nix/profile/default
+# # export MYSQL_HOME=$DEVBOX_GLOBAL/virtenv/mysql80/run
+# # export MYSQL_DATADIR=$DEVBOX_GLOBAL/virtenv/mysql80/data
+#
+# # To build Net::SSLeay
+# export LDFLAGS="-L$OPENSSL_PREFIX/lib"
+# export CPPFLAGS="-I$OPENSSL_PREFIX/include"
+#
+# # FIXME
+# #zstd_version=`zstd --version | perl -nl -e 'print $1 if /v([\d\.]+)/'`
+# #zstd_store=`nix-store --query --references $(which zstd) | grep "zstd-$zstd_version$"`
+# #mysql_store=`nix-store --query --references $(which mysql) | grep "mysql-wrapped"`
+#
+# # To build DBD::mysql
+# # export LIBRARY_PATH="$mysql_store/lib:$zstd_store/lib:$LIBRARY_PATH"
 
-# FIXME
-#export PGDATA=$DEVBOX_GLOBAL/virtenv/postgresql/data
-#export PGHOST=$DEVBOX_GLOBAL/virtenv/postgresql
-
-# export MYSQL_UNIX_PORT=$DEVBOX_GLOBAL/virtenv/mysql80/run/mysql.sock
-# export MYSQL_PID_FILE=$DEVBOX_GLOBAL/virtenv/mysql80/run/mysql.pid
-# export MYSQL_BASEDIR=$DEVBOX_GLOBAL/nix/profile/default
-# export MYSQL_HOME=$DEVBOX_GLOBAL/virtenv/mysql80/run
-# export MYSQL_DATADIR=$DEVBOX_GLOBAL/virtenv/mysql80/data
-
-# To build Net::SSLeay
-export LDFLAGS="-L$OPENSSL_PREFIX/lib"
-export CPPFLAGS="-I$OPENSSL_PREFIX/include"
-
-# FIXME
-#zstd_version=`zstd --version | perl -nl -e 'print $1 if /v([\d\.]+)/'`
-#zstd_store=`nix-store --query --references $(which zstd) | grep "zstd-$zstd_version$"`
-#mysql_store=`nix-store --query --references $(which mysql) | grep "mysql-wrapped"`
-
-# To build DBD::mysql
-# export LIBRARY_PATH="$mysql_store/lib:$zstd_store/lib:$LIBRARY_PATH"
-
-#----------------------
-# cdr
-#----------------------
-autoload -U chpwd_recent_dirs cdr
-add-zsh-hook chpwd chpwd_recent_dirs
-zstyle ":chpwd:*" recent-dirs-max 500
-zstyle ":chpwd:*" recent-dirs-default on
-zstyle ":completion:*" recent-dirs-insert always
-zstyle ":completion:*:*:cdr:*:*" menu select=2
 
 #----------------------
 # history
@@ -98,6 +54,30 @@ HISTSIZE=100000
 SAVEHIST=100000
 setopt hist_ignore_dups
 setopt share_history
+
+#--------------------------
+# completion
+#--------------------------
+#
+# zsh-completions setting
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# zsh-autosuggestions setting
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting setting
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#----------------------
+# prompt
+#-----------------------
+
+eval "$(starship init zsh)"
 
 #----------------------
 # alias & bindkey
