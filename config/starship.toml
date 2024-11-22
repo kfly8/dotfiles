@@ -23,6 +23,3 @@ $os\
 $container\
 $shell\
 $character"""
-
-[nix_shell]
-disabled=true

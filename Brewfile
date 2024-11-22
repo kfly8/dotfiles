@@ -22,6 +22,8 @@ brew "zsh-completions"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 brew "starship"
+brew "typos-cli"
+brew "typos-lsp"
 
 brew "postgresql@14"
 brew "mysql@8.0"

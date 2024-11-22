@@ -39,6 +39,7 @@ create_symlink "$PWD/config/efm-langserver" "$HOME/.config/efm-langserver"
 create_symlink "$PWD/config/perlimports"    "$HOME/.config/perlimports"
 create_symlink "$PWD/config/starship.toml"  "$HOME/.config/starship.toml"
 create_symlink "$PWD/config/nix"            "$HOME/.config/nix"
-create_symlink "$PWD/config/memo"            "$HOME/.config/memo"
+create_symlink "$PWD/config/memo"           "$HOME/.config/memo"
+create_symlink "$PWD/config/typos.toml"     "$HOME/.config/typos.toml"
 
 echo 'Done!'
