@@ -22,7 +22,7 @@ lspconfig.lua_ls.setup {
   }
 }
 
-lspconfig.tsserver.setup {}
+lspconfig.ts_ls.setup {}
 lspconfig.gopls.setup {}
 
 -- Ref: https://rust-analyzer.github.io/manual.html#nvim-lsp

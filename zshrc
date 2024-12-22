@@ -44,6 +44,9 @@ export PATH="$OPENSSL_PREFIX/bin:$PATH"
 # # To build DBD::mysql
 # # export LIBRARY_PATH="$mysql_store/lib:$zstd_store/lib:$LIBRARY_PATH"
 
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/mysql@8.0/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/mysql@8.0/include"
 
 #----------------------
 # history
