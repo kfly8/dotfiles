@@ -32,7 +32,6 @@ require('lazy').setup({
 
   -- Plugin Language
   { 'vim-perl/vim-perl', ft = 'perl', build = 'make clean carp highlight-all-pragmas moose test-more try-tiny heredoc-sql object-pad' },
-  { 'kfly8/perl-local-lib-path.vim', ft = 'perl', branch = 'perl-project-root-files' },
   { 'rhysd/vim-gfm-syntax', ft = 'markdown' },
   { 'hashivim/vim-terraform', ft = 'terraform' },
   { 'jparise/vim-graphql', ft = 'graphql' },
