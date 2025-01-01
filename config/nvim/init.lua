@@ -20,6 +20,7 @@ vim.o.showtabline = 2
 vim.o.signcolumn = 'yes'
 vim.o.whichwrap = 'b,s,h,l,[,],<,>,~'
 vim.o.splitright = true
+vim.o.mouse = ''
 
 function ZenkakuSpace()
   vim.cmd [[hi ZenkakuSpace cterm=reverse ctermfg=darkgrey gui=reverse guifg=darkgrey]]
