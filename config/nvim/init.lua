@@ -42,7 +42,7 @@ vim.cmd [[colorscheme kanagawa]]
 ----------------------------------------------------------------
 
 -- Goyo --
-vim.g.goyo_width = 100
+vim.g.goyo_width = 150
 
 -- Colorizer --
 require 'colorizer'.setup {
@@ -52,10 +52,29 @@ require 'colorizer'.setup {
 }
 
 -- lightline --
+function LightlineTabFilename(n)
+  vim.notify("called LightlineTabFilename")
+
+  local bufnr = vim.fn.tabpagebuflist(n)[vim.fn.tabpagewinnr(n) - 1]
+  local filepath = vim.fn.expand("#" .. bufnr .. ":p")
+
+  local parent = vim.fn.fnamemodify(vim.fn.fnamemodify(filepath, ":h"), ":t")
+  local name = vim.fn.fnamemodify(filepath, ":t")
+  local tab_filename = parent .. "/" .. name
+
+  vim.notify(tab_filename)
+
+  return tab_filename ~= "" and tab_filename or "[No Name]"
+end
+
 vim.g.lightline = {
   active = {
     left = { {'mode', 'paste'}, {'readonly', 'relativepath', 'modified'} },
   },
+  tab_component_function = {
+    filename = "LightlineTabFilename",
+    modified = "LightlineTabFilename",
+  }
 }
 
 -- Fzf --
@@ -76,9 +95,4 @@ function Memo(prompt, dir)
     },
   })
 end
-
--- Oil --
-require("oil").setup({
-  default_file_explorer = true,
-})
 

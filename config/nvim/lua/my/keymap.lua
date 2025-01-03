@@ -4,11 +4,11 @@ vim.g.mapleader = ' '
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
 
 -- fzf 関連のキーマップ
-vim.keymap.set("n", "<leader><leader>", "<cmd>lua require('fzf-lua').git_files()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>f", "<cmd>lua require('fzf-lua').git_files()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>b", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
+vim.keymap.set("n", "<leader><leader>", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>l", "<cmd>lua require('fzf-lua').lines()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>t", "<cmd>lua require('fzf-lua').tabs()<CR>", { silent = true })
-vim.keymap.set("n", "<leader>f", "<cmd>lua require('fzf-lua').builtin()<CR>", { silent = true })
 
 -- lsp 関連のキーマップ
 vim.keymap.set('n', '<C-k>',  '<cmd>lua vim.lsp.buf.hover()<CR>')
@@ -48,5 +48,31 @@ cmp.setup({
   experimental = {
     ghost_text = true,
   },
+})
+
+-- oil 関連のキーマップ
+require("oil").setup({
+  default_file_explorer = true,
+  keymaps = {
+    ["?"] = { "actions.show_help", mode = "n" },
+    ["<CR>"] = "actions.select",
+    ["<C-l>"] = "actions.select",
+    ["<C-p>"] = "actions.preview",
+    ["<C-h>"] = { "actions.parent", mode = "n" },
+    ["<C-t>"] = { "actions.select", opts = { tab = true } },
+    ["t"] = { "actions.select", opts = { tab = true } },
+  },
+  use_default_keymaps = false,
+  view_options = {
+    is_hidden_file = function(name)
+      local ignore_list = { '.git', '.DS_Store', '.wrangler' }
+      for _, v in ipairs(ignore_list) do
+        if name == v then
+          return true
+        end
+      end
+      return false
+    end,
+  }
 })
 

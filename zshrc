@@ -21,6 +21,8 @@ eval "$(mise activate zsh)"
 #
 export OPENSSL_PREFIX="/opt/homebrew/opt/libressl"
 export PATH="$OPENSSL_PREFIX/bin:$PATH"
+
+export PATH="$HOME/.bun/bin:$PATH"
 #
 # # FIXME
 # #export PGDATA=$DEVBOX_GLOBAL/virtenv/postgresql/data
