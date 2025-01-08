@@ -9,7 +9,6 @@ dist
 .sass-cache
 app/bower_components
 test/bower_components
-/*.lock
 /vendor/bundle
 vendor
 package-lock.json
@@ -42,3 +41,4 @@ hoge.txt
 .obsidian/
 
 lib/Image/Magick.pm
+*.db

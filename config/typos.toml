@@ -1,0 +1,2 @@
+[default.extend-words]
+DNE = "DNE" # Perl のMatcherで Does Not Exist の略 で用意されてる

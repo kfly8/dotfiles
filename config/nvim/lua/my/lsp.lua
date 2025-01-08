@@ -2,6 +2,8 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lspconfig = require('lspconfig')
+
+-- Perl
 lspconfig.perlnavigator.setup{
     settings = {
         perlnavigator = {
@@ -11,6 +13,7 @@ lspconfig.perlnavigator.setup{
     }
 }
 
+-- Lua
 lspconfig.lua_ls.setup {
   settings = {
     Lua = {
@@ -22,9 +25,16 @@ lspconfig.lua_ls.setup {
   }
 }
 
+-- TypeScript
 lspconfig.ts_ls.setup {}
+lspconfig.biome.setup {
+  cmd = { "bunx", "biome", "lsp-proxy" }
+}
+
+-- Go
 lspconfig.gopls.setup {}
 
+-- Rust
 -- Ref: https://rust-analyzer.github.io/manual.html#nvim-lsp
 lspconfig.rust_analyzer.setup({
     settings = {
@@ -47,6 +57,7 @@ lspconfig.rust_analyzer.setup({
     }
 })
 
+-- misc
 lspconfig.efm.setup{
   -- SEE ALSO: .config/efm-langserver/config.yaml
   filetypes = { 'graphql', 'markdown', 'javascript' },

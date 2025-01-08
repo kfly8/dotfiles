@@ -13,6 +13,7 @@ vim.keymap.set("n", "<leader>t", "<cmd>lua require('fzf-lua').tabs()<CR>", { sil
 -- lsp 関連のキーマップ
 vim.keymap.set('n', '<C-k>',  '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, { silent = true })
 
 vim.keymap.set('i', '<C-CR>', 'copilot#Accept("\\<CR>")', {
   expr = true,

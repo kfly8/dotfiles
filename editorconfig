@@ -16,7 +16,8 @@ indent_size = 4
 trim_trailing_whitespace = false
 
 [*.{js,ts,tsx,vue,json,json5}]
-indent_size = 2
+indent_style = tab
+indent_size = 4
 
 [*.rb]
 indent_size = 2
