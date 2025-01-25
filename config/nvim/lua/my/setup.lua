@@ -37,6 +37,14 @@ require('lazy').setup({
   { 'jparise/vim-graphql', ft = 'graphql' },
   { 'ziglang/zig.vim', ft = 'zig' },
 
+  {
+    "luckasRanarison/tailwind-tools.nvim",
+    build = ":UpdateRemotePlugins",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = {},
+    ft="tsx"
+  },
+
   -- Color Scheme and extensions
   { 'sainnhe/gruvbox-material' },
   { 'rebelot/kanagawa.nvim' },

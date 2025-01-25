@@ -31,6 +31,8 @@ lspconfig.biome.setup {
   cmd = { "bunx", "biome", "lsp-proxy" }
 }
 
+lspconfig.tailwindcss.setup {}
+
 -- Go
 lspconfig.gopls.setup {}
 
