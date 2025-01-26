@@ -34,6 +34,7 @@ brew "efm-langserver"
 brew "lua-language-server"
 brew "typescript-language-server"
 brew "yaml-language-server"
+brew "tailwindcss-language-server"
 
 brew "gopls"
 brew "gnupg"
