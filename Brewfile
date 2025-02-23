@@ -23,21 +23,23 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 brew "starship"
 brew "typos-cli"
-brew "typos-lsp"
+brew "ffmpeg"
 
 brew "postgresql@14"
 brew "mysql@8.0"
 
 # LSP
+brew "typos-lsp"
 brew "efm-langserver"
 # brew "perlnavigator"
 brew "lua-language-server"
 brew "typescript-language-server"
 brew "yaml-language-server"
 brew "tailwindcss-language-server"
-
 brew "gopls"
 brew "gnupg"
 
 cask "font-hack-nerd-font"
 
+# AI
+brew "ollama"

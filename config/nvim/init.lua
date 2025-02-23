@@ -12,7 +12,6 @@ vim.filetype.add({
   }
 })
 
--- View
 vim.o.number = true
 vim.o.list = true
 vim.o.listchars = 'tab:»-,trail:~,eol:↲,extends:»,precedes:«,nbsp:%'
@@ -21,6 +20,7 @@ vim.o.signcolumn = 'yes'
 vim.o.whichwrap = 'b,s,h,l,[,],<,>,~'
 vim.o.splitright = true
 vim.o.mouse = ''
+vim.o.backupcopy = "yes"
 
 function ZenkakuSpace()
   vim.cmd [[hi ZenkakuSpace cterm=reverse ctermfg=darkgrey gui=reverse guifg=darkgrey]]
