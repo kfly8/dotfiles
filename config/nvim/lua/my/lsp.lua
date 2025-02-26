@@ -9,6 +9,7 @@ lspconfig.perlnavigator.setup{
         perlnavigator = {
             perlimportsLintEnabled = true,
             perlimportsTidyEnabled = true,
+            includePaths = {"t/lib"},
         }
     }
 }

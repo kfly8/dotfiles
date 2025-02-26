@@ -22,8 +22,8 @@ require('lazy').setup({
 
   -- Completion
   { 'neovim/nvim-lspconfig' },
-  { 'hrsh7th/nvim-cmp' },
-  { 'hrsh7th/cmp-nvim-lsp' },
+  --{ 'hrsh7th/nvim-cmp' },
+  --{ 'hrsh7th/cmp-nvim-lsp' },
   { 'github/copilot.vim', build = ':Copilot setup' },
 
   { 'junegunn/goyo.vim' },
