@@ -25,6 +25,8 @@ brew "starship"
 brew "typos-cli"
 brew "ffmpeg"
 
+brew "uv" # to install MCP servers
+
 brew "postgresql@14"
 brew "mysql@8.0"
 
