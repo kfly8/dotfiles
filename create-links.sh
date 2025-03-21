@@ -1,5 +1,8 @@
 #!/bin/sh
 
+set -e
+set -u
+
 create_symlink() {
   target=$1
   link_name=$2
@@ -20,6 +23,8 @@ create_symlink() {
     ln -s "$target" "$link_name"
   fi
 }
+
+echo 'Creating symlinks...'
 
 create_symlink "$PWD/zshrc"           "$HOME/.zshrc"
 create_symlink "$PWD/zsh"             "$HOME/.zsh"

@@ -15,6 +15,27 @@ vim.keymap.set('n', '<C-k>',  '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, { silent = true })
 
+local cmp = require("cmp")
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  sources = {
+    { name = "nvim_lsp" },
+  },
+  mapping = cmp.mapping.preset.insert({
+    ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
+    ['<Esc>'] = cmp.mapping.abort(),
+    ["<Tab>"] = cmp.mapping.confirm { select = true },
+  }),
+  experimental = {
+    ghost_text = true,
+  },
+})
+
 -- Memo
 local MEMO_DIR = os.getenv("OBSIDIAN_MEMO_DIR")
 local ENGLISH_DIR = os.getenv("OBSIDIAN_ENGLISH_DIR")
