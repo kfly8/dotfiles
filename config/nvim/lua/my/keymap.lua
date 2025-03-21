@@ -15,6 +15,11 @@ vim.keymap.set('n', '<C-k>',  '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, { silent = true })
 
+require("copilot").setup({
+  suggestion = { enabled = false },
+  panel = { enabled = false },
+})
+
 local cmp = require("cmp")
 cmp.setup({
   snippet = {
@@ -23,7 +28,8 @@ cmp.setup({
     end,
   },
   sources = {
-    { name = "nvim_lsp" },
+    { name = "nvim_lsp", group_index = 2 },
+    { name = "copilot", group_index = 2 },
   },
   mapping = cmp.mapping.preset.insert({
     ["<C-j>"] = cmp.mapping.select_next_item(),

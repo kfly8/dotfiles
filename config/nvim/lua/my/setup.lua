@@ -24,7 +24,13 @@ require('lazy').setup({
   { 'neovim/nvim-lspconfig' },
   { 'hrsh7th/nvim-cmp' },
   { 'hrsh7th/cmp-nvim-lsp' },
-  --{ 'github/copilot.vim', build = ':Copilot setup' },
+  { 'zbirenbaum/copilot.lua', build = ':Copilot setup' },
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  },
 
   { 'junegunn/goyo.vim' },
   { 'wakatime/vim-wakatime' },
