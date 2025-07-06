@@ -9,7 +9,7 @@ export EDITOR=nvim
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(direnv hook zsh)"
-eval "$(mise activate zsh)"
+eval "$(mise activate zsh --shims)"
 #
 #--------------------------
 # Env
@@ -24,6 +24,11 @@ export PATH="$OPENSSL_PREFIX/bin:$PATH"
 
 export PATH="$HOME/.bun/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
 #
 # # FIXME
 # #export PGDATA=$DEVBOX_GLOBAL/virtenv/postgresql/data
@@ -98,7 +103,7 @@ alias la="eza -lha --git"
 alias tree="eza --tree --git-ignore"
 
 alias cat="bat"
-alias find="fd"
+#alias find="fd"
 #alias grep="rg"
 
 alias cdd='fzf-cdr'
@@ -106,6 +111,10 @@ alias mm='() { fzf-memo $OBSIDIAN_MEMO_DIR; }'
 alias memo='() { fzf-memo $OBSIDIAN_MEMO_DIR; }'
 alias en='() { fzf-memo $OBSIDIAN_ENGLISH_DIR; }'
 alias english='() { fzf-memo $OBSIDIAN_ENGLISH_DIR; }'
+
+alias jp="perl -MARGV::JSON -MDDP -anl -E "
+
+alias claude="$HOME/.claude/local/claude"
 
 bindkey -e
 bindkey '^r' fzf-select-history
@@ -187,3 +196,4 @@ fi
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
   export LDFLAGS="-L/opt/homebrew/opt/mysql@8.0/lib"
   export CPPFLAGS="-I/opt/homebrew/opt/mysql@8.0/include"
+

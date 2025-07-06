@@ -42,3 +42,5 @@ hoge.txt
 
 lib/Image/Magick.pm
 *.db
+
+packages/nextjs/package-lock.json

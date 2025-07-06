@@ -24,6 +24,7 @@ brew "zsh-syntax-highlighting"
 brew "starship"
 brew "typos-cli"
 brew "ffmpeg"
+brew "tbls"
 
 brew "uv" # to install MCP servers
 
