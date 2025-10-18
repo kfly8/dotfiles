@@ -35,6 +35,7 @@ create_symlink "$PWD/tmux.conf"       "$HOME/.tmux.conf"
 create_symlink "$PWD/textlintrc"      "$HOME/.textlintrc"
 create_symlink "$PWD/proverc"         "$HOME/.proverc"
 create_symlink "$PWD/editorconfig"    "$HOME/.editorconfig"
+create_symlink "$PWD/claude"          "$HOME/.claude"
 create_symlink "$PWD/Brewfile"        "$HOME/Brewfile"
 
 mkdir -p $HOME/.config

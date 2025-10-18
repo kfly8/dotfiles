@@ -16,6 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   { 'itchyny/lightline.vim' },
   { 'junegunn/vim-easy-align', cmd = 'EasyAlign' },
+  { 'direnv/direnv.vim' },
 
   -- fzf
   { 'ibhagwan/fzf-lua', branch = 'main' },

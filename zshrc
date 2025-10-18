@@ -9,8 +9,8 @@ export EDITOR=nvim
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(direnv hook zsh)"
-eval "$(mise activate zsh --shims)"
-#
+eval "$(mise activate zsh)"
+
 #--------------------------
 # Env
 #--------------------------
@@ -114,7 +114,7 @@ alias english='() { fzf-memo $OBSIDIAN_ENGLISH_DIR; }'
 
 alias jp="perl -MARGV::JSON -MDDP -anl -E "
 
-alias claude="$HOME/.claude/local/claude"
+alias claude="~/.claude/local/claude"
 
 bindkey -e
 bindkey '^r' fzf-select-history

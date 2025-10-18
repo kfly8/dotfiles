@@ -1,2 +1,3 @@
 [default.extend-words]
 DNE = "DNE" # Perl のMatcherで Does Not Exist の略 で用意されてる
+ful = 'ful' # Perlのful.pm。use ful のようにして利用している
