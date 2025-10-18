@@ -47,7 +47,4 @@ create_symlink "$PWD/config/nix"            "$HOME/.config/nix"
 create_symlink "$PWD/config/memo"           "$HOME/.config/memo"
 create_symlink "$PWD/config/typos.toml"     "$HOME/.config/typos.toml"
 
-mkdir -p $HOME/.claude
-create_symlink "$PWD/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
-
 echo 'Done!'
