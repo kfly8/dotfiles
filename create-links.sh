@@ -35,7 +35,6 @@ create_symlink "$PWD/tmux.conf"       "$HOME/.tmux.conf"
 create_symlink "$PWD/textlintrc"      "$HOME/.textlintrc"
 create_symlink "$PWD/proverc"         "$HOME/.proverc"
 create_symlink "$PWD/editorconfig"    "$HOME/.editorconfig"
-create_symlink "$PWD/claude"          "$HOME/.claude"
 create_symlink "$PWD/Brewfile"        "$HOME/Brewfile"
 
 mkdir -p $HOME/.config
@@ -47,5 +46,8 @@ create_symlink "$PWD/config/starship.toml"  "$HOME/.config/starship.toml"
 create_symlink "$PWD/config/nix"            "$HOME/.config/nix"
 create_symlink "$PWD/config/memo"           "$HOME/.config/memo"
 create_symlink "$PWD/config/typos.toml"     "$HOME/.config/typos.toml"
+
+mkdir -p $HOME/.claude
+create_symlink "$PWD/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 
 echo 'Done!'

@@ -114,8 +114,6 @@ alias english='() { fzf-memo $OBSIDIAN_ENGLISH_DIR; }'
 
 alias jp="perl -MARGV::JSON -MDDP -anl -E "
 
-alias claude="~/.claude/local/claude"
-
 bindkey -e
 bindkey '^r' fzf-select-history
 bindkey '^f' fzf-src
