@@ -117,6 +117,7 @@ alias jp="perl -MARGV::JSON -MDDP -anl -E "
 bindkey -e
 bindkey '^r' fzf-select-history
 bindkey '^f' fzf-src
+bindkey '^g' fzf-worktree
 
 #----------------------
 # fzf
@@ -148,6 +149,22 @@ function fzf-src () {
   zle reset-prompt
 }
 zle -N fzf-src
+
+#----------------------
+# worktree
+#----------------------
+
+export WORKTREE_ROOT="$HOME/worktree"
+
+function fzf-worktree () {
+  local selected=$(git worktree list 2>/dev/null | fzf --query="$LBUFFER" | awk '{print $1}')
+  if [ -n "$selected" ]; then
+    BUFFER="cd ${selected}"
+    zle accept-line
+  fi
+  zle reset-prompt
+}
+zle -N fzf-worktree
 
 #----------------------
 # Memo

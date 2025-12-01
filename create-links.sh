@@ -37,6 +37,11 @@ create_symlink "$PWD/proverc"         "$HOME/.proverc"
 create_symlink "$PWD/editorconfig"    "$HOME/.editorconfig"
 create_symlink "$PWD/Brewfile"        "$HOME/Brewfile"
 
+mkdir -p $HOME/bin
+for f in "$PWD"/bin/*; do
+  [ -f "$f" ] && create_symlink "$f" "$HOME/bin/$(basename "$f")"
+done
+
 mkdir -p $HOME/.config
 create_symlink "$PWD/config/nvim"           "$HOME/.config/nvim"
 create_symlink "$PWD/config/pet"            "$HOME/.config/pet"
