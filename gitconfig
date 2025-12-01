@@ -58,3 +58,6 @@
 
 [init]
   defaultBranch = main
+[wo]
+  root = ~/worktree
+  postHook = ~/.config/git-wo/post-hook

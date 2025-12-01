@@ -40,7 +40,7 @@ create_symlink "$PWD/Brewfile"        "$HOME/Brewfile"
 mkdir -p $HOME/bin
 
 # Install git-wo
-GIT_WO_VERSION="v0.01"
+GIT_WO_VERSION="v0.02"
 echo "Installing git-wo $GIT_WO_VERSION..."
 curl -sS -o "$HOME/bin/git-wo" "https://raw.githubusercontent.com/kfly8/git-wo/$GIT_WO_VERSION/git-wo"
 chmod +x "$HOME/bin/git-wo"
