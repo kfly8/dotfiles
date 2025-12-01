@@ -38,9 +38,12 @@ create_symlink "$PWD/editorconfig"    "$HOME/.editorconfig"
 create_symlink "$PWD/Brewfile"        "$HOME/Brewfile"
 
 mkdir -p $HOME/bin
-for f in "$PWD"/bin/*; do
-  [ -f "$f" ] && create_symlink "$f" "$HOME/bin/$(basename "$f")"
-done
+
+# Install git-wo
+GIT_WO_VERSION="v0.01"
+echo "Installing git-wo $GIT_WO_VERSION..."
+curl -sS -o "$HOME/bin/git-wo" "https://raw.githubusercontent.com/kfly8/git-wo/$GIT_WO_VERSION/git-wo"
+chmod +x "$HOME/bin/git-wo"
 
 mkdir -p $HOME/.config
 create_symlink "$PWD/config/nvim"           "$HOME/.config/nvim"
