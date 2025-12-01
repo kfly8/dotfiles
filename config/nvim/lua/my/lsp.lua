@@ -10,6 +10,8 @@ lspconfig.perlnavigator.setup{
             perlimportsLintEnabled = true,
             perlimportsTidyEnabled = true,
             includePaths = {"t/lib"},
+            perlcriticProfile = './.perlcriticrc',
+            perltidyProfile = './.perltidyrc',
         }
     }
 }

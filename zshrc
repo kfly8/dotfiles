@@ -25,6 +25,7 @@ export PATH="$OPENSSL_PREFIX/bin:$PATH"
 export PATH="$HOME/.bun/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Add Visual Studio Code (code)
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
@@ -106,7 +107,6 @@ alias cat="bat"
 #alias find="fd"
 #alias grep="rg"
 
-alias cdd='fzf-cdr'
 alias mm='() { fzf-memo $OBSIDIAN_MEMO_DIR; }'
 alias memo='() { fzf-memo $OBSIDIAN_MEMO_DIR; }'
 alias en='() { fzf-memo $OBSIDIAN_ENGLISH_DIR; }'
@@ -148,14 +148,6 @@ function fzf-src () {
   zle reset-prompt
 }
 zle -N fzf-src
-
-function fzf-cdr() {
-  target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
-  target_dir=`echo ${target_dir/\~/$HOME}`
-  if [ -n "$target_dir" ]; then
-    cd $target_dir
-  fi
-}
 
 #----------------------
 # Memo

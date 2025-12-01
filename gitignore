@@ -45,3 +45,11 @@ lib/Image/Magick.pm
 
 packages/nextjs/package-lock.json
 packages/nextjs/package-lock.json
+.claude/settings.local.json
+t/hoge.t
+
+__lib/
+
+llm-memo.md
+llm-perl-skill.md
+docker-compose.override.yml

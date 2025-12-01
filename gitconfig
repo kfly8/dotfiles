@@ -1,5 +1,4 @@
 [alias]
-  cz = !npx git-cz
   ci = commit -v
   co = checkout
   br = branch
@@ -21,7 +20,7 @@
   whitespace-error-style = 22 reverse
 [push]
   default = current
-	autoSetupRemote = true
+  autoSetupRemote = true
 [pull]
   rebase = true
 [commit]

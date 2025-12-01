@@ -10,9 +10,9 @@
 # preserve_unused disabled.
 
 cache                           = false # setting this to true is currently discouraged
-ignore_modules                  = ["Type::Library", "Test::More", "Test2::V0"]
+ignore_modules                  = ["Type::Library", "Test::More", "Test2::V0", "MyApp::Test"]
 ignore_modules_filename         = ""
-ignore_modules_pattern          = "" # regex like "^(Foo|Foo::Bar)"
+ignore_modules_pattern          = "^Test2::Plugin" # regex like "^(Foo|Foo::Bar)"
 ignore_modules_pattern_filename = ""
 libs                            = ["lib", "t/lib"]
 log_filename                    = ""
