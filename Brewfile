@@ -27,12 +27,14 @@ brew "ffmpeg"
 brew "tbls"
 brew "colima"
 brew "watchexec"
+brew "coreutils"
 
 brew "uv" # to install MCP servers
 
 brew "postgresql@14"
 brew "mysql@8.0"
 brew "tursodatabase/tap/turso"
+brew "duckdb"
 
 # LSP
 brew "typos-lsp"
@@ -45,9 +47,11 @@ brew "tailwindcss-language-server"
 brew "gopls"
 brew "gnupg"
 
-cask "font-hack-nerd-font"
-cask "claude-code"
-
 # AI
 brew "ollama"
+cask "claude-code"
+
+# Terminal
+cask "font-hack-nerd-font"
+cast "ghostty"
 

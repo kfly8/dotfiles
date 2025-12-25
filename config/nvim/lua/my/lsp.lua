@@ -62,6 +62,9 @@ lspconfig.rust_analyzer.setup({
     }
 })
 
+-- Python
+lspconfig.pylsp.setup {}
+
 -- misc
 lspconfig.efm.setup{
   -- SEE ALSO: .config/efm-langserver/config.yaml
