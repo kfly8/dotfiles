@@ -22,7 +22,6 @@ eval "$(mise activate zsh)"
 export OPENSSL_PREFIX="/opt/homebrew/opt/libressl"
 export PATH="$OPENSSL_PREFIX/bin:$PATH"
 
-export PATH="$HOME/.bun/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
@@ -204,10 +203,3 @@ export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
   export LDFLAGS="-L/opt/homebrew/opt/mysql@8.0/lib"
   export CPPFLAGS="-I/opt/homebrew/opt/mysql@8.0/include"
 
-
-# bun completions
-[ -s "/Users/kfly8/.bun/_bun" ] && source "/Users/kfly8/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
