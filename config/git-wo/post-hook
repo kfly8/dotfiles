@@ -1,0 +1,16 @@
+#!/bin/bash
+cp "$ORIGINAL_PATH/.envrc" "$WORKTREE_PATH/" 2>/dev/null
+cp "$ORIGINAL_PATH/.dev.vars" "$WORKTREE_PATH/" 2>/dev/null
+cp "$ORIGINAL_PATH/local.db" "$WORKTREE_PATH/" 2>/dev/null
+cp "$ORIGINAL_PATH/docker-compose.override.yml" "$WORKTREE_PATH/" 2>/dev/null
+
+# node_modulesの複製（存在する場合）
+if [ -d "$ORIGINAL_PATH/node_modules" ]; then
+    echo "Copying node_modules..."
+    cp -r "$ORIGINAL_PATH/node_modules" "$WORKTREE_PATH/"
+fi
+
+direnv allow "$WORKTREE_PATH"
+mise trust "$WORKTREE_PATH"
+
+echo "Finished post-hook"

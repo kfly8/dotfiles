@@ -54,5 +54,6 @@ create_symlink "$PWD/config/starship.toml"  "$HOME/.config/starship.toml"
 create_symlink "$PWD/config/nix"            "$HOME/.config/nix"
 create_symlink "$PWD/config/memo"           "$HOME/.config/memo"
 create_symlink "$PWD/config/typos.toml"     "$HOME/.config/typos.toml"
+create_symlink "$PWD/config/git-wo"         "$HOME/.config/git-wo"
 
 echo 'Done!'
