@@ -47,6 +47,7 @@ brew "yaml-language-server"
 brew "tailwindcss-language-server"
 brew "gopls"
 brew "gnupg"
+brew "vscode-langservers-extracted"
 
 # AI
 brew "ollama"

@@ -90,7 +90,7 @@ lspconfig.yamlls.setup {
 }
 
 lspconfig.jsonls.setup {
-  cmd = { "vscode-json-languageserver", "--stdio" },
+  cmd = { "vscode-json-language-server", "--stdio" },
   capabilities = capabilities,
   filetypes = {"json", "jsonc"},
   settings = {
