@@ -55,5 +55,5 @@ cask "claude-code"
 
 # Terminal
 cask "font-hack-nerd-font"
-cast "ghostty"
+cask "ghostty"
 
