@@ -28,7 +28,7 @@ copy_if_exists "local.db"
 copy_if_exists "docker-compose.override.yml"
 
 # ディレクトリの複製
-copy_dir_if_exists "node_modules"
+#copy_dir_if_exists "node_modules"
 
 # direnv allow（.envrcが存在する場合のみ）
 [ -f "$WORKTREE_PATH/.envrc" ] && direnv allow "$WORKTREE_PATH"
