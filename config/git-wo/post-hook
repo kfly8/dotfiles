@@ -24,11 +24,13 @@ copy_dir_if_exists() {
 copy_if_exists ".envrc"
 copy_if_exists ".dev.vars"
 copy_if_exists ".claude/settings.local.json"
+copy_if_exists "CLAUDE.local.md"
 copy_if_exists "local.db"
 copy_if_exists "docker-compose.override.yml"
 
 # ディレクトリの複製
-#copy_dir_if_exists "node_modules"
+mkdir -p "$WORKTREE_PATH/tmp/claude/"
+copy_dir_if_exists "tmp/claude/plans"
 
 # direnv allow（.envrcが存在する場合のみ）
 [ -f "$WORKTREE_PATH/.envrc" ] && direnv allow "$WORKTREE_PATH"
