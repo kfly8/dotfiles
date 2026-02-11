@@ -1,0 +1,67 @@
+; claude-task sandbox profile
+; Restricts file writes to worktree directory only
+;
+; Usage:
+;   sandbox-exec -f claude-task.sb -D HOME=/Users/xxx -D WORKTREE_PATH=/path/to/worktree claude ...
+;
+; Based on: https://www.mizdra.net/entry/2025/12/01/121805
+
+(version 1)
+
+; Allow most operations by default
+(allow default)
+
+; ===========================================
+; File Write Restrictions
+; ===========================================
+
+; Deny all writes under HOME
+(deny file-write*
+  (subpath (param "HOME")))
+
+; Allow writes only to the specific worktree directory
+(allow file-write*
+  (subpath (param "WORKTREE_PATH")))
+
+; Allow writes to main repository's .git directory (needed for worktree operations)
+(allow file-write*
+  (subpath (param "REPO_PATH")))
+
+; Allow writes to shell history files (including lock files)
+(allow file-write*
+  (regex (string-append "^" (param "HOME") "/\\.zsh_history")))
+
+; Allow writes to Claude Code config/cache directories
+(allow file-write*
+  (subpath (string-append (param "HOME") "/.claude"))
+  (literal (string-append (param "HOME") "/.claude.json")))
+
+; Allow writes to bun global cache directory (needed for bun install)
+(allow file-write*
+  (subpath (string-append (param "HOME") "/.bun")))
+
+; Allow writes to wrangler config/log directories
+(allow file-write*
+  (subpath (string-append (param "HOME") "/Library/Preferences/.wrangler")))
+
+; Allow writes to Playwright browser cache and related directories
+(allow file-write*
+  (subpath (string-append (param "HOME") "/Library/Caches/ms-playwright"))
+  (subpath (string-append (param "HOME") "/.cache/ms-playwright")))
+
+; Allow writes to /tmp and /var (needed for various tools)
+(allow file-write*
+  (subpath "/tmp")
+  (subpath "/private/tmp")
+  (subpath "/var"))
+
+; ===========================================
+; Notes
+; ===========================================
+; - Network access is NOT restricted (Claude needs Anthropic API)
+; - Process spawning is NOT restricted (Claude uses git, gh, etc.)
+; - File reads are NOT restricted (except for security-sensitive paths)
+;
+; For stricter isolation, consider:
+; - (deny file-read* (subpath (param "HOME")))
+; - Then allow only necessary paths

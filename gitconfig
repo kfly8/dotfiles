@@ -61,3 +61,4 @@
 [wo]
   root = ~/wo
   postHook = ~/.config/git-wo/post-hook
+  sandboxProfile = ~/.config/git-wo/sandbox.sb

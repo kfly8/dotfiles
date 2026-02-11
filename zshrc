@@ -4,14 +4,6 @@ export PAGER=less
 export EDITOR=nvim
 
 #--------------------------
-# eval
-#--------------------------
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(direnv hook zsh)"
-eval "$(mise activate zsh)"
-
-#--------------------------
 # Env
 #--------------------------
 
@@ -62,8 +54,8 @@ export CPPFLAGS="-I/opt/homebrew/opt/mysql@8.0/include"
 #----------------------
 
 HISTFILE="$HOME/.zsh_history"
-HISTSIZE=100000
-SAVEHIST=100000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt hist_ignore_dups
 setopt share_history
 
@@ -86,10 +78,14 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #----------------------
-# prompt
-#-----------------------
+# eval
+#----------------------
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(direnv hook zsh)"
+eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
+eval "$($HOME/bin/git-wo init)"
 
 #----------------------
 # alias & bindkey
