@@ -37,14 +37,6 @@ create_symlink "$PWD/proverc"         "$HOME/.proverc"
 create_symlink "$PWD/editorconfig"    "$HOME/.editorconfig"
 create_symlink "$PWD/Brewfile"        "$HOME/Brewfile"
 
-mkdir -p $HOME/bin
-
-# Install git-wo
-GIT_WO_VERSION="v0.02"
-echo "Installing git-wo $GIT_WO_VERSION..."
-curl -sS -o "$HOME/bin/git-wo" "https://raw.githubusercontent.com/kfly8/git-wo/$GIT_WO_VERSION/git-wo"
-chmod +x "$HOME/bin/git-wo"
-
 mkdir -p $HOME/.config
 create_symlink "$PWD/config/nvim"           "$HOME/.config/nvim"
 create_symlink "$PWD/config/pet"            "$HOME/.config/pet"
@@ -55,5 +47,10 @@ create_symlink "$PWD/config/nix"            "$HOME/.config/nix"
 create_symlink "$PWD/config/memo"           "$HOME/.config/memo"
 create_symlink "$PWD/config/typos.toml"     "$HOME/.config/typos.toml"
 create_symlink "$PWD/config/git-wo"         "$HOME/.config/git-wo"
+
+mkdir -p $HOME/.claude
+create_symlink "$PWD/claude/statusline.sh" "$HOME/.claude/statusline.sh"
+
+mkdir -p $HOME/bin
 
 echo 'Done!'

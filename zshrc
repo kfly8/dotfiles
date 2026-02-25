@@ -18,6 +18,7 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/src/github.com/kfly8/claude-task/bin:$PATH"
+export PATH="$HOME/src/github.com/kfly8/git-wo/bin:$PATH"
 
 # Add Visual Studio Code (code)
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
@@ -85,7 +86,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(direnv hook zsh)"
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
-eval "$($HOME/bin/git-wo init)"
 
 #----------------------
 # alias & bindkey
