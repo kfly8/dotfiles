@@ -9,12 +9,15 @@ EVENT=$(cat)
 
 EVENT_TYPE=$(echo "$EVENT" | jq -r '.hook_event_name // "unknown"')
 TOOL=$(echo "$EVENT" | jq -r '.tool_name // ""')
+SESSION_ID=$(echo "$EVENT" | jq -r '.session_id // ""')
 
-COUNT_FILE="/tmp/cmux-struggle-count"
+# Session-scoped count file
+COUNT_FILE="/tmp/cmux-struggle-count-${SESSION_ID}"
+CURRENT_FILE="/tmp/cmux-struggle-current"
 
-# Initialize count file if missing
-if [ ! -f "$COUNT_FILE" ]; then
-    echo "0" > "$COUNT_FILE"
+# Track current session for statusline.sh
+if [ -n "$SESSION_ID" ]; then
+    echo "$SESSION_ID" > "$CURRENT_FILE"
 fi
 
 case "$EVENT_TYPE" in
@@ -45,11 +48,9 @@ case "$EVENT_TYPE" in
         fi
 
         echo "$TOTAL" > "$COUNT_FILE"
-
-        # Display is handled by statusline.sh via progress bar label
         ;;
     "Stop")
         cmux log --level success --source claude "Session complete"
-        echo "0" > "$COUNT_FILE"
+        rm -f "$COUNT_FILE" "$CURRENT_FILE"
         ;;
 esac
