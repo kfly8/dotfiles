@@ -50,6 +50,7 @@ create_symlink "$PWD/config/git-wo"         "$HOME/.config/git-wo"
 
 mkdir -p $HOME/.claude
 create_symlink "$PWD/claude/statusline.sh" "$HOME/.claude/statusline.sh"
+create_symlink "$PWD/claude/cmux-sidebar.sh" "$HOME/.claude/cmux-sidebar.sh"
 
 mkdir -p $HOME/bin
 
