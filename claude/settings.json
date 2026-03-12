@@ -2,27 +2,17 @@
   "permissions": {
     "allow": [
       "Bash(npx playwright:*)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "hooks": {
-    "PostToolUse": [
+    "Stop": [
       {
-        "matcher": "Bash",
+        "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/cmux-sidebar.sh"
-          }
-        ]
-      }
-    ],
-    "PostToolUseFailure": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/cmux-sidebar.sh"
+            "command": "afplay /System/Library/Sounds/Funk.aiff"
           }
         ]
       }
@@ -46,5 +36,6 @@
     ]
   },
   "alwaysThinkingEnabled": true,
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "skipAutoPermissionPrompt": true
 }

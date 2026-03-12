@@ -49,8 +49,9 @@ brew "gopls"
 brew "gnupg"
 brew "vscode-langservers-extracted"
 
-# AI
+# for AI
 brew "ollama"
+brew "agent-browser"
 cask "claude-code"
 
 # Terminal
