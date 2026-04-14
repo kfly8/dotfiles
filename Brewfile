@@ -29,6 +29,7 @@ brew "colima"
 brew "watchexec"
 brew "coreutils"
 brew "container"
+brew "task"
 
 brew "uv" # to install MCP servers
 
