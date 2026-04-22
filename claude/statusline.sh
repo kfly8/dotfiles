@@ -1,33 +1,61 @@
 #!/bin/sh
 # Claude Code status line script
-# Displays: turn tokens (in/out, cache%) | cost | context% | dir
+# Line 1: context% | estimated cost | model
+# Line 2: git branch [worktree]
 
 input=$(cat)
 
-current_dir=$(echo "$input" | jq -r '.workspace.current_dir // .cwd // empty')
-dir_name=$(basename "$current_dir")
-if [ ${#dir_name} -gt 40 ]; then
-    dir_name="$(echo "$dir_name" | cut -c1-39)…"
-fi
-
-in_tok=$(echo "$input" | jq -r '.context_window.current_usage.input_tokens // 0')
-out_tok=$(echo "$input" | jq -r '.context_window.current_usage.output_tokens // 0')
-cache_create=$(echo "$input" | jq -r '.context_window.current_usage.cache_creation_input_tokens // 0')
-cache_read=$(echo "$input" | jq -r '.context_window.current_usage.cache_read_input_tokens // 0')
+# Metrics
 used=$(echo "$input" | jq -r '.context_window.used_percentage // 0')
 cost=$(echo "$input" | jq -r '.cost.total_cost_usd // 0')
+model=$(echo "$input" | jq -r '.model.id // .model // empty')
+current_dir=$(echo "$input" | jq -r '.workspace.current_dir // .cwd // empty')
 
-total_in=$((in_tok + cache_create + cache_read))
+# Worktree JSON fields (set when EnterWorktree is active)
+wt_branch=$(echo "$input" | jq -r '.worktree.branch // empty')
+wt_name=$(echo "$input" | jq -r '.worktree.name // .workspace.git_worktree // empty')
 
-if [ "$total_in" -gt 0 ] 2>/dev/null; then
-    in_k=$(awk "BEGIN { printf \"%.0f\", $total_in / 1000 }")
-    out_k=$(awk "BEGIN { printf \"%.1f\", $out_tok / 1000 }")
-    cache_pct=$(awk "BEGIN { printf \"%.0f\", ($cache_read / $total_in) * 100 }")
-    used_int=$(printf "%.0f" "$used")
-    cost_fmt=$(awk "BEGIN { printf \"%.3f\", $cost }")
-    echo "⛁ I:${in_k}k O:${out_k}k C:${cache_pct}% | \$${cost_fmt} | ctx:${used_int}%"
-    echo "${dir_name}"
-else
-    echo "⛁ -"
-    echo "${dir_name}"
+# Format metrics
+used_int=$(printf "%.0f" "$used" 2>/dev/null || echo "0")
+cost_fmt=$(awk "BEGIN { printf \"%.3f\", $cost }")
+model_short=$(echo "${model:--}" | sed 's/^claude-//')
+
+# Git info from current_dir
+git_branch=""
+git_wt_label=""
+if [ -n "$current_dir" ]; then
+    git_branch=$(git -C "$current_dir" branch --show-current 2>/dev/null)
+
+    # Fallback for detached HEAD
+    if [ -z "$git_branch" ]; then
+        git_branch=$(git -C "$current_dir" rev-parse --short HEAD 2>/dev/null)
+        [ -n "$git_branch" ] && git_branch="(${git_branch})"
+    fi
+
+    # Detect worktree via git: --absolute-git-dir contains /worktrees/ for linked worktrees
+    abs_git_dir=$(git -C "$current_dir" rev-parse --absolute-git-dir 2>/dev/null)
+    if echo "$abs_git_dir" | grep -q '/worktrees/'; then
+        git_wt_label=$(echo "$abs_git_dir" | sed 's|.*/worktrees/\([^/]*\).*|\1|')
+    fi
 fi
+
+# Determine branch and worktree label to display
+if [ -n "$wt_branch" ]; then
+    # EnterWorktree is active
+    display_branch="$wt_branch"
+    display_label=" [${wt_name:-worktree}]"
+elif [ -n "$wt_name" ]; then
+    # workspace.git_worktree is set
+    display_branch="${git_branch:-?}"
+    display_label=" [$wt_name]"
+elif [ -n "$git_wt_label" ]; then
+    # Detected as git worktree via git command
+    display_branch="${git_branch:-?}"
+    display_label=" [$git_wt_label]"
+else
+    display_branch="${git_branch:-$(basename "${current_dir:-/}")}"
+    display_label=""
+fi
+
+echo "ctx:${used_int}% \$${cost_fmt} ${model_short}"
+echo "${display_branch}${display_label}"
