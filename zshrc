@@ -203,3 +203,16 @@ export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
   export LDFLAGS="-L/opt/homebrew/opt/mysql@8.0/lib"
   export CPPFLAGS="-I/opt/homebrew/opt/mysql@8.0/include"
 
+
+# pnpm
+export PNPM_HOME="/Users/kfly8/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+
+# TO CHECK ONBORDING FOR BAREFOOTJS
+alias bf='node /Users/kfly8/src/github.com/piconic-ai/barefootjs/packages/cli/dist/index.js'
+export PATH="/opt/homebrew/opt/bison/bin:$PATH"

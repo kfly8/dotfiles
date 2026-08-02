@@ -42,7 +42,8 @@ vim.cmd [[colorscheme kanagawa]]
 ----------------------------------------------------------------
 
 -- Goyo --
-vim.g.goyo_width = 150
+vim.g.goyo_width = 200
+vim.g.goyo_height = '90%'
 
 -- Colorizer --
 require 'colorizer'.setup {

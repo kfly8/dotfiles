@@ -31,6 +31,12 @@ brew "coreutils"
 brew "container"
 brew "task"
 
+# For building PHP extensions
+brew "autoconf"
+brew "automake"
+brew "re2c"
+brew "bison"
+
 brew "uv" # to install MCP servers
 
 brew "postgresql@14"
@@ -54,6 +60,7 @@ brew "vscode-langservers-extracted"
 brew "ollama"
 brew "agent-browser"
 cask "claude-code"
+brew "herdr"
 
 # Terminal
 cask "font-hack-nerd-font"
