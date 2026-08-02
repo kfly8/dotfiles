@@ -1,10 +1,8 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local lspconfig = require('lspconfig')
-
 -- Perl
-lspconfig.perlnavigator.setup{
+vim.lsp.config('perlnavigator', {
     settings = {
         perlnavigator = {
             perlimportsLintEnabled = true,
@@ -14,10 +12,10 @@ lspconfig.perlnavigator.setup{
             perltidyProfile = './.perltidyrc',
         }
     }
-}
+})
 
 -- Lua
-lspconfig.lua_ls.setup {
+vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
       diagnostics = {
@@ -26,22 +24,22 @@ lspconfig.lua_ls.setup {
       },
     }
   }
-}
+})
 
 -- TypeScript
-lspconfig.ts_ls.setup {}
-lspconfig.biome.setup {
+vim.lsp.config('ts_ls', {})
+vim.lsp.config('biome', {
   cmd = { "bunx", "biome", "lsp-proxy" }
-}
+})
 
-lspconfig.tailwindcss.setup {}
+vim.lsp.config('tailwindcss', {})
 
 -- Go
-lspconfig.gopls.setup {}
+vim.lsp.config('gopls', {})
 
 -- Rust
 -- Ref: https://rust-analyzer.github.io/manual.html#nvim-lsp
-lspconfig.rust_analyzer.setup({
+vim.lsp.config('rust_analyzer', {
     settings = {
         ["rust-analyzer"] = {
             imports = {
@@ -63,15 +61,15 @@ lspconfig.rust_analyzer.setup({
 })
 
 -- Python
-lspconfig.pylsp.setup {}
+vim.lsp.config('pylsp', {})
 
 -- misc
-lspconfig.efm.setup{
+vim.lsp.config('efm', {
   -- SEE ALSO: .config/efm-langserver/config.yaml
   filetypes = { 'graphql', 'markdown', 'javascript' },
-}
+})
 
-lspconfig.yamlls.setup {
+vim.lsp.config('yamlls', {
   settings = {
     yaml = {
       validate = true,
@@ -87,9 +85,9 @@ lspconfig.yamlls.setup {
       }
     }
   }
-}
+})
 
-lspconfig.jsonls.setup {
+vim.lsp.config('jsonls', {
   cmd = { "vscode-json-language-server", "--stdio" },
   capabilities = capabilities,
   filetypes = {"json", "jsonc"},
@@ -107,12 +105,25 @@ lspconfig.jsonls.setup {
       }
     }
   },
-}
+})
 
-lspconfig.typos_lsp.setup({
+vim.lsp.config('typos_lsp', {
   init_options = {
     config = '~/.config/typos.toml',
   },
 })
 
-
+vim.lsp.enable({
+  'perlnavigator',
+  'lua_ls',
+  'ts_ls',
+  'biome',
+  'tailwindcss',
+  'gopls',
+  'rust_analyzer',
+  'pylsp',
+  'efm',
+  'yamlls',
+  'jsonls',
+  'typos_lsp',
+})

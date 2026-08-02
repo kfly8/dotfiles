@@ -56,7 +56,7 @@ require('lazy').setup({
   { 'sainnhe/gruvbox-material' },
   { 'rebelot/kanagawa.nvim' },
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-  { 'norcalli/nvim-colorizer.lua' },
+  { 'catgoose/nvim-colorizer.lua' },
   { 'nvim-tree/nvim-web-devicons' },
 
   {
