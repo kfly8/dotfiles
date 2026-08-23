@@ -12,11 +12,9 @@ app/bower_components
 test/bower_components
 /vendor/bundle
 vendor
-package-lock.json
 temp
 test.db
 /local
-tags
 .env
 .local.vimrc
 .carmel

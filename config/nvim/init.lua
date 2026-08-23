@@ -1,5 +1,6 @@
 
 require('my.setup')
+require('my.treesitter')
 require('my.keymap')
 require('my.lsp')
 
