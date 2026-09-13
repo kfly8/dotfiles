@@ -40,6 +40,7 @@ require('lazy').setup({
   -- Plugin Language
   { 'vim-perl/vim-perl', ft = 'perl', build = 'make clean carp highlight-all-pragmas moose test-more try-tiny heredoc-sql object-pad' },
   { 'rhysd/vim-gfm-syntax', ft = 'markdown' },
+  { 'kfly8/conceal-comment.nvim', ft = 'markdown' },
   { 'hashivim/vim-terraform', ft = 'terraform' },
   { 'jparise/vim-graphql', ft = 'graphql' },
   { 'ziglang/zig.vim', ft = 'zig' },
