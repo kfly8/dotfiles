@@ -40,7 +40,11 @@ require('lazy').setup({
   -- Plugin Language
   { 'vim-perl/vim-perl', ft = 'perl', build = 'make clean carp highlight-all-pragmas moose test-more try-tiny heredoc-sql object-pad' },
   { 'rhysd/vim-gfm-syntax', ft = 'markdown' },
-  { 'kfly8/conceal-comment.nvim', ft = 'markdown' },
+  -- Not lazy-loaded on ft=markdown: its after/queries override must be on
+  -- 'runtimepath' before nvim-treesitter's markdown_inline highlighter
+  -- requests and caches that query for the first time, and that race is
+  -- not safe to leave to ft-based load-order between two lazy plugins.
+  { 'kfly8/conceal-comment.nvim' },
   { 'hashivim/vim-terraform', ft = 'terraform' },
   { 'jparise/vim-graphql', ft = 'graphql' },
   { 'ziglang/zig.vim', ft = 'zig' },
