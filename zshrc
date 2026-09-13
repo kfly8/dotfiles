@@ -216,3 +216,6 @@ esac
 # TO CHECK ONBORDING FOR BAREFOOTJS
 alias bf='node /Users/kfly8/src/github.com/piconic-ai/barefootjs/packages/cli/dist/index.js'
 export PATH="/opt/homebrew/opt/bison/bin:$PATH"
+
+# rustup/cargo (peitho-studio's src-tauri needs this on PATH)
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
