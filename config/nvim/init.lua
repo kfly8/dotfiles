@@ -54,9 +54,10 @@ require 'colorizer'.setup {
 }
 
 -- lightline --
-function LightlineTabFilename(n)
-  vim.notify("called LightlineTabFilename")
-
+-- lightline.vim (Vimscript) resolves tab_component_function names via
+-- Vimscript's call(), which cannot see Lua globals directly, so we need a
+-- Vimscript wrapper that bridges to Lua via v:lua.
+_G.LightlineTabFilenameImpl = function(n)
   local bufnr = vim.fn.tabpagebuflist(n)[vim.fn.tabpagewinnr(n) - 1]
   local filepath = vim.fn.expand("#" .. bufnr .. ":p")
 
@@ -64,10 +65,14 @@ function LightlineTabFilename(n)
   local name = vim.fn.fnamemodify(filepath, ":t")
   local tab_filename = parent .. "/" .. name
 
-  vim.notify(tab_filename)
-
   return tab_filename ~= "" and tab_filename or "[No Name]"
 end
+
+vim.cmd([[
+  function! LightlineTabFilename(n) abort
+    return v:lua.LightlineTabFilenameImpl(a:n)
+  endfunction
+]])
 
 vim.g.lightline = {
   active = {
