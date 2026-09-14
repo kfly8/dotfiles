@@ -58,7 +58,7 @@ require 'colorizer'.setup {
 -- Vimscript's call(), which cannot see Lua globals directly, so we need a
 -- Vimscript wrapper that bridges to Lua via v:lua.
 _G.LightlineTabFilenameImpl = function(n)
-  local bufnr = vim.fn.tabpagebuflist(n)[vim.fn.tabpagewinnr(n) - 1]
+  local bufnr = vim.fn.tabpagebuflist(n)[vim.fn.tabpagewinnr(n)]
   local filepath = vim.fn.expand("#" .. bufnr .. ":p")
 
   local parent = vim.fn.fnamemodify(vim.fn.fnamemodify(filepath, ":h"), ":t")
