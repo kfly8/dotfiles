@@ -56,3 +56,12 @@ llm-perl-skill.md
 docker-compose.override.yml
 
 drop-partition/
+.void
+.wrangler
+.void-wrangler.jsonc
+.env.*
+!.env.example
+*.tsbuildinfo
+
+work/
+.playwright-mcp/

@@ -219,3 +219,12 @@ export PATH="/opt/homebrew/opt/bison/bin:$PATH"
 
 # rustup/cargo (peitho-studio's src-tauri needs this on PATH)
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+# Vite+ bin (https://viteplus.dev)
+. "/Users/kfly8/.config/vite-plus/env"
+export PATH=/opt/homebrew/opt/curl/bin:$PATH
+
+export LDFLAGS=-L/opt/homebrew/opt/curl/lib
+export CPPFLAGS=-I/opt/homebrew/opt/curl/include
+export PKG_CONFIG_PATH=/opt/homebrew/opt/curl/lib/pkgconfig
+

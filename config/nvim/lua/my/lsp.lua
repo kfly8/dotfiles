@@ -27,7 +27,7 @@ vim.lsp.config('lua_ls', {
 })
 
 -- TypeScript
-vim.lsp.config('ts_ls', {})
+vim.lsp.config('tsc', {})
 vim.lsp.config('biome', {
   cmd = { "bunx", "biome", "lsp-proxy" }
 })
@@ -116,7 +116,7 @@ vim.lsp.config('typos_lsp', {
 vim.lsp.enable({
   'perlnavigator',
   'lua_ls',
-  'ts_ls',
+  'tsc',
   'biome',
   'tailwindcss',
   'gopls',
